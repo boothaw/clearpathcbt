@@ -394,6 +394,10 @@ textarea {
   line-height: 1.5;
 }
 
+.font-thin {
+  font-weight: 300;
+}
+
 h1,
 h2,
 h3,
@@ -626,6 +630,21 @@ input[type=submit]:focus {
 
 .wp-block-buttons {
   gap: 20px;
+}
+
+.brown-buttons .wp-element-button {
+  font-size: 16px;
+  color: #eeede7;
+  background-color: #978477;
+  text-transform: capitalize;
+  padding: 30px 20px;
+  border-radius: 8px;
+  transition: all ease-in 0.3s;
+  margin: 0;
+  font-weight: 500;
+}
+.brown-buttons .wp-element-button:hover {
+  background-color: #afa197;
 }
 
 input[type=text],
@@ -1062,6 +1081,7 @@ textarea {
 
 .default-section-padding {
   padding: 80px 0;
+  margin-bottom: 0;
 }
 
 .home-hero .outer-wrapper {
@@ -1073,10 +1093,36 @@ textarea {
 }
 .midnight-bg-card-container .wp-block-buttons {
   background: linear-gradient(to bottom, transparent calc(50% - 1px), rgba(138, 185, 181, 0.2) calc(50% - 1px), rgba(138, 185, 181, 0.2) calc(50% + 1px), transparent calc(50% + 1px));
+  margin-bottom: 40px;
 }
 .midnight-bg-card-container .wp-block-buttons .wp-block-button {
   padding: 0 20px;
   background-color: #083435;
+}
+
+.card-item {
+  background-color: #eeede7;
+}
+.card-item .card-content {
+  background-color: #eeede7;
+}
+.card-item .card-image-container {
+  height: auto;
+  padding: 40px 0;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  background-image: url(/wp-content/uploads/2025/08/card-background.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-item .card-image {
+  max-width: 80px;
+  height: auto;
+}
+.card-item .card-title {
+  color: #978477;
 }
 
 /*# sourceMappingURL=style.css.map */
