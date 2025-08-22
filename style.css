@@ -401,6 +401,27 @@ h4,
 h5,
 h6 {
   clear: both;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 120%;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 120%;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 120%;
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 120%;
 }
 
 p {
@@ -459,6 +480,7 @@ big {
 --------------------------------------------- */
 body {
   background: #eeede7;
+  line-height: 160%;
 }
 
 hr {
@@ -631,12 +653,15 @@ textarea {
   padding-left: 0;
 }
 .main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  background-color: #8ab9b5;
   float: left;
   position: absolute;
   top: 100%;
   left: -999em;
   z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 16px 16px 16px;
 }
 .main-navigation ul ul ul {
   left: -999em;
@@ -647,7 +672,7 @@ textarea {
   left: auto;
 }
 .main-navigation ul ul a {
-  width: 200px;
+  width: 300px;
 }
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
@@ -698,9 +723,36 @@ textarea {
 
 .site-header {
   background-color: #083435;
+  padding: 20px 0;
 }
-.site-header li a {
+.site-header .site-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-header .main-navigation {
+  width: fit-content;
+}
+.site-header .nav-menu > li > a {
   color: #eeede7;
+  padding: 20px 40px 20px 0;
+  transition: all ease-in-out 0.3s;
+  font-size: 16px;
+}
+.site-header .nav-menu > li .sub-menu {
+  padding: 10px 0;
+}
+.site-header .nav-menu > li .sub-menu li a {
+  color: #083435;
+  transition: all ease-in-out 0.3s;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+.site-header .nav-menu > li .sub-menu li:hover a {
+  text-decoration: underline;
+}
+.site-header li:hover > a {
+  color: #8ab9b5;
 }
 
 /* Posts and pages
@@ -716,12 +768,6 @@ textarea {
 
 .updated:not(.published) {
   display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-  margin: 1.5em 0 0;
 }
 
 .page-links {
@@ -937,6 +983,10 @@ textarea {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.default-section-padding {
+  padding: 80px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

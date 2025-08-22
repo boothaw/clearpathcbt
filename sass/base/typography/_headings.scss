@@ -4,5 +4,23 @@ h3,
 h4,
 h5,
 h6 {
-	clear: both;
+  clear: both;
+  font-weight: $font__weight-500;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 120%;
+}
+h2 {
+  font-size: 48px;
+  line-height: 120%;
+}
+h3 {
+  font-size: 32px;
+  line-height: 120%;
+}
+h4 {
+  font-size: 28px;
+  line-height: 120%;
 }
