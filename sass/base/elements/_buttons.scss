@@ -20,18 +20,29 @@ input[type="submit"] {
   }
 }
 
+.wp-element-button,
 .site-header .nav-menu > li.header-button > a,
 .blue-button {
   font-size: 16px;
   color: $color__midnight-green;
   background-color: $color__blue;
   text-transform: capitalize;
-  padding: 10px 20px;
+  padding: 20px 30px;
   border-radius: 50px;
   transition: all ease-in 0.3s;
-  margin-right: 20px;
+  margin: 0;
+  font-weight: $font__weight-500;
 
   &:hover {
     background-color: $color__blue-lite;
   }
+}
+
+.site-header .nav-menu > li.header-button > a {
+  padding: 10px 20px;
+  margin-right: 20px;
+}
+
+.wp-block-buttons {
+  gap: 20px;
 }

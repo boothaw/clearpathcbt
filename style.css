@@ -424,6 +424,20 @@ h4 {
   line-height: 120%;
 }
 
+.alt-heading {
+  text-transform: uppercase;
+  color: #978477;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(151, 132, 119, 0.2);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2.alt-heading {
+  font-size: 21px;
+}
+
 p {
   margin-bottom: 1.5em;
 }
@@ -586,20 +600,32 @@ input[type=submit]:focus {
   border-color: #aaa #afa197 #afa197;
 }
 
+.wp-element-button,
 .site-header .nav-menu > li.header-button > a,
 .blue-button {
   font-size: 16px;
   color: #083435;
   background-color: #8ab9b5;
   text-transform: capitalize;
-  padding: 10px 20px;
+  padding: 20px 30px;
   border-radius: 50px;
   transition: all ease-in 0.3s;
-  margin-right: 20px;
+  margin: 0;
+  font-weight: 500;
 }
+.wp-element-button:hover,
 .site-header .nav-menu > li.header-button > a:hover,
 .blue-button:hover {
   background-color: #b3d1cf;
+}
+
+.site-header .nav-menu > li.header-button > a {
+  padding: 10px 20px;
+  margin-right: 20px;
+}
+
+.wp-block-buttons {
+  gap: 20px;
 }
 
 input[type=text],
@@ -755,9 +781,10 @@ textarea {
 }
 .site-header .nav-menu > li > a {
   color: #eeede7;
-  padding: 20px 40px 20px 0;
+  padding: 20px 30px 20px 0;
   transition: all ease-in-out 0.3s;
   font-size: 16px;
+  font-weight: 400;
 }
 .site-header .nav-menu > li .sub-menu {
   padding: 10px 0;
@@ -767,6 +794,7 @@ textarea {
   transition: all ease-in-out 0.3s;
   padding: 10px 20px;
   font-size: 12px;
+  font-weight: 400;
 }
 .site-header .nav-menu > li .sub-menu li:hover a {
   text-decoration: underline;
@@ -1011,6 +1039,9 @@ textarea {
 .midnight-bg h4 {
   color: #8ab9b5;
 }
+.midnight-bg .alt-heading {
+  color: #978477;
+}
 .midnight-bg p,
 .midnight-bg li {
   color: #eeede7;
@@ -1023,8 +1054,29 @@ textarea {
   margin-right: auto;
 }
 
+.mid-center {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .default-section-padding {
   padding: 80px 0;
+}
+
+.home-hero .outer-wrapper {
+  gap: 140px;
+}
+.midnight-bg-card-container .outer-wrapper.wp-block-column {
+  margin-left: auto;
+  margin-right: auto;
+}
+.midnight-bg-card-container .wp-block-buttons {
+  background: linear-gradient(to bottom, transparent calc(50% - 1px), rgba(138, 185, 181, 0.2) calc(50% - 1px), rgba(138, 185, 181, 0.2) calc(50% + 1px), transparent calc(50% + 1px));
+}
+.midnight-bg-card-container .wp-block-buttons .wp-block-button {
+  padding: 0 20px;
+  background-color: #083435;
 }
 
 /*# sourceMappingURL=style.css.map */

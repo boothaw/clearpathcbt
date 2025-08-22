@@ -133,9 +133,10 @@
 
     > a {
       color: $color__alabaster;
-      padding: 20px 40px 20px 0;
+      padding: 20px 30px 20px 0;
       transition: all ease-in-out 0.3s;
       font-size: 16px;
+      font-weight: 400;
     }
     .sub-menu {
       padding: 10px 0;
@@ -145,6 +146,7 @@
           transition: all ease-in-out 0.3s;
           padding: 10px 20px;
           font-size: 12px;
+          font-weight: 400;
         }
       }
       li:hover {
@@ -158,7 +160,7 @@
 
       > a {
         border-radius: 50%;
-        border: 2px solid $color__trans-blue;
+        border: 2px solid $color__opacity-blue;
         display: flex;
         justify-content: center;
         align-items: center;

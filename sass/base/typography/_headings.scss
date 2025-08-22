@@ -24,3 +24,17 @@ h4 {
   font-size: 28px;
   line-height: 120%;
 }
+
+.alt-heading {
+  text-transform: uppercase;
+  color: $color__driftwood;
+  padding-bottom: 20px;
+  border-bottom: 2px solid $color__opacity-driftwood;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2.alt-heading {
+  font-size: 21px;
+}
