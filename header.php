@@ -23,8 +23,13 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 	<meta name="apple-mobile-web-app-title" content="Clear Path" />
 	<link rel="manifest" href="/site.webmanifest" />
+	<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -35,7 +40,7 @@
 	<header id="masthead" class="site-header">
 		<div class="outer-wrapper site-header-inner">
 			<div class="site-branding">
-				<a href="/"><?php the_custom_logo(); ?></a>
+				<a href="/"><img src="https://clearpathcbt.local/wp-content/uploads/2025/08/Clear-Path-CBT-Logo.svg" class="custom-logo" alt="ClearPath CBT" decoding="async"></a>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
@@ -48,6 +53,8 @@
 					)
 				);
 				?>
+				<i class="ri-user-fill"></i>
+
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->

@@ -586,6 +586,22 @@ input[type=submit]:focus {
   border-color: #aaa #afa197 #afa197;
 }
 
+.site-header .nav-menu > li.header-button > a,
+.blue-button {
+  font-size: 16px;
+  color: #083435;
+  background-color: #8ab9b5;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all ease-in 0.3s;
+  margin-right: 20px;
+}
+.site-header .nav-menu > li.header-button > a:hover,
+.blue-button:hover {
+  background-color: #b3d1cf;
+}
+
 input[type=text],
 input[type=email],
 input[type=url],
@@ -733,6 +749,10 @@ textarea {
 .site-header .main-navigation {
   width: fit-content;
 }
+.site-header .nav-menu > li {
+  display: flex;
+  align-items: center;
+}
 .site-header .nav-menu > li > a {
   color: #eeede7;
   padding: 20px 40px 20px 0;
@@ -750,6 +770,24 @@ textarea {
 }
 .site-header .nav-menu > li .sub-menu li:hover a {
   text-decoration: underline;
+}
+.site-header .nav-menu > li.profile {
+  padding: 0;
+}
+.site-header .nav-menu > li.profile > a {
+  border-radius: 50%;
+  border: 2px solid rgba(138, 185, 181, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8ab9b5;
+  height: 48px;
+  width: 48px;
+  font-size: 24px;
+  padding: 0;
+}
+.site-header .nav-menu > li.profile:hover > a {
+  border-color: #8ab9b5;
 }
 .site-header li:hover > a {
   color: #8ab9b5;
