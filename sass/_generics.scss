@@ -1,0 +1,25 @@
+// colors
+
+.midnight-bg {
+  background-color: $color__midnight-green;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $color__blue;
+  }
+  p,
+  li {
+    color: $color__alabaster;
+  }
+}
+
+// generics spacing
+
+.outer-wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
