@@ -1,5 +1,9 @@
 // colors
 
+.driftwood-bg {
+  background-color: $color__opacity-driftwood;
+}
+
 .midnight-bg {
   background-color: $color__midnight-green;
 
@@ -98,5 +102,89 @@
   }
   .card-title {
     color: $color__driftwood;
+  }
+}
+
+.cards-3 {
+  .card-image {
+    max-width: 100px;
+    height: auto;
+  }
+  .card-image-container {
+    height: auto;
+    padding: 60px 0;
+  }
+  .card-title {
+    font-size: 32px;
+  }
+}
+
+// accordion updates
+
+.accordion-columns {
+  gap: 80px;
+}
+
+.accordion-block {
+  //   border: 1px solid #ddd;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-header-text {
+  color: $color__midnight-green;
+}
+
+.accordion-block:hover {
+  box-shadow: none !important;
+}
+
+.accordion-header {
+  background-color: transparent !important;
+}
+
+.accordion-header:hover {
+  background-color: transparent !important;
+}
+
+.accordion-header:focus {
+  background-color: transparent !important;
+  outline: 0px !important;
+}
+
+.cp-plus-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.accordion-content {
+  background-color: transparent !important;
+}
+
+// midnight card
+
+.midnight-card {
+  padding: 40px;
+  background-color: $color__midnight-green;
+  border-radius: 16px;
+  color: $color__blue;
+}
+
+// blockquote
+
+.wp-block-quote {
+  margin: 0;
+  width: 100%;
+  background-color: $color__blue;
+
+  p.mid-center {
+    font-size: 32px;
+    font-weight: $font__weight-300;
+    line-height: 160%;
+    letter-spacing: -2%;
+
+    strong {
+      font-weight: $font__weight-500;
+    }
   }
 }

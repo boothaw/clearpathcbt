@@ -6,6 +6,8 @@ h5,
 h6 {
   clear: both;
   font-weight: $font__weight-500;
+  text-wrap: balance;
+  margin-top: 0;
 }
 
 h1 {

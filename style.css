@@ -406,6 +406,8 @@ h5,
 h6 {
   clear: both;
   font-weight: 500;
+  text-wrap: balance;
+  margin-top: 0;
 }
 
 h1 {
@@ -620,6 +622,23 @@ input[type=submit]:focus {
 .wp-element-button:hover,
 .site-header .nav-menu > li.header-button > a:hover,
 .blue-button:hover {
+  background-color: #b3d1cf;
+}
+
+.forminator-button {
+  border: 0;
+  font-size: 16px;
+  color: #083435 !important;
+  background-color: #8ab9b5 !important;
+  text-transform: capitalize;
+  padding: 20px 30px !important;
+  border-radius: 50px !important;
+  transition: all ease-in 0.3s;
+  font-weight: 500;
+  margin: auto !important;
+  display: flex !important;
+}
+.forminator-button:hover {
   background-color: #b3d1cf;
 }
 
@@ -1049,6 +1068,52 @@ textarea {
   margin-bottom: 1.5em;
 }
 
+.forminator-custom-form label {
+  display: none !important;
+}
+.forminator-custom-form .select2-container {
+  background-color: rgba(138, 185, 181, 0.2) !important;
+  border-radius: 8px !important;
+  border: 0px !important;
+  outline: 0px !important;
+}
+.forminator-custom-form .select2-container span {
+  border: 0px !important;
+  background-color: transparent !important;
+}
+.forminator-custom-form .select2-container .select2-selection__placeholder {
+  color: #8ab9b5;
+}
+.forminator-custom-form .select2-container .select2-results__option {
+  background-color: transparent !important;
+  border: 0px !important;
+  outline: 0px !important;
+}
+.forminator-custom-form .forminator-select-dropdown {
+  background-color: #083435 !important;
+  border: 0 !important;
+}
+.forminator-custom-form input {
+  background-color: rgba(138, 185, 181, 0.2);
+  border-radius: 8px !important;
+  border: 0px !important;
+  color: #8ab9b5 !important;
+}
+.forminator-custom-form input::placeholder {
+  color: #8ab9b5 !important;
+}
+.forminator-custom-form .select2-selection__arrow {
+  color: #8ab9b5 !important;
+}
+.forminator-custom-form .select2-results__option,
+.forminator-custom-form .select2-selection__rendered {
+  color: #8ab9b5 !important;
+}
+
+.driftwood-bg {
+  background-color: rgba(151, 132, 119, 0.2);
+}
+
 .midnight-bg {
   background-color: #083435;
 }
@@ -1123,6 +1188,79 @@ textarea {
 }
 .card-item .card-title {
   color: #978477;
+}
+
+.cards-3 .card-image {
+  max-width: 100px;
+  height: auto;
+}
+.cards-3 .card-image-container {
+  height: auto;
+  padding: 60px 0;
+}
+.cards-3 .card-title {
+  font-size: 32px;
+}
+
+.accordion-columns {
+  gap: 80px;
+}
+
+.accordion-block {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.accordion-header-text {
+  color: #083435;
+}
+
+.accordion-block:hover {
+  box-shadow: none !important;
+}
+
+.accordion-header {
+  background-color: transparent !important;
+}
+
+.accordion-header:hover {
+  background-color: transparent !important;
+}
+
+.accordion-header:focus {
+  background-color: transparent !important;
+  outline: 0px !important;
+}
+
+.cp-plus-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.accordion-content {
+  background-color: transparent !important;
+}
+
+.midnight-card {
+  padding: 40px;
+  background-color: #083435;
+  border-radius: 16px;
+  color: #8ab9b5;
+}
+
+.wp-block-quote {
+  margin: 0;
+  width: 100%;
+  background-color: #8ab9b5;
+}
+.wp-block-quote p.mid-center {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 160%;
+  letter-spacing: -2%;
+}
+.wp-block-quote p.mid-center strong {
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=style.css.map */
