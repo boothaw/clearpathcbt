@@ -134,6 +134,32 @@ function clearpathcbt_widgets_init() {
 }
 add_action( 'widgets_init', 'clearpathcbt_widgets_init' );
 
+function clearpathcbt_widgets_init_1() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 1', 'clearpathcbt' ),
+			'id'            => 'footer-1',
+			'description'   => esc_html__( 'Add widgets here.', 'clearpathcbt' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+		)
+	);
+}
+add_action( 'widgets_init', 'clearpathcbt_widgets_init_1' );
+
+function clearpathcbt_widgets_init_2() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer 2', 'clearpathcbt' ),
+			'id'            => 'footer-2',
+			'description'   => esc_html__( 'Add widgets here.', 'clearpathcbt' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+		)
+	);
+}
+add_action( 'widgets_init', 'clearpathcbt_widgets_init_2' );
+
 /**
  * Enqueue scripts and styles.
  */

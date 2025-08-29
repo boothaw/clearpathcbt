@@ -11,19 +11,22 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'clearpathcbt' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'clearpathcbt' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'clearpathcbt' ), 'clearpathcbt', '<a href="http://underscores.me/">wilkes</a>' );
-				?>
+	<footer id="footer" class="site-footer">
+		<div class="footer-content outer-wrapper default-section-padding">
+			<div class="footer-1-container widget-container">
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("footer-1") ) : 
+             endif;?>
+			</div>
+			<div class="footer-2-container widget-container">
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("footer-2") ) : 
+             endif;?>
+			</div>
+		</div>
+		<div class="site-info copyright outer-wrapper">
+			<span>© Copyright 2025 | Clear Path CBT</span>
+			<div>
+
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

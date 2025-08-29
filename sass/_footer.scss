@@ -1,0 +1,30 @@
+.site-footer {
+  background-color: $color__midnight-green;
+  color: $color__alabaster;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-2-container {
+    width: 50%;
+
+    h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      color: $color__blue;
+    }
+  }
+
+  .wp-block-column {
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .copyright {
+    background-color: #063031;
+    padding: 20px 0;
+  }
+}

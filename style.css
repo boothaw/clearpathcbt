@@ -867,7 +867,7 @@ textarea {
 
 .post,
 .page {
-  margin: 0 0 1.5em;
+  margin: 0;
 }
 
 .updated:not(.published) {
@@ -1261,6 +1261,30 @@ textarea {
 }
 .wp-block-quote p.mid-center strong {
   font-weight: 500;
+}
+
+.site-footer {
+  background-color: #083435;
+  color: #eeede7;
+}
+.site-footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+.site-footer .footer-2-container {
+  width: 50%;
+}
+.site-footer .footer-2-container h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #8ab9b5;
+}
+.site-footer .wp-block-column p:last-of-type {
+  margin-bottom: 0;
+}
+.site-footer .copyright {
+  background-color: #063031;
+  padding: 20px 0;
 }
 
 /*# sourceMappingURL=style.css.map */
