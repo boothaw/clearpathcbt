@@ -25,7 +25,7 @@
 		<div class="site-info copyright outer-wrapper">
 			<span>© Copyright 2025 | Clear Path CBT</span>
 			<div>
-
+			 	
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

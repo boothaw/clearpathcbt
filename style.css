@@ -618,6 +618,7 @@ input[type=submit]:focus {
   transition: all ease-in 0.3s;
   margin: 0;
   font-weight: 500;
+  text-decoration: none;
 }
 .wp-element-button:hover,
 .site-header .nav-menu > li.header-button > a:hover,
@@ -1285,6 +1286,53 @@ textarea {
 .site-footer .copyright {
   background-color: #063031;
   padding: 20px 0;
+}
+
+.page-template-location .location-header {
+  width: 100%;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 80px;
+}
+.page-template-location .location-header-inner {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 20vw;
+  right: 10%;
+  left: auto;
+  margin: auto;
+}
+.page-template-location .location-header-inner .midnight-card {
+  max-width: 600px;
+  text-align: center;
+  padding: 80px 40px;
+}
+.page-template-location .location-header-inner .midnight-card h1 {
+  text-align: center;
+  font-size: 48px;
+}
+.page-template-location .location-header-inner .midnight-card h1.alt-heading {
+  font-size: 21px;
+  margin-bottom: 40px;
+}
+.page-template-location .location-header-inner .midnight-card p {
+  color: #eeede7;
+  margin-bottom: 40px;
+}
+.page-template-location .location-hero {
+  width: 100%;
+}
+.page-template-location .accordion-columns {
+  padding-top: 0;
+}
+
+.disclaimer {
+  background-color: rgba(151, 132, 119, 0.2);
+}
+.disclaimer p:last-of-type {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -207,3 +207,10 @@ function allow_svg_uploads( $mimes ) {
 	return $mimes;
 }
 add_filter( 'upload_mimes', 'allow_svg_uploads' );
+
+add_filter( 'the_title', function( $title, $id ) {
+    if ( is_singular() && $id == get_the_ID() ) {
+        $title = str_replace('|', '<br>', $title); // use "|" as a break marker
+    }
+    return $title;
+}, 10, 2 );
