@@ -1249,6 +1249,13 @@ textarea {
   color: #8ab9b5;
 }
 
+.driftwood-card {
+  padding: 40px;
+  background-color: rgba(151, 132, 119, 0.2);
+  border-radius: 16px;
+  color: #978477;
+}
+
 .wp-block-quote {
   margin: 0;
   width: 100%;
@@ -1333,6 +1340,16 @@ textarea {
 }
 .disclaimer p:last-of-type {
   margin-bottom: 0;
+}
+
+h1.alt-heading {
+  font-size: 21px;
+  margin-bottom: 40px;
+}
+
+.page-template-conditions .driftwood-card h2 {
+  color: #083435;
+  font-size: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

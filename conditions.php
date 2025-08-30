@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Location Page
+ * Template Name: Conditions Treated Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -24,17 +24,17 @@ get_header();
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="entry-content">
-				<div class="location-header">
+				<!-- <div class="location-header">
 					<div class="outer-wrapper location-header-inner">
 						<div class="midnight-card">
 							<h1 class="alt-heading">Areas We Serve</h1>
-							<h1><?php echo insert_break_in_middle( $title ); ?></h1>
+							<h1><?php echo $title?></h1>
 							<p>Let’s discuss your treatment goals and determine the appropriate symptom reduction plan for you.</p>
 							<a class="blue-button" href="/schedule-intake/"><i class="ri-calendar-fill"></i> Schedule Intake</a>
 						</div>
 					</div>
 					<img src="<?php echo $img ?>" alt="location" class="location-hero" />
-				</div>
+				</div> -->
 				<?php
 				the_content();
 				?>

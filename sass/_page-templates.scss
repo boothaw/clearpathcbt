@@ -1,3 +1,5 @@
+// location pages
+
 .page-template-location {
   .location-header {
     width: 100%;
@@ -41,10 +43,26 @@
   }
 }
 
+// general
+
 .disclaimer {
   background-color: $color__opacity-driftwood;
 
   p:last-of-type {
     margin-bottom: 0;
+  }
+}
+
+h1.alt-heading {
+  font-size: 21px;
+  margin-bottom: 40px;
+}
+
+.page-template-conditions {
+  .driftwood-card {
+    h2 {
+      color: $color__midnight-green;
+      font-size: 32px;
+    }
   }
 }

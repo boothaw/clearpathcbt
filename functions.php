@@ -208,9 +208,27 @@ function allow_svg_uploads( $mimes ) {
 }
 add_filter( 'upload_mimes', 'allow_svg_uploads' );
 
-add_filter( 'the_title', function( $title, $id ) {
-    if ( is_singular() && $id == get_the_ID() ) {
-        $title = str_replace('|', '<br>', $title); // use "|" as a break marker
+// add_filter( 'the_title', function( $title, $id ) {
+//     if ( is_singular() && $id == get_the_ID() ) {
+//         $title = str_replace('|', '<br>', $title); // use "|" as a break marker
+//     }
+//     return $title;
+// }, 10, 2 );
+
+function insert_break_in_middle( $text ) {
+    $words = explode( ' ', $text );
+    $count = count( $words );
+
+    if ( $count < 2 ) {
+        return $text; // Not enough words to split
     }
-    return $title;
-}, 10, 2 );
+
+    $middle = ceil( $count / 2 );
+
+    // First half
+    $first_part = implode( ' ', array_slice( $words, 0, $middle ) );
+    // Second half
+    $second_part = implode( ' ', array_slice( $words, $middle ) );
+
+    return $first_part . '<br>' . $second_part;
+}
