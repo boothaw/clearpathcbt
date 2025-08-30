@@ -1,4 +1,4 @@
-.forminator-custom-form {
+.midnight-card .forminator-custom-form {
   label {
     display: none !important;
   }
@@ -42,4 +42,25 @@
   .select2-selection__rendered {
     color: $color__blue !important;
   }
+}
+
+.forminator-guttenberg {
+  label {
+    font-size: 18px !important;
+    color: $color__midnight-green;
+    font-weight: $font__weight-500;
+    margin-bottom: 12px !important;
+  }
+  input {
+    border-radius: 8px !important;
+    border: 0px !important;
+    background-color: $color__alabaster;
+
+    &::placeholder {
+      color: $color__driftwood-lite !important;
+    }
+  }
+}
+.forminator-edit-module {
+  display: none !important;
 }

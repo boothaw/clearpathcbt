@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Treatments Page
+ * Template Name: Forms Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -22,10 +22,12 @@ get_header();
 		<header class="entry-header">
 			<?php get_template_part( 'template-parts/default-hero' );  ?>
 		</header><!-- .entry-header -->
-			<div class="entry-content">
+			<div class="entry-content default-section-padding mid-center">
+				<div class="driftwood-card">
 				<?php
 				the_content();
 				?>
+				</div>
 			</div><!-- .entry-content -->
 		</article><!-- #post-<?php the_ID(); ?> -->
 
