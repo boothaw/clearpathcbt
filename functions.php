@@ -208,13 +208,6 @@ function allow_svg_uploads( $mimes ) {
 }
 add_filter( 'upload_mimes', 'allow_svg_uploads' );
 
-// add_filter( 'the_title', function( $title, $id ) {
-//     if ( is_singular() && $id == get_the_ID() ) {
-//         $title = str_replace('|', '<br>', $title); // use "|" as a break marker
-//     }
-//     return $title;
-// }, 10, 2 );
-
 function insert_break_in_middle( $text ) {
     $words = explode( ' ', $text );
     $count = count( $words );
@@ -232,6 +225,39 @@ function insert_break_in_middle( $text ) {
 
     return $first_part . '<br>' . $second_part;
 }
+
+// this is for secondary excerpt -- if needed for treatments/services 
+
+// // Add meta box
+// function wb_add_secondary_excerpt_box() {
+//     add_meta_box(
+//         'secondary_excerpt',
+//         'Secondary Excerpt',
+//         'wb_secondary_excerpt_callback',
+//         'post',
+//         'normal',
+//         'high'
+//     );
+// }
+// add_action('add_meta_boxes', 'wb_add_secondary_excerpt_box');
+
+// // Meta box callback
+// function wb_secondary_excerpt_callback($post) {
+//     $value = get_post_meta($post->ID, '_secondary_excerpt', true);
+//     echo '<textarea style="width:100%;height:100px;" name="secondary_excerpt">' . esc_textarea($value) . '</textarea>';
+// }
+
+// // Save meta box data
+// function wb_save_secondary_excerpt($post_id) {
+//     if (array_key_exists('secondary_excerpt', $_POST)) {
+//         update_post_meta(
+//             $post_id,
+//             '_secondary_excerpt',
+//             sanitize_textarea_field($_POST['secondary_excerpt'])
+//         );
+//     }
+// }
+// add_action('save_post', 'wb_save_secondary_excerpt');
 
 function treatments() {
 // Custom query for posts in the "treatments" category
