@@ -1160,6 +1160,7 @@ textarea {
 .home-hero .outer-wrapper {
   gap: 140px;
 }
+
 .midnight-bg-card-container .outer-wrapper.wp-block-column {
   margin-left: auto;
   margin-right: auto;
@@ -1378,7 +1379,7 @@ h1.alt-heading {
   margin-bottom: 0;
 }
 
-.post-thumbnail {
+.treament-post-thumbnail {
   max-width: 960px;
   width: 90%;
   margin-left: auto;
@@ -1388,21 +1389,45 @@ h1.alt-heading {
   border-bottom: 2px solid rgba(151, 132, 119, 0.2);
   padding: 40px 0;
 }
-.post-thumbnail:first-of-type {
+.treament-post-thumbnail:first-of-type {
   border-top: 2px solid rgba(151, 132, 119, 0.2);
 }
-.post-thumbnail h2 {
+.treament-post-thumbnail h2 {
   font-size: 32px;
 }
-.post-thumbnail .thumbnail-content {
+.treament-post-thumbnail .thumbnail-content {
   width: 70%;
 }
-.post-thumbnail .entry-thumbnail {
+.treament-post-thumbnail .entry-thumbnail {
   width: 30%;
 }
-.post-thumbnail .post-button {
+.treament-post-thumbnail .post-button {
   display: flex;
   width: fit-content;
+}
+
+.post-hero .outer-wrapper {
+  gap: 140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-hero h1 {
+  font-size: 48px;
+}
+
+.post-navigation {
+  display: none;
+}
+
+.category-treatments .areas-we-serve {
+  background-color: rgba(151, 132, 119, 0.2);
+}
+.category-treatments .entry-content > h2:nth-child(2) {
+  margin-bottom: 80px;
+}
+.category-treatments .wp-block-separator {
+  color: rgba(151, 132, 119, 0.2);
+  background: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -273,7 +273,7 @@ if ( $treatment_query->have_posts() ) : ?>
     <div class="treatments-loop default-section-padding">
         <?php while ( $treatment_query->have_posts() ) : $treatment_query->the_post(); ?>
             
-            <article id="post-<?php the_ID(); ?>" class="post-thumbnail <?php post_class(); ?>">
+            <article id="post-<?php the_ID(); ?>" class="treament-post-thumbnail <?php post_class(); ?>">
 				<div class="thumbnail-content">
 					<h2 class="entry-title">
 						<?php the_title(); ?>
@@ -303,3 +303,25 @@ if ( $treatment_query->have_posts() ) : ?>
 <?php endif; 
 }
 add_shortcode( 'treatments', 'treatments' );
+
+function get_block_by_class( $page_id, $class_name ) {
+    $page = get_post( $page_id );
+    if ( ! $page ) {
+        return '';
+    }
+
+    // Parse Gutenberg blocks
+    $blocks = parse_blocks( $page->post_content );
+
+    foreach ( $blocks as $block ) {
+        // Render block HTML
+        $content = render_block( $block );
+
+        // Check if it contains the class
+        if ( strpos( $content, $class_name ) !== false ) {
+            return $content; // Return first match
+        }
+    }
+
+    return '';
+}
