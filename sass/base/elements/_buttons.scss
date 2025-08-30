@@ -67,7 +67,9 @@ input[type="submit"] {
   gap: 20px;
 }
 
+.treatments-loop,
 .brown-buttons {
+  .post-button,
   .wp-element-button {
     font-size: 16px;
     color: $color__alabaster;
@@ -78,6 +80,7 @@ input[type="submit"] {
     transition: all ease-in 0.3s;
     margin: 0;
     font-weight: $font__weight-500;
+    text-decoration: none;
 
     &:hover {
       background-color: $color__driftwood-lite;

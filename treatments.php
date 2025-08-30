@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Conditions Treated Page
+ * Template Name: Treatments Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -16,15 +16,13 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			$title = get_the_title();
-			$img = get_the_post_thumbnail_url();
-			$img = get_the_post_thumbnail_url();
-
 			?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="entry-content">
 				<?php
+					get_template_part( 'template-parts/default-hero' );
+
 				the_content();
 				?>
 			</div><!-- .entry-content -->

@@ -652,6 +652,9 @@ input[type=submit]:focus {
   gap: 20px;
 }
 
+.treatments-loop .post-button,
+.treatments-loop .wp-element-button,
+.brown-buttons .post-button,
 .brown-buttons .wp-element-button {
   font-size: 16px;
   color: #eeede7;
@@ -662,7 +665,11 @@ input[type=submit]:focus {
   transition: all ease-in 0.3s;
   margin: 0;
   font-weight: 500;
+  text-decoration: none;
 }
+.treatments-loop .post-button:hover,
+.treatments-loop .wp-element-button:hover,
+.brown-buttons .post-button:hover,
 .brown-buttons .wp-element-button:hover {
   background-color: #afa197;
 }
@@ -1295,6 +1302,18 @@ textarea {
   padding: 20px 0;
 }
 
+.disclaimer {
+  background-color: rgba(151, 132, 119, 0.2);
+}
+.disclaimer p:last-of-type {
+  margin-bottom: 0;
+}
+
+h1.alt-heading {
+  font-size: 21px;
+  margin-bottom: 40px;
+}
+
 .page-template-location .location-header {
   width: 100%;
   background-position: bottom;
@@ -1335,21 +1354,55 @@ textarea {
   padding-top: 0;
 }
 
-.disclaimer {
-  background-color: rgba(151, 132, 119, 0.2);
-}
-.disclaimer p:last-of-type {
-  margin-bottom: 0;
-}
-
-h1.alt-heading {
-  font-size: 21px;
-  margin-bottom: 40px;
-}
-
 .page-template-conditions .driftwood-card h2 {
   color: #083435;
   font-size: 32px;
+}
+
+.page-template-treatments .image-content-block {
+  background-color: rgba(151, 132, 119, 0.2);
+}
+
+.default-hero {
+  position: relative;
+}
+.default-hero .default-hero-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.default-hero h1 {
+  text-align: center;
+  color: #8ab9b5;
+  margin-bottom: 0;
+}
+
+.post-thumbnail {
+  max-width: 960px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 80px;
+  border-bottom: 2px solid rgba(151, 132, 119, 0.2);
+  padding: 40px 0;
+}
+.post-thumbnail:first-of-type {
+  border-top: 2px solid rgba(151, 132, 119, 0.2);
+}
+.post-thumbnail h2 {
+  font-size: 32px;
+}
+.post-thumbnail .thumbnail-content {
+  width: 70%;
+}
+.post-thumbnail .entry-thumbnail {
+  width: 30%;
+}
+.post-thumbnail .post-button {
+  display: flex;
+  width: fit-content;
 }
 
 /*# sourceMappingURL=style.css.map */

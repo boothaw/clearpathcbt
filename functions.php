@@ -232,3 +232,48 @@ function insert_break_in_middle( $text ) {
 
     return $first_part . '<br>' . $second_part;
 }
+
+function treatments() {
+// Custom query for posts in the "treatments" category
+$args = array(
+    'category_name'  => 'treatments', // slug of the category
+    'posts_per_page' => -1,           // adjust as needed
+	'order' => 'ASC'
+);
+
+$treatment_query = new WP_Query( $args );
+
+if ( $treatment_query->have_posts() ) : ?>
+    <div class="treatments-loop default-section-padding">
+        <?php while ( $treatment_query->have_posts() ) : $treatment_query->the_post(); ?>
+            
+            <article id="post-<?php the_ID(); ?>" class="post-thumbnail <?php post_class(); ?>">
+				<div class="thumbnail-content">
+					<h2 class="entry-title">
+						<?php the_title(); ?>
+					</h2>
+
+					<div class="entry-excerpt">
+						<?php the_excerpt(); ?>
+					</div>
+
+					<a class="post-button" href="<?php the_permalink(); ?>">Learn More</a>
+				</div>
+
+				<?php if ( has_post_thumbnail() ) : ?>
+                    <div class="entry-thumbnail">
+                            <?php the_post_thumbnail( 'medium' ); ?>
+                    </div>
+                <?php endif; ?>
+            </article>
+
+        <?php endwhile; ?>
+    </div>
+
+    <?php wp_reset_postdata(); ?>
+
+<?php else : ?>
+    <p>No treatments found.</p>
+<?php endif; 
+}
+add_shortcode( 'treatments', 'treatments' );
