@@ -304,6 +304,52 @@ if ( $treatment_query->have_posts() ) : ?>
 }
 add_shortcode( 'treatments', 'treatments' );
 
+
+function therapists() {
+	// Custom query for posts in the "treatments" category
+	$args = array(
+		'category_name'  => 'therapists', // slug of the category
+		'posts_per_page' => -1,           // adjust as needed
+		'order' => 'ASC'
+	);
+	
+	$therapist_query = new WP_Query( $args );
+	
+	if ( $therapist_query->have_posts() ) : ?>
+		<div class="treatments-loop default-section-padding">
+			<?php while ( $therapist_query->have_posts() ) : $treatment_query->the_post(); ?>
+				
+				<article id="post-<?php the_ID(); ?>" class="treament-post-thumbnail <?php post_class(); ?>">
+					<div class="thumbnail-content">
+						<h2 class="entry-title">
+							<?php the_title(); ?>
+						</h2>
+	
+						<div class="entry-excerpt">
+							<?php the_excerpt(); ?>
+						</div>
+	
+						<a class="post-button" href="<?php the_permalink(); ?>">Learn More</a>
+					</div>
+	
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="entry-thumbnail">
+								<?php the_post_thumbnail( 'medium' ); ?>
+						</div>
+					<?php endif; ?>
+				</article>
+	
+			<?php endwhile; ?>
+		</div>
+	
+		<?php wp_reset_postdata(); ?>
+	
+	<?php else : ?>
+		<p>No therapists found.</p>
+	<?php endif; 
+	}
+	add_shortcode( 'therapists', 'therapists' );
+
 function get_block_by_class( $page_id, $class_name ) {
     $page = get_post( $page_id );
     if ( ! $page ) {

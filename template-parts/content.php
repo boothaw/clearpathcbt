@@ -17,10 +17,10 @@
 				<h1 class="wp-block-heading"><?php echo get_the_title(); ?></h1>
 				<p class=""><?php echo get_the_excerpt(); ?></p>
 				<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><i
+					<div class="wp-block-button"><a href="/schedule-intake/" class="wp-block-button__link wp-element-button"><i
 								class="ri-calendar-fill"></i> Schedule Intake
 						</a></div>
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><i
+					<div class="wp-block-button"><a href="#areas-we-serve" class="wp-block-button__link wp-element-button"><i
 								class="ri-map-pin-fill"></i>
 							Areas We Serve</a></div>
 				</div>

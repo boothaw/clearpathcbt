@@ -625,6 +625,11 @@ input[type=submit]:focus {
 .blue-button:hover {
   background-color: #b3d1cf;
 }
+.wp-element-button:visited,
+.site-header .nav-menu > li.header-button > a:visited,
+.blue-button:visited {
+  color: #083435;
+}
 
 .forminator-button {
   border: 0;
@@ -641,6 +646,9 @@ input[type=submit]:focus {
 }
 .forminator-button:hover {
   background-color: #b3d1cf;
+}
+.forminator-button:visited {
+  color: #083435 !important;
 }
 
 .site-header .nav-menu > li.header-button > a {
@@ -1428,6 +1436,10 @@ h1.alt-heading {
 .page-template-forms .entry-content h2 {
   color: #083435;
   font-size: 32px;
+}
+
+.page-template-providers .image-content-block {
+  background-color: rgba(151, 132, 119, 0.2);
 }
 
 .post-hero .outer-wrapper {

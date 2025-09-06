@@ -37,6 +37,10 @@ input[type="submit"] {
   &:hover {
     background-color: $color__blue-lite;
   }
+
+  &:visited {
+    color: $color__midnight-green;
+  }
 }
 
 // intake form button
@@ -55,6 +59,10 @@ input[type="submit"] {
 
   &:hover {
     background-color: $color__blue-lite;
+  }
+
+  &:visited {
+    color: $color__midnight-green !important;
   }
 }
 

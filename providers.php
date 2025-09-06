@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Treatments Page
+ * Template Name: Providers/Therapists Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -24,7 +24,7 @@ get_header();
 		</header><!-- .entry-header -->
 			<div class="entry-content">
 				<?php
-				echo do_shortcode('[treatments]');
+				echo do_shortcode('[therapists]');
 				the_content();
 				?>
 			</div><!-- .entry-content -->
