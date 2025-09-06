@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="site-info copyright outer-wrapper">
-			<span>© Copyright 2025 | Clear Path CBT</span>
+			<span>© Copyright 2025 | ClearPath CBT</span>
 			<div>
 			 	
 			</div>

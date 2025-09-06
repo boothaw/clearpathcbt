@@ -33,6 +33,26 @@
 			</div>
 		</div>
 	</div>
+	<?php } elseif (has_post_thumbnail( get_the_ID())) { ?> 
+	<div class="midnight-bg default-section-padding post-hero wp-block-group is-vertical is-content-justification-center is-layout-flex wp-block-group-is-layout-flex">
+		<div class="outer-wrapper wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+			<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
+				<h1 class="wp-block-heading"><?php echo get_the_title(); ?></h1>
+				<?php if (has_excerpt( get_the_ID() )) { ?> 
+					<p class=""><?php echo get_the_excerpt(); ?></p>
+				<?php } ?>
+			</div>
+			<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+				<figure class="wp-block-image size-full">
+						<?php clearpathcbt_post_thumbnail(); ?>
+					</figure>
+			</div>
+		</div>
+	</div>
+	<?php } else { ?> 
+		<header class="entry-header">
+			<?php get_template_part( 'template-parts/default-hero' );  ?>
+		</header><!-- .entry-header -->
 	<?php } ?>
 
 
