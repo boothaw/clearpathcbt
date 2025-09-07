@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   lenisSmoothScroll();
   headingFadeIn();
   cardImageFade();
+  logoImageFade();
   //   textFadeIn();
 });
 
@@ -77,13 +78,49 @@ function cardImageFade() {
       },
       {
         scale: 2, // Scale to 120% (adjust as needed)
-        ease: "power3.inOut",
-        duration: 0.4,
+        ease: "power2.inOut",
+        duration: 0.3,
       }
     ).to(image, {
       scale: 1,
-      ease: "power3.inOut",
-      duration: 0.4,
+      ease: "power2.inOut",
+      duration: 0.3,
+    });
+  });
+}
+
+function logoImageFade() {
+  const images = document.querySelectorAll(
+    ".accordion-columns .midnight-card img"
+  );
+
+  images.forEach((image, index) => {
+    // gsap.set(image, { scale: 0.5 });
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: image,
+        start: "top 85%",
+        // end: "top 20%",
+        scrub: false,
+      },
+      delay: index * 0.2, // Stagger delay between different images
+    });
+
+    tl.fromTo(
+      image,
+      {
+        scale: 1,
+        transformOrigin: "center center", // Ensure scaling from center
+      },
+      {
+        scale: 1.1, // Scale to 120% (adjust as needed)
+        ease: "power2.inOut",
+        duration: 0.5,
+      }
+    ).to(image, {
+      scale: 1,
+      ease: "power2.inOut",
+      duration: 0.5,
     });
   });
 }
