@@ -762,7 +762,6 @@ textarea {
   width: 100%;
 }
 .main-navigation ul {
-  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -814,6 +813,10 @@ button.menu-toggle {
   padding: 0;
   background-color: transparent;
   display: none;
+}
+
+.main-navigation ul {
+  display: flex;
 }
 
 .site-main .comment-navigation,
