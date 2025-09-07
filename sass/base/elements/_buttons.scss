@@ -52,13 +52,13 @@ input[type="submit"] {
   text-transform: capitalize;
   padding: 20px 30px !important;
   border-radius: 50px !important;
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s !important;
   font-weight: $font__weight-500;
   margin: auto !important;
   display: flex !important;
 
   &:hover {
-    background-color: $color__blue-lite;
+    background-color: $color__blue-lite !important;
   }
 
   &:visited {
@@ -75,6 +75,7 @@ input[type="submit"] {
   gap: 20px;
 }
 
+.therapists-loop,
 .treatments-loop,
 .brown-buttons {
   .post-button,

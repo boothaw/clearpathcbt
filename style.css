@@ -513,7 +513,7 @@ hr {
 
 ul,
 ol {
-  margin: 0 0 1.5em 3em;
+  margin: 0 0 1.5em 0.5em;
 }
 
 ul {
@@ -640,13 +640,13 @@ input[type=submit]:focus {
   text-transform: capitalize;
   padding: 20px 30px !important;
   border-radius: 50px !important;
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s !important;
   font-weight: 500;
   margin: auto !important;
   display: flex !important;
 }
 .forminator-button:hover {
-  background-color: #b3d1cf;
+  background-color: #b3d1cf !important;
 }
 .forminator-button:visited {
   color: #083435 !important;
@@ -661,6 +661,8 @@ input[type=submit]:focus {
   gap: 20px;
 }
 
+.therapists-loop .post-button,
+.therapists-loop .wp-element-button,
 .treatments-loop .post-button,
 .treatments-loop .wp-element-button,
 .brown-buttons .post-button,
@@ -676,6 +678,8 @@ input[type=submit]:focus {
   font-weight: 500;
   text-decoration: none;
 }
+.therapists-loop .post-button:hover,
+.therapists-loop .wp-element-button:hover,
 .treatments-loop .post-button:hover,
 .treatments-loop .wp-element-button:hover,
 .brown-buttons .post-button:hover,
@@ -1166,6 +1170,14 @@ textarea {
 .midnight-bg li {
   color: #eeede7;
 }
+.midnight-bg p > a,
+.midnight-bg li > a {
+  transition: 0.3s ease-in all;
+}
+.midnight-bg p > a:hover,
+.midnight-bg li > a:hover {
+  color: #afa197;
+}
 
 .outer-wrapper {
   max-width: 1200px;
@@ -1407,7 +1419,8 @@ h1.alt-heading {
   margin-bottom: 0;
 }
 
-.treament-post-thumbnail {
+.therapist-post-thumbnail,
+.treatment-post-thumbnail {
   max-width: 960px;
   width: 90%;
   margin-left: auto;
@@ -1417,21 +1430,39 @@ h1.alt-heading {
   border-bottom: 2px solid rgba(151, 132, 119, 0.2);
   padding: 40px 0;
 }
-.treament-post-thumbnail:first-of-type {
+.therapist-post-thumbnail:first-of-type,
+.treatment-post-thumbnail:first-of-type {
   border-top: 2px solid rgba(151, 132, 119, 0.2);
 }
-.treament-post-thumbnail h2 {
+.therapist-post-thumbnail h2,
+.treatment-post-thumbnail h2 {
   font-size: 32px;
 }
-.treament-post-thumbnail .thumbnail-content {
+.therapist-post-thumbnail .thumbnail-content,
+.treatment-post-thumbnail .thumbnail-content {
   width: 70%;
 }
-.treament-post-thumbnail .entry-thumbnail {
+.therapist-post-thumbnail .entry-thumbnail,
+.treatment-post-thumbnail .entry-thumbnail {
   width: 30%;
 }
-.treament-post-thumbnail .post-button {
+.therapist-post-thumbnail .post-button,
+.treatment-post-thumbnail .post-button {
   display: flex;
   width: fit-content;
+}
+
+.therapist-post-thumbnail .thumbnail-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.therapist-post-thumbnail .entry-excerpt {
+  font-size: 18px;
+  font-weight: 500;
+}
+.therapist-post-thumbnail .entry-excerpt p {
+  margin-top: 0;
 }
 
 .page-template-forms .entry-content h2 {
@@ -1448,6 +1479,17 @@ h1.alt-heading {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+.page-template-default .entry-content .wp-block-buttons {
+  margin-bottom: 1.5em;
+}
+
+.category-provider .post-thumbnail {
+  max-width: 500px;
+}
+.category-provider .post-hero p {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .post-hero .outer-wrapper {

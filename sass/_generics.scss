@@ -19,6 +19,14 @@
   p,
   li {
     color: $color__alabaster;
+
+    > a {
+      transition: 0.3s ease-in all;
+
+      &:hover {
+        color: $color__driftwood-lite;
+      }
+    }
   }
 }
 

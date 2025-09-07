@@ -24,7 +24,7 @@ get_header();
 		</header><!-- .entry-header -->
 			<div class="entry-content">
 				<?php
-				echo do_shortcode('[therapists]');
+					echo do_shortcode('[therapists]');
 				the_content();
 				?>
 			</div><!-- .entry-content -->

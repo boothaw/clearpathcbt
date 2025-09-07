@@ -168,6 +168,7 @@ function clearpathcbt_scripts() {
 	wp_style_add_data( 'clearpathcbt-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'clearpathcbt-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'staffing-toolkit-theme-js', get_template_directory_uri() . '/js/theme.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -273,7 +274,7 @@ if ( $treatment_query->have_posts() ) : ?>
     <div class="treatments-loop default-section-padding">
         <?php while ( $treatment_query->have_posts() ) : $treatment_query->the_post(); ?>
             
-            <article id="post-<?php the_ID(); ?>" class="treament-post-thumbnail <?php post_class(); ?>">
+            <article id="post-<?php the_ID(); ?>" class="treatment-post-thumbnail <?php post_class(); ?>">
 				<div class="thumbnail-content">
 					<h2 class="entry-title">
 						<?php the_title(); ?>
@@ -306,9 +307,9 @@ add_shortcode( 'treatments', 'treatments' );
 
 
 function therapists() {
-	// Custom query for posts in the "treatments" category
+	// Custom query for posts in the "therapists" category
 	$args = array(
-		'category_name'  => 'therapists', // slug of the category
+		'category_name'  => 'provider', // slug of the category
 		'posts_per_page' => -1,           // adjust as needed
 		'order' => 'ASC'
 	);
@@ -316,18 +317,20 @@ function therapists() {
 	$therapist_query = new WP_Query( $args );
 	
 	if ( $therapist_query->have_posts() ) : ?>
-		<div class="treatments-loop default-section-padding">
-			<?php while ( $therapist_query->have_posts() ) : $treatment_query->the_post(); ?>
+		<div class="therapists-loop default-section-padding">
+			<?php while ( $therapist_query->have_posts() ) : $therapist_query->the_post(); ?>
 				
-				<article id="post-<?php the_ID(); ?>" class="treament-post-thumbnail <?php post_class(); ?>">
+				<article id="post-<?php the_ID(); ?>" class="therapist-post-thumbnail <?php post_class(); ?>">
 					<div class="thumbnail-content">
 						<h2 class="entry-title">
 							<?php the_title(); ?>
 						</h2>
-	
-						<div class="entry-excerpt">
-							<?php the_excerpt(); ?>
-						</div>
+
+						<?php if (has_excerpt( get_the_ID() )) { ?> 
+							<div class="entry-excerpt">
+								<?php the_excerpt(); ?>
+							</div>						
+						<?php } ?>
 	
 						<a class="post-button" href="<?php the_permalink(); ?>">Learn More</a>
 					</div>
@@ -348,7 +351,7 @@ function therapists() {
 		<p>No therapists found.</p>
 	<?php endif; 
 	}
-	add_shortcode( 'therapists', 'therapists' );
+add_shortcode( 'therapists', 'therapists' );
 
 function get_block_by_class( $page_id, $class_name ) {
     $page = get_post( $page_id );
