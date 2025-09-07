@@ -28,3 +28,11 @@
     background: none;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .post-hero {
+    & h1 {
+      font-size: 42px;
+    }
+  }
+}

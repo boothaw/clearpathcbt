@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
   // gsap code here!
 
+  menuToggle();
+
   lenisSmoothScroll();
   headingFadeIn();
   cardImageFade();
@@ -157,8 +159,6 @@ function locationsToggle() {
   //   const backgrounds = document.querySelectorAll(".image-area .bg");
   const buttonsArray = Array.from(buttons);
 
-  console.log(buttons);
-
   const images = [
     themeURL + "/wp-content/uploads/2025/08/Location-Washington.png",
     themeURL + "/wp-content/uploads/2025/08/Location-California.png",
@@ -168,8 +168,6 @@ function locationsToggle() {
   buttons.forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
       const index = buttonsArray.indexOf(btn);
-
-      console.log(index);
 
       // fade out, change image, then fade back in
       gsap.to(imageArea, {
@@ -189,10 +187,17 @@ function locationsToggle() {
   });
 }
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.getRegistrations().then(function (registrations) {
-    for (let reg of registrations) {
-      reg.unregister();
-    }
+function menuToggle() {
+  const menuButton = document.querySelector(".menu-toggle.menu-button");
+
+  console.log(menuButton);
+
+  menuButton.addEventListener("click", () => {
+    console.log(menuButton);
+    gsap.fromTo(
+      ".nav-menu",
+      { height: 0, opacity: 0 },
+      { height: "auto", opacity: 1, duration: 0.6, ease: "power2.inOut" }
+    );
   });
 }

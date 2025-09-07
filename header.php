@@ -54,7 +54,13 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'clearpathcbt' ); ?></button>
+				<button class="menu-toggle menu-button" aria-controls="primary-menu" aria-expanded="false">
+					<div class="nav-icon hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+					</button>
 				<?php
 				wp_nav_menu(
 					array(
@@ -63,8 +69,6 @@
 					)
 				);
 				?>
-				<i class="ri-user-fill"></i>
-
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->
