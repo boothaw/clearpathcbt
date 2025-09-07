@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
 
   lenisSmoothScroll();
+  headingfadeIn();
 });
 
 function lenisSmoothScroll() {
@@ -29,8 +30,24 @@ function lenisSmoothScroll() {
   gsap.ticker.lagSmoothing(0);
 }
 
-function titleFadeIn() {
-  gsap.set(document.querySelector("h1"), {
-    color: "pink",
+function headingfadeIn() {
+  const texts = document.querySelectorAll("h2, h3, h4, .accordion-header-text");
+
+  texts.forEach((text) => {
+    let split = new SplitText(text, { type: "words" });
+
+    gsap.from(split.words, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+      duration: 0.4,
+      delay: i * 0.25,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: text,
+        start: "top 95%", // when element enters viewport
+        toggleActions: "play none none none",
+      },
+    });
   });
 }
