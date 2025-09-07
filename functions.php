@@ -176,6 +176,27 @@ function clearpathcbt_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'clearpathcbt_scripts' );
 
+function custom_enqueue_scripts() {
+	// Enqueue your script
+	wp_enqueue_script(
+		'my-custom-script', // Handle for your script
+		get_template_directory_uri() . '/js/theme.js', // Path to your JS file
+		array('jquery'), // Dependencies (e.g., jQuery)
+		null, // Version (optional)
+		true // Load in footer
+	);
+
+	// Localize script data
+	wp_localize_script(
+		'my-custom-script', // Handle of the script to localize for
+		'theme_data', // Object variable name in JavaScript
+		array(
+			'template_uri' => wp_get_attachment_url() // Key-value pair for the URI
+		)
+	);
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
+
 /**
  * Implement the Custom Header feature.
  */
