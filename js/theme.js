@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
 
   lenisSmoothScroll();
-  headingfadeIn();
+  headingFadeIn();
+  cardImageFade();
+  //   textFadeIn();
 });
 
 function lenisSmoothScroll() {
@@ -30,7 +32,7 @@ function lenisSmoothScroll() {
   gsap.ticker.lagSmoothing(0);
 }
 
-function headingfadeIn() {
+function headingFadeIn() {
   const texts = document.querySelectorAll("h2, h3, h4, .accordion-header-text");
 
   texts.forEach((text) => {
@@ -48,6 +50,40 @@ function headingfadeIn() {
         start: "top 95%", // when element enters viewport
         toggleActions: "play none none none",
       },
+    });
+  });
+}
+
+function cardImageFade() {
+  const images = document.querySelectorAll(".card-item img");
+
+  images.forEach((image, index) => {
+    // gsap.set(image, { scale: 0.5 });
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: image,
+        start: "top 95%",
+        // end: "top 20%",
+        scrub: false,
+      },
+      delay: index * 0.2, // Stagger delay between different images
+    });
+
+    tl.fromTo(
+      image,
+      {
+        scale: 1,
+        transformOrigin: "center center", // Ensure scaling from center
+      },
+      {
+        scale: 2, // Scale to 120% (adjust as needed)
+        ease: "power3.inOut",
+        duration: 0.4,
+      }
+    ).to(image, {
+      scale: 1,
+      ease: "power3.inOut",
+      duration: 0.4,
     });
   });
 }
