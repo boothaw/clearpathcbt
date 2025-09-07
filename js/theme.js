@@ -188,3 +188,11 @@ function locationsToggle() {
     });
   });
 }
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (let reg of registrations) {
+      reg.unregister();
+    }
+  });
+}

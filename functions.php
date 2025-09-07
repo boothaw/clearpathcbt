@@ -395,3 +395,13 @@ function get_block_by_class( $page_id, $class_name ) {
 
     return '';
 }
+
+
+add_action('init', function() {
+    $response = wp_remote_get('https://www.google.com');
+    if (is_wp_error($response)) {
+        error_log('WP cannot reach the internet: ' . $response->get_error_message());
+    } else {
+        error_log('WP internet check passed');
+    }
+});

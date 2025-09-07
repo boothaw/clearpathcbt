@@ -184,3 +184,12 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .main-navigation {
+    position: static;
+  }
+  .site-header {
+    position: sticky;
+  }
+}

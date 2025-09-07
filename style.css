@@ -880,6 +880,14 @@ textarea {
   color: #8ab9b5;
 }
 
+@media screen and (max-width: 1024px) {
+  .main-navigation {
+    position: static;
+  }
+  .site-header {
+    position: sticky;
+  }
+}
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
