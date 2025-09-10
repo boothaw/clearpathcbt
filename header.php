@@ -50,7 +50,7 @@
 	<header id="masthead" class="site-header">
 		<div class="outer-wrapper site-header-inner">
 			<div class="site-branding">
-				<a href="/"><img src="https://clearpathcbt.local/wp-content/uploads/2025/08/Clear-Path-CBT-Logo.svg" class="custom-logo" alt="ClearPath CBT" decoding="async"></a>
+				<a href="/"><img src="/wp-content/uploads/2025/08/Clear-Path-CBT-Logo.svg" class="custom-logo" alt="Clear Path CBT" decoding="async"></a>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">

@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
   // gsap code here!
 
-  menuToggle();
+  desktopMenu();
+  mobileMenu();
 
   lenisSmoothScroll();
   headingFadeIn();
@@ -187,11 +188,49 @@ function locationsToggle() {
   });
 }
 
-function menuToggle() {
+function desktopMenu() {
+  const menuItems = document.querySelectorAll("li.menu-item-has-children");
+
+  menuItems.forEach((item) => {
+    const submenu = item.querySelector("ul.sub-menu");
+
+    if (!submenu) return;
+
+    // Set initial state
+    gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
+
+    let openTween;
+
+    item.addEventListener("mouseenter", () => {
+      // Kill any running animation
+      if (openTween) openTween.kill();
+
+      openTween = gsap.to(submenu, {
+        height: "auto",
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (openTween) openTween.kill();
+
+      openTween = gsap.to(submenu, {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+    });
+  });
+}
+
+function mobileMenu() {
   const menuButton = document.querySelector(".menu-toggle.menu-button");
-
-  console.log(menuButton);
-
+  const parents = document.querySelectorAll(
+    ".mobile-nav .menu-item-has-children"
+  );
   menuButton.addEventListener("click", () => {
     console.log(menuButton);
     gsap.fromTo(
@@ -199,5 +238,61 @@ function menuToggle() {
       { height: 0, opacity: 0 },
       { height: "auto", opacity: 1, duration: 0.6, ease: "power2.inOut" }
     );
+  });
+
+  const menuItems = document.querySelectorAll(
+    ".mobile-nav li.menu-item-has-children"
+  );
+
+  menuItems.forEach((item) => {
+    const submenu = item.querySelector(".mobile-nav ul.sub-menu");
+    if (!submenu) return;
+
+    // Start hidden
+    gsap.set(submenu, {
+      height: 0,
+      opacity: 0,
+      overflow: "hidden",
+      position: "relative",
+    });
+
+    let isOpen = false;
+    let tween;
+
+    const toggleSubmenu = (e) => {
+      e.preventDefault(); // Prevent immediate navigation on parent click
+      e.stopPropagation(); // Avoid bubbling to other menus
+
+      // Kill any running tween
+      if (tween) tween.kill();
+
+      if (!isOpen) {
+        // Expand
+        tween = gsap.to(submenu, {
+          height: "auto",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else {
+        // Collapse
+        tween = gsap.to(submenu, {
+          height: 0,
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      }
+
+      isOpen = !isOpen;
+    };
+
+    // Attach toggle on parent <a> or <li>
+    const parentLink = item.querySelector("a");
+    if (parentLink) {
+      parentLink.addEventListener("click", toggleSubmenu);
+    } else {
+      item.addEventListener("click", toggleSubmenu);
+    }
   });
 }

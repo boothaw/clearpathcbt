@@ -759,38 +759,82 @@ textarea {
 --------------------------------------------- */
 .main-navigation {
   display: block;
-  width: 100%;
+  width: fit-content;
+  margin: 0;
+  /* Remove default WP submenu hiding */
 }
 .main-navigation ul {
-  list-style: none;
   margin: 0;
-  padding-left: 0;
 }
-.main-navigation ul ul {
-  background-color: #8ab9b5;
-  float: left;
-  position: absolute;
+.main-navigation .nav-menu {
+  display: flex;
+}
+.main-navigation .nav-menu > li {
+  display: flex;
+  align-items: center;
+}
+.main-navigation .nav-menu > li > a {
+  color: #eeede7;
+  padding: 20px 30px 20px 0;
+  transition: all ease-in-out 0.3s;
+  font-size: 16px;
+  font-weight: 400;
+}
+.main-navigation .nav-menu > li .sub-menu {
+  padding: 10px 0;
+}
+.main-navigation .nav-menu > li .sub-menu li a {
+  color: #083435;
+  transition: all ease-in-out 0.3s;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.main-navigation .nav-menu > li .sub-menu li:hover a {
+  text-decoration: underline;
+}
+.main-navigation .nav-menu > li.profile {
+  padding: 0;
+}
+.main-navigation .nav-menu > li.profile > a {
+  border-radius: 50%;
+  border: 2px solid rgba(138, 185, 181, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8ab9b5;
+  height: 48px;
+  width: 48px;
+  font-size: 24px;
+  padding: 0;
+}
+.main-navigation .nav-menu > li.profile:hover > a {
+  border-color: #8ab9b5;
+}
+.main-navigation .nav-menu li:hover > a {
+  color: #8ab9b5;
+}
+.main-navigation li.menu-item-has-children {
+  position: relative;
+}
+.main-navigation li.menu-item-has-children > ul.sub-menu {
+  position: absolute; /* dropdown style */
   top: 100%;
-  left: -999em;
-  z-index: 99999;
+  left: 0;
+  width: 300px; /* adjust to your needs */
+  background-color: #8ab9b5;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   border-radius: 0 16px 16px 16px;
-}
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+  /* GSAP will override height + opacity */
+  height: auto;
+  opacity: 1;
+  overflow: hidden;
   display: block;
-  left: auto;
 }
-.main-navigation ul ul a {
-  width: 300px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
+.main-navigation li.menu-item-has-children:hover > ul.sub-menu {
+  display: block; /* Keep block, GSAP handles visibility */
 }
 .main-navigation li {
   position: relative;
@@ -799,7 +843,6 @@ textarea {
   display: block;
   text-decoration: none;
 }
-/* all menus. */
 button.menu-toggle {
   border-radius: 50%;
   border: 2px solid rgba(138, 185, 181, 0.2);
@@ -813,10 +856,6 @@ button.menu-toggle {
   padding: 0;
   background-color: transparent;
   display: none;
-}
-
-.main-navigation ul {
-  display: flex;
 }
 
 .site-main .comment-navigation,
@@ -849,54 +888,6 @@ button.menu-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.site-header .main-navigation {
-  width: fit-content;
-}
-.site-header .nav-menu > li {
-  display: flex;
-  align-items: center;
-}
-.site-header .nav-menu > li > a {
-  color: #eeede7;
-  padding: 20px 30px 20px 0;
-  transition: all ease-in-out 0.3s;
-  font-size: 16px;
-  font-weight: 400;
-}
-.site-header .nav-menu > li .sub-menu {
-  padding: 10px 0;
-}
-.site-header .nav-menu > li .sub-menu li a {
-  color: #083435;
-  transition: all ease-in-out 0.3s;
-  padding: 10px 20px;
-  font-size: 12px;
-  font-weight: 400;
-}
-.site-header .nav-menu > li .sub-menu li:hover a {
-  text-decoration: underline;
-}
-.site-header .nav-menu > li.profile {
-  padding: 0;
-}
-.site-header .nav-menu > li.profile > a {
-  border-radius: 50%;
-  border: 2px solid rgba(138, 185, 181, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #8ab9b5;
-  height: 48px;
-  width: 48px;
-  font-size: 24px;
-  padding: 0;
-}
-.site-header .nav-menu > li.profile:hover > a {
-  border-color: #8ab9b5;
-}
-.site-header li:hover > a {
-  color: #8ab9b5;
 }
 
 .nav-icon {
@@ -992,22 +983,35 @@ button.menu-toggle {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
+.parent-open > a {
+  color: pink !important;
+}
+
+@media screen and (max-width: 1200px) {
   button.menu-toggle,
   .main-navigation.toggled .nav-menu {
     display: flex;
   }
+  .main-navigation.toggled {
+    overflow: scroll;
+  }
   .main-navigation.toggled .nav-menu {
     position: absolute;
     right: 0;
-    top: auto;
+    top: 50px;
     margin-top: 12px;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    z-index: 2;
+    padding: 20px;
   }
-  .main-navigation {
-    position: static;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .main-navigation.toggled .nav-menu > .menu-item-has-children {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-navigation.toggled .nav-menu > .menu-item-has-children > a {
+    pointer-events: none;
   }
   .site-header {
     position: fixed;
@@ -1022,6 +1026,12 @@ button.menu-toggle {
   }
   .site-branding img {
     max-width: 200px;
+  }
+  .main-navigation {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .main-navigation .nav-menu {
     display: none;
@@ -1046,12 +1056,15 @@ button.menu-toggle {
   .main-navigation .nav-menu > .menu-item > a {
     font-size: 20px;
     margin-bottom: 0em;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
     transition: all 0.3s ease-in-out;
+  }
+  .main-navigation .nav-menu .menu-item.parent-open > .sub-menu {
+    margin-top: 10px;
   }
   .main-navigation .nav-menu .sub-menu {
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
   }
   .main-navigation .nav-menu .sub-menu ul {
     list-style: none;
@@ -1069,10 +1082,6 @@ button.menu-toggle {
     margin-bottom: 1em;
     font-size: 16px;
   }
-  .main-navigation .nav-menu li:hover > ul,
-  .main-navigation .nav-menu li.focus > ul {
-    left: auto;
-  }
   .main-navigation li {
     position: relative;
   }
@@ -1080,20 +1089,8 @@ button.menu-toggle {
     display: block;
     text-decoration: none;
   }
-  .main-navigation.toggled .nav-menu {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    margin-top: 12px;
-    flex-direction: column;
-  }
   .main-navigation {
     position: static;
-  }
-  .main-navigation.toggled .nav-menu {
-    width: 100%;
-    margin-top: 10px;
-    z-index: 2;
   }
 }
 /* Posts and pages
@@ -1612,6 +1609,18 @@ h1.alt-heading {
   padding-top: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .page-template-location .location-header {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .page-template-location .location-header-inner {
+    position: relative;
+    right: 0;
+    top: 0;
+    padding: 40px 0;
+  }
+}
 .page-template-conditions .driftwood-card h2 {
   color: #083435;
   font-size: 32px;

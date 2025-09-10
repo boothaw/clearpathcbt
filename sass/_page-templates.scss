@@ -43,6 +43,21 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .page-template-location {
+    .location-header {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .location-header-inner {
+      position: relative;
+      right: 0;
+      top: 0;
+      padding: 40px 0;
+    }
+  }
+}
+
 // conditions page
 
 .page-template-conditions {

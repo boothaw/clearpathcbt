@@ -101,7 +101,7 @@
   //   }
   // }
 
-  const mediaMatchQuery = window.matchMedia("(max-width: 1024px)");
+  const mediaMatchQuery = window.matchMedia("(max-width: 1200px)");
 
   function adjustMainPadding(e) {
     const nav = document.querySelector(".site-header");
@@ -123,3 +123,19 @@
   // Listen for screen width changes
   mediaMatchQuery.addEventListener("change", adjustMainPadding);
 })();
+
+function toggleMobileNavClass() {
+  const header = document.querySelector(".site-header");
+
+  if (window.innerWidth < 1200) {
+    header.classList.add("mobile-nav");
+  } else {
+    header.classList.remove("mobile-nav");
+  }
+}
+
+// Run on initial load
+toggleMobileNavClass();
+
+// Run on resize
+window.addEventListener("resize", toggleMobileNavClass);
