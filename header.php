@@ -34,7 +34,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <!-- ScrollSmoother requires ScrollTrigger -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
 
@@ -54,7 +54,7 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle menu-button" aria-controls="primary-menu" aria-expanded="false">
+				<button class="menu-toggle menu-button" type="button" aria-controls="primary-menu" aria-expanded="false">
 					<div class="nav-icon hamburger">
                             <span></span>
                             <span></span>
@@ -65,7 +65,7 @@
 				wp_nav_menu(
 					array(
 						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
+						'menu_id'        => 'primary-menu-1',
 					)
 				);
 				?>

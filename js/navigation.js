@@ -31,33 +31,6 @@
     menu.classList.add("nav-menu");
   }
 
-  const body = document.body;
-
-  // Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-  button.addEventListener("click", function () {
-    siteNavigation.classList.toggle("toggled");
-    button.classList.toggle("button-toggled");
-    body.classList.toggle("nav-open");
-
-    if (button.getAttribute("aria-expanded") === "true") {
-      button.setAttribute("aria-expanded", "false");
-    } else {
-      button.setAttribute("aria-expanded", "true");
-    }
-  });
-
-  //   Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-  document.addEventListener("click", function (event) {
-    const isClickInside = siteNavigation.contains(event.target);
-
-    if (!isClickInside) {
-      siteNavigation.classList.remove("toggled");
-      button.classList.remove("button-toggled");
-      button.setAttribute("aria-expanded", "false");
-      body.classList.toggle("nav-open");
-    }
-  });
-
   // Get all the link elements within the menu.
   const links = menu.getElementsByTagName("a");
 
