@@ -31,10 +31,13 @@
     menu.classList.add("nav-menu");
   }
 
+  const body = document.body;
+
   // Toggle the .toggled class and the aria-expanded value each time the button is clicked.
   button.addEventListener("click", function () {
     siteNavigation.classList.toggle("toggled");
     button.classList.toggle("button-toggled");
+    body.classList.toggle("nav-open");
 
     if (button.getAttribute("aria-expanded") === "true") {
       button.setAttribute("aria-expanded", "false");
@@ -51,6 +54,7 @@
       siteNavigation.classList.remove("toggled");
       button.classList.remove("button-toggled");
       button.setAttribute("aria-expanded", "false");
+      body.classList.toggle("nav-open");
     }
   });
 
@@ -129,8 +133,10 @@ function toggleMobileNavClass() {
 
   if (window.innerWidth < 1200) {
     header.classList.add("mobile-nav");
+    header.classList.remove("desktop-nav");
   } else {
     header.classList.remove("mobile-nav");
+    header.classList.add("desktop-nav");
   }
 }
 

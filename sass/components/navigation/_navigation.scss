@@ -1,181 +1,3 @@
-.main-navigation {
-  display: block;
-  width: fit-content;
-  margin: 0;
-
-  ul {
-    margin: 0;
-  }
-
-  .nav-menu {
-    display: flex;
-
-    > li {
-      display: flex;
-      align-items: center;
-
-      > a {
-        color: $color__alabaster;
-        padding: 20px 30px 20px 0;
-        transition: all ease-in-out 0.3s;
-        font-size: 16px;
-        font-weight: 400;
-      }
-
-      .sub-menu {
-        padding: 10px 0;
-
-        li {
-          a {
-            color: $color__midnight-green;
-            transition: all ease-in-out 0.3s;
-            padding: 10px 20px;
-            font-size: 12px;
-            font-weight: 400;
-          }
-        }
-        li:hover {
-          a {
-            text-decoration: underline;
-          }
-        }
-      }
-      &.profile {
-        padding: 0;
-
-        > a {
-          border-radius: 50%;
-          border: 2px solid $color__opacity-blue;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $color__blue;
-          height: 48px;
-          width: 48px;
-          font-size: 24px;
-          padding: 0;
-        }
-
-        &:hover {
-          > a {
-            border-color: $color__blue;
-          }
-        }
-      }
-    }
-    li:hover {
-      > a {
-        color: $color__blue;
-      }
-    }
-  }
-
-  li.menu-item-has-children {
-    position: relative;
-  }
-
-  li.menu-item-has-children > ul.sub-menu {
-    position: absolute; /* dropdown style */
-    top: 100%;
-    left: 0;
-    width: 300px; /* adjust to your needs */
-    background-color: $color__blue;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 16px 16px 16px;
-    // margin-left: 0;
-
-    /* GSAP will override height + opacity */
-    height: auto;
-    opacity: 1;
-    overflow: hidden;
-    display: block;
-  }
-
-  /* Remove default WP submenu hiding */
-  li.menu-item-has-children:hover > ul.sub-menu {
-    display: block; /* Keep block, GSAP handles visibility */
-  }
-
-  //   ul {
-  //     // display: none;
-  //     // list-style: none;
-  //     margin: 0;
-  //     // padding-left: 0;
-
-  //     ul {
-  //       //   background-color: $color__blue;
-  //       //   z-index: 99999;
-  //       //   display: flex;
-  //       //   flex-direction: column;
-  //       //   border-radius: 0 16px 16px 16px;
-  //       //   float: left;
-  //       //   position: absolute;
-  //       //   top: 100%;
-  //       //   left: -999em;
-  //       //   z-index: 99999;
-  //       //   display: flex;
-  //       //   flex-direction: column;
-  //       //   border-radius: 0 16px 16px 16px;
-  //       //   height: 0;
-
-  //       ul {
-  //         // left: 0;
-  //         // top: 0;
-  //       }
-
-  //       li {
-  //         &:hover > ul,
-  //         &.focus > ul {
-  //           //   display: block;
-  //           //   left: auto;
-  //         }
-  //       }
-
-  //       a {
-  //         // width: 300px;
-  //       }
-
-  //       //   :hover > a,
-  //       //   .focus > a {
-  //       //   }
-
-  //       //   a:hover,
-  //       //   a.focus {
-  //       //   }
-  //     }
-
-  //     li:hover > .sub-menu,
-  //     li.focus > .sub-menu {
-  //       //   height: auto;
-
-  //       > li {
-  //         // display: flex;
-  //       }
-  //     }
-  //   }
-
-  li {
-    position: relative;
-
-    &:hover > a,
-    &.focus > a {
-    }
-  }
-
-  a {
-    display: block;
-    text-decoration: none;
-  }
-
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
-  }
-}
-
 button.menu-toggle {
   border-radius: 50%;
   border: 2px solid $color__opacity-blue;
@@ -209,6 +31,124 @@ button.menu-toggle {
   .nav-next {
     text-align: end;
     flex: 1 0 50%;
+  }
+}
+
+.main-navigation {
+  display: block;
+  width: fit-content;
+  margin: 0;
+
+  ul {
+    margin: 0;
+  }
+
+  .nav-menu {
+    display: flex;
+
+    li {
+      position: relative;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    > li {
+      display: flex;
+      align-items: center;
+
+      > a {
+        color: $color__alabaster;
+        padding: 20px 30px 20px 0;
+        transition: all ease-in-out 0.3s;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      &.profile {
+        padding: 0;
+
+        > a {
+          border-radius: 50%;
+          border: 2px solid $color__opacity-blue;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $color__blue;
+          height: 48px;
+          width: 48px;
+          font-size: 24px;
+          padding: 0;
+        }
+
+        &:hover {
+          > a {
+            border-color: $color__blue;
+          }
+        }
+      }
+    }
+    li:hover {
+      > a {
+        color: $color__blue;
+      }
+    }
+  }
+}
+
+.desktop-nav {
+  .sub-menu {
+    padding: 10px 0;
+
+    li {
+      a {
+        color: $color__midnight-green;
+        transition: all ease-in-out 0.3s;
+        padding: 10px 20px;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+    li:hover {
+      a {
+        color: $color__midnight-green;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  li.menu-item-has-children {
+    position: relative;
+  }
+
+  li.menu-item-has-children > ul.sub-menu {
+    position: absolute; /* dropdown style */
+    top: 100%;
+    left: 0;
+    width: 300px; /* adjust to your needs */
+    background-color: $color__blue;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 16px 16px 16px;
+    // margin-left: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    // position: relative;
+
+    /* GSAP will override height + opacity */
+    height: auto;
+    opacity: 1;
+    overflow: hidden;
+    display: block;
+  }
+
+  /* Remove default WP submenu hiding */
+  li.menu-item-has-children:hover > ul.sub-menu {
+    display: block; /* Keep block, GSAP handles visibility */
   }
 }
 
@@ -325,28 +265,129 @@ button.menu-toggle {
   display: none;
 }
 
-.parent-open > a {
-  color: pink !important;
-}
-
 @media screen and (max-width: 1200px) {
   button.menu-toggle,
-  .main-navigation.toggled .nav-menu {
+  .main-navigation.toggled .menu-main-nav-container {
     display: flex;
   }
 
-  .main-navigation.toggled {
-    overflow: scroll;
+  .nav-menu {
+    display: none !important;
+  }
+
+  .main-navigation {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     .nav-menu {
+      > .menu-item.header-button {
+        margin-bottom: 0px;
+        padding: 12px;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 10px 0 0 0;
+
+        > a {
+          padding: 12px 20px;
+          font-size: 16px;
+          margin: 0;
+          width: 100%;
+          text-align: center;
+          max-width: 400px;
+        }
+      }
+      > .menu-item > a {
+        font-size: 16px;
+        margin-bottom: 0em;
+        padding: 10px 0 10px 0;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+        }
+      }
+
+      .menu-item.parent-open > .sub-menu {
+        margin-top: 10px;
+      }
+
+      .sub-menu {
+        margin: 0;
+        padding: 0;
+        background-color: $color__blue;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0 16px 16px 16px;
+        width: 100%;
+
+        ul {
+          list-style: none;
+        }
+
+        li {
+          list-style: none;
+
+          a {
+            color: $color__midnight-green;
+            transition: all ease-in-out 0.3s;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 400;
+            text-decoration: none;
+          }
+
+          &:hover > ul,
+          &.focus > ul {
+            display: block;
+            left: auto;
+          }
+        }
+
+        a {
+          transition: all 0.3s ease-in-out;
+          text-decoration: underline;
+          font-size: 16px;
+
+          &:hover {
+          }
+        }
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+
+  //   open navigation
+
+  .main-navigation.toggled {
+    .menu-main-nav-container {
       position: absolute;
       right: 0;
       top: 50px;
-      margin-top: 12px;
-      flex-direction: column;
       width: 100%;
       margin-top: 10px;
       z-index: 2;
+      padding: 0px;
+      background: $color__midnight-green;
+      border-bottom-right-radius: 1em;
+      border-bottom-left-radius: 1em;
+    }
+
+    .nav-menu {
+      display: flex !important;
+      flex-direction: column;
+      z-index: 2;
       padding: 20px;
+      list-style: none;
+      margin: 0;
+      gap: 0px;
+      width: 100%;
 
       > .menu-item-has-children {
         & > a {
@@ -358,8 +399,6 @@ button.menu-toggle {
       }
     }
   }
-
-  // above is all menus from staffing update
 
   .site-header {
     position: fixed;
@@ -377,125 +416,13 @@ button.menu-toggle {
       max-width: 200px;
     }
   }
-
-  .main-navigation {
-    position: static;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .nav-menu {
-      display: none;
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-      background: $color__midnight-green;
-      gap: 12px;
-      justify-content: space-between;
-      padding: 2em;
-      width: 400px;
-      border-bottom-right-radius: 1em;
-      border-bottom-left-radius: 1em;
-
-      > .menu-item.header-button {
-        margin-bottom: 20px;
-
-        > a {
-          font-size: 20px;
-          padding: 20px;
-        }
-      }
-      > .menu-item > a {
-        font-size: 20px;
-        margin-bottom: 0em;
-        padding: 10px 0 10px 0;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          //   color: $color__teal;
-        }
-      }
-
-      .menu-item.parent-open > .sub-menu {
-        // left: -999em;
-        margin-top: 10px;
-      }
-
-      .sub-menu {
-        margin: 0;
-        padding: 0 !important;
-
-        ul {
-          list-style: none;
-        }
-
-        li {
-          //   color: $color__magnolia;
-          list-style: none;
-
-          &:hover > ul,
-          &.focus > ul {
-            display: block;
-            left: auto;
-          }
-        }
-
-        a {
-          transition: all 0.3s ease-in-out;
-          text-decoration: underline;
-          margin-bottom: 1em;
-          font-size: 16px;
-
-          &:hover {
-          }
-        }
-
-        :hover > a,
-        .focus > a {
-        }
-
-        a:hover,
-        a.focus {
-        }
-      }
-
-      li:hover > ul,
-      li.focus > ul {
-        // left: auto;
-      }
-    }
-
-    li {
-      position: relative;
-
-      &:hover > a,
-      &.focus > a {
-      }
-    }
-
-    a {
-      display: block;
-      text-decoration: none;
-    }
-
-    .current_page_item > a,
-    .current-menu-item > a,
-    .current_page_ancestor > a,
-    .current-menu-ancestor > a {
-    }
-  }
-
-  a.menu-button,
-  .menu-button {
-    span {
-      //   display: none;
-    }
-    .nav-icon,
-    svg {
-      //   margin-left: 0;
-    }
-  }
   .main-navigation {
     position: static;
   }
+}
+
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }

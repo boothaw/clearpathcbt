@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
 
   desktopMenu();
-  mobileMenu();
+  //   mobileMenu();
+  //   mobileSubMenu();
 
   lenisSmoothScroll();
   headingFadeIn();
@@ -189,66 +190,66 @@ function locationsToggle() {
 }
 
 function desktopMenu() {
-  const menuItems = document.querySelectorAll("li.menu-item-has-children");
-
-  menuItems.forEach((item) => {
-    const submenu = item.querySelector("ul.sub-menu");
-
-    if (!submenu) return;
-
-    // Set initial state
-    gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
-
-    let openTween;
-
-    item.addEventListener("mouseenter", () => {
-      // Kill any running animation
-      if (openTween) openTween.kill();
-
-      openTween = gsap.to(submenu, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out",
-      });
-    });
-
-    item.addEventListener("mouseleave", () => {
-      if (openTween) openTween.kill();
-
-      openTween = gsap.to(submenu, {
-        height: 0,
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.inOut",
-      });
-    });
-  });
+  //   const menuItems = document.querySelectorAll("li.menu-item-has-children");
+  //   menuItems.forEach((item) => {
+  //     const submenu = item.querySelector("ul.sub-menu");
+  //     if (!submenu) return;
+  //     // Set initial state
+  //     gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
+  //     let openTween;
+  //     item.addEventListener("mouseenter", () => {
+  //       // Kill any running animation
+  //       if (openTween) openTween.kill();
+  //       openTween = gsap.to(submenu, {
+  //         height: "auto",
+  //         opacity: 1,
+  //         duration: 0.6,
+  //         ease: "power2.out",
+  //       });
+  //     });
+  //     item.addEventListener("mouseleave", () => {
+  //       if (openTween) openTween.kill();
+  //       openTween = gsap.to(submenu, {
+  //         height: 0,
+  //         opacity: 0,
+  //         duration: 0.3,
+  //         ease: "power2.inOut",
+  //       });
+  //     });
+  //   });
 }
 
 function mobileMenu() {
   const menuButton = document.querySelector(".menu-toggle.menu-button");
-  const parents = document.querySelectorAll(
-    ".mobile-nav .menu-item-has-children"
-  );
-  menuButton.addEventListener("click", () => {
-    console.log(menuButton);
-    gsap.fromTo(
-      ".nav-menu",
-      { height: 0, opacity: 0 },
-      { height: "auto", opacity: 1, duration: 0.6, ease: "power2.inOut" }
-    );
-  });
+  // Only attach listener once
+  if (!menuButton.dataset.listener) {
+    menuButton.addEventListener("click", () => {
+      console.log("Menu button clicked", menuButton.dataset.listener);
+      gsap.fromTo(
+        ".nav-menu",
+        { height: 0, opacity: 0 },
+        { height: "auto", opacity: 1, duration: 0.6, ease: "power2.inOut" }
+      );
+    });
+    menuButton.dataset.listener = "true";
+  }
+}
 
+function mobileSubMenu() {
   const menuItems = document.querySelectorAll(
     ".mobile-nav li.menu-item-has-children"
   );
 
+  console.log("submenu");
+
   menuItems.forEach((item) => {
-    const submenu = item.querySelector(".mobile-nav ul.sub-menu");
+    if (item.dataset.listener) return; // skip if already initialized
+
+    const submenu = item.querySelector("ul.sub-menu");
+    console.log("submenu", submenu);
     if (!submenu) return;
 
-    // Start hidden
+    // Start hidden and ensure relative positioning
     gsap.set(submenu, {
       height: 0,
       opacity: 0,
@@ -256,43 +257,86 @@ function mobileMenu() {
       position: "relative",
     });
 
+    // Track open/closed state
     let isOpen = false;
     let tween;
 
     const toggleSubmenu = (e) => {
-      e.preventDefault(); // Prevent immediate navigation on parent click
-      e.stopPropagation(); // Avoid bubbling to other menus
+      e.preventDefault();
+      e.stopPropagation();
 
       // Kill any running tween
       if (tween) tween.kill();
 
       if (!isOpen) {
-        // Expand
+        // Close all other open submenus first (optional)
+        // closeAllOtherSubmenus(item);
+
+        // Expand this submenu
         tween = gsap.to(submenu, {
           height: "auto",
           opacity: 1,
           duration: 0.5,
           ease: "power2.out",
         });
+        item.classList.add("submenu-open");
       } else {
-        // Collapse
+        // Collapse this submenu
         tween = gsap.to(submenu, {
           height: 0,
           opacity: 0,
           duration: 0.3,
           ease: "power2.inOut",
         });
+        item.classList.remove("submenu-open");
       }
 
       isOpen = !isOpen;
     };
 
-    // Attach toggle on parent <a> or <li>
+    // Function to close this specific submenu
+    const closeSubmenu = () => {
+      if (isOpen && tween) tween.kill();
+
+      gsap.to(submenu, {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+
+      item.classList.remove("submenu-open");
+      isOpen = false;
+    };
+
+    // Store reference to close function for external access
+    item.closeSubmenu = closeSubmenu;
+
+    // Attach toggle on parent link
     const parentLink = item.querySelector("a");
     if (parentLink) {
       parentLink.addEventListener("click", toggleSubmenu);
     } else {
       item.addEventListener("click", toggleSubmenu);
     }
+
+    item.dataset.listener = "true"; // mark as initialized
   });
+
+  // Helper function to close all other open submenus
+  //   function closeAllOtherSubmenus(currentItem) {
+  //     const allMenuItems = document.querySelectorAll(
+  //       ".mobile-nav li.menu-item-has-children"
+  //     );
+
+  //     allMenuItems.forEach((item) => {
+  //       if (
+  //         item !== currentItem &&
+  //         item.classList.contains("submenu-open") &&
+  //         item.closeSubmenu
+  //       ) {
+  //         item.closeSubmenu();
+  //       }
+  //     });
+  //   }
 }

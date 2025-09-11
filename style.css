@@ -757,92 +757,6 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-  display: block;
-  width: fit-content;
-  margin: 0;
-  /* Remove default WP submenu hiding */
-}
-.main-navigation ul {
-  margin: 0;
-}
-.main-navigation .nav-menu {
-  display: flex;
-}
-.main-navigation .nav-menu > li {
-  display: flex;
-  align-items: center;
-}
-.main-navigation .nav-menu > li > a {
-  color: #eeede7;
-  padding: 20px 30px 20px 0;
-  transition: all ease-in-out 0.3s;
-  font-size: 16px;
-  font-weight: 400;
-}
-.main-navigation .nav-menu > li .sub-menu {
-  padding: 10px 0;
-}
-.main-navigation .nav-menu > li .sub-menu li a {
-  color: #083435;
-  transition: all ease-in-out 0.3s;
-  padding: 10px 20px;
-  font-size: 12px;
-  font-weight: 400;
-}
-.main-navigation .nav-menu > li .sub-menu li:hover a {
-  text-decoration: underline;
-}
-.main-navigation .nav-menu > li.profile {
-  padding: 0;
-}
-.main-navigation .nav-menu > li.profile > a {
-  border-radius: 50%;
-  border: 2px solid rgba(138, 185, 181, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #8ab9b5;
-  height: 48px;
-  width: 48px;
-  font-size: 24px;
-  padding: 0;
-}
-.main-navigation .nav-menu > li.profile:hover > a {
-  border-color: #8ab9b5;
-}
-.main-navigation .nav-menu li:hover > a {
-  color: #8ab9b5;
-}
-.main-navigation li.menu-item-has-children {
-  position: relative;
-}
-.main-navigation li.menu-item-has-children > ul.sub-menu {
-  position: absolute; /* dropdown style */
-  top: 100%;
-  left: 0;
-  width: 300px; /* adjust to your needs */
-  background-color: #8ab9b5;
-  z-index: 99;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0 16px 16px 16px;
-  /* GSAP will override height + opacity */
-  height: auto;
-  opacity: 1;
-  overflow: hidden;
-  display: block;
-}
-.main-navigation li.menu-item-has-children:hover > ul.sub-menu {
-  display: block; /* Keep block, GSAP handles visibility */
-}
-.main-navigation li {
-  position: relative;
-}
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
 button.menu-toggle {
   border-radius: 50%;
   border: 2px solid rgba(138, 185, 181, 0.2);
@@ -878,6 +792,100 @@ button.menu-toggle {
 .post-navigation .nav-next {
   text-align: end;
   flex: 1 0 50%;
+}
+
+.main-navigation {
+  display: block;
+  width: fit-content;
+  margin: 0;
+}
+.main-navigation ul {
+  margin: 0;
+}
+.main-navigation .nav-menu {
+  display: flex;
+}
+.main-navigation .nav-menu li {
+  position: relative;
+}
+.main-navigation .nav-menu a {
+  display: block;
+  text-decoration: none;
+}
+.main-navigation .nav-menu > li {
+  display: flex;
+  align-items: center;
+}
+.main-navigation .nav-menu > li > a {
+  color: #eeede7;
+  padding: 20px 30px 20px 0;
+  transition: all ease-in-out 0.3s;
+  font-size: 16px;
+  font-weight: 400;
+}
+.main-navigation .nav-menu > li.profile {
+  padding: 0;
+}
+.main-navigation .nav-menu > li.profile > a {
+  border-radius: 50%;
+  border: 2px solid rgba(138, 185, 181, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8ab9b5;
+  height: 48px;
+  width: 48px;
+  font-size: 24px;
+  padding: 0;
+}
+.main-navigation .nav-menu > li.profile:hover > a {
+  border-color: #8ab9b5;
+}
+.main-navigation .nav-menu li:hover > a {
+  color: #8ab9b5;
+}
+
+.desktop-nav {
+  /* Remove default WP submenu hiding */
+}
+.desktop-nav .sub-menu {
+  padding: 10px 0;
+}
+.desktop-nav .sub-menu li a {
+  color: #083435;
+  transition: all ease-in-out 0.3s;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.desktop-nav .sub-menu li:hover a {
+  color: #083435;
+  text-decoration: underline;
+}
+.desktop-nav li.menu-item-has-children {
+  position: relative;
+}
+.desktop-nav li.menu-item-has-children > ul.sub-menu {
+  position: absolute; /* dropdown style */
+  top: 100%;
+  left: 0;
+  width: 300px; /* adjust to your needs */
+  background-color: #8ab9b5;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 16px 16px 16px;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* GSAP will override height + opacity */
+  height: auto;
+  opacity: 1;
+  overflow: hidden;
+  display: block;
+}
+.desktop-nav li.menu-item-has-children:hover > ul.sub-menu {
+  display: block; /* Keep block, GSAP handles visibility */
 }
 
 .site-header {
@@ -983,28 +991,103 @@ button.menu-toggle {
   display: none;
 }
 
-.parent-open > a {
-  color: pink !important;
-}
-
 @media screen and (max-width: 1200px) {
   button.menu-toggle,
-  .main-navigation.toggled .nav-menu {
+  .main-navigation.toggled .menu-main-nav-container {
     display: flex;
   }
-  .main-navigation.toggled {
-    overflow: scroll;
+  .nav-menu {
+    display: none !important;
   }
-  .main-navigation.toggled .nav-menu {
+  .main-navigation {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-navigation .nav-menu > .menu-item.header-button {
+    margin-bottom: 0px;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  .main-navigation .nav-menu > .menu-item.header-button > a {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    max-width: 400px;
+  }
+  .main-navigation .nav-menu > .menu-item > a {
+    font-size: 16px;
+    margin-bottom: 0em;
+    padding: 10px 0 10px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .main-navigation .nav-menu .menu-item.parent-open > .sub-menu {
+    margin-top: 10px;
+  }
+  .main-navigation .nav-menu .sub-menu {
+    margin: 0;
+    padding: 0;
+    background-color: #8ab9b5;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 16px 16px 16px;
+    width: 100%;
+  }
+  .main-navigation .nav-menu .sub-menu ul {
+    list-style: none;
+  }
+  .main-navigation .nav-menu .sub-menu li {
+    list-style: none;
+  }
+  .main-navigation .nav-menu .sub-menu li a {
+    color: #083435;
+    transition: all ease-in-out 0.3s;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .main-navigation .nav-menu .sub-menu li:hover > ul, .main-navigation .nav-menu .sub-menu li.focus > ul {
+    display: block;
+    left: auto;
+  }
+  .main-navigation .nav-menu .sub-menu a {
+    transition: all 0.3s ease-in-out;
+    text-decoration: underline;
+    font-size: 16px;
+  }
+  .main-navigation a {
+    display: block;
+    text-decoration: none;
+  }
+  .main-navigation.toggled .menu-main-nav-container {
     position: absolute;
     right: 0;
     top: 50px;
-    margin-top: 12px;
-    flex-direction: column;
     width: 100%;
     margin-top: 10px;
     z-index: 2;
+    padding: 0px;
+    background: #083435;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+  }
+  .main-navigation.toggled .nav-menu {
+    display: flex !important;
+    flex-direction: column;
+    z-index: 2;
     padding: 20px;
+    list-style: none;
+    margin: 0;
+    gap: 0px;
+    width: 100%;
   }
   .main-navigation.toggled .nav-menu > .menu-item-has-children {
     flex-direction: column;
@@ -1029,70 +1112,14 @@ button.menu-toggle {
   }
   .main-navigation {
     position: static;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .main-navigation .nav-menu {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-    background: #083435;
-    gap: 12px;
-    justify-content: space-between;
-    padding: 2em;
-    width: 400px;
-    border-bottom-right-radius: 1em;
-    border-bottom-left-radius: 1em;
-  }
-  .main-navigation .nav-menu > .menu-item.header-button {
-    margin-bottom: 20px;
-  }
-  .main-navigation .nav-menu > .menu-item.header-button > a {
-    font-size: 20px;
-    padding: 20px;
-  }
-  .main-navigation .nav-menu > .menu-item > a {
-    font-size: 20px;
-    margin-bottom: 0em;
-    padding: 10px 0 10px 0;
-    transition: all 0.3s ease-in-out;
-  }
-  .main-navigation .nav-menu .menu-item.parent-open > .sub-menu {
-    margin-top: 10px;
-  }
-  .main-navigation .nav-menu .sub-menu {
-    margin: 0;
-    padding: 0 !important;
-  }
-  .main-navigation .nav-menu .sub-menu ul {
-    list-style: none;
-  }
-  .main-navigation .nav-menu .sub-menu li {
-    list-style: none;
-  }
-  .main-navigation .nav-menu .sub-menu li:hover > ul, .main-navigation .nav-menu .sub-menu li.focus > ul {
-    display: block;
-    left: auto;
-  }
-  .main-navigation .nav-menu .sub-menu a {
-    transition: all 0.3s ease-in-out;
-    text-decoration: underline;
-    margin-bottom: 1em;
-    font-size: 16px;
-  }
-  .main-navigation li {
-    position: relative;
-  }
-  .main-navigation a {
-    display: block;
-    text-decoration: none;
-  }
-  .main-navigation {
-    position: static;
   }
 }
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
