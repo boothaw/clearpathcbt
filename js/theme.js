@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   headingFadeIn();
   cardImageFade();
   logoImageFade();
-  textFadeIn();
 
   locationsToggle();
 });
