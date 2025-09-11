@@ -908,10 +908,10 @@ button.menu-toggle {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
   cursor: pointer;
 }
 .nav-icon span {
@@ -927,10 +927,10 @@ button.menu-toggle {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
+  -webkit-transition: 0.125s ease-in-out;
+  -moz-transition: 0.125s ease-in-out;
+  -o-transition: 0.125s ease-in-out;
+  transition: 0.125s ease-in-out;
 }
 
 .nav-icon span:nth-child(1) {
@@ -1761,9 +1761,21 @@ h1.alt-heading {
   display: none;
 }
 
-.category-treatments .areas-we-serve {
+.areas-we-serve {
   background-color: rgba(151, 132, 119, 0.2);
 }
+
+.decoration-svg path {
+  fill: #ddd9d1;
+}
+
+.home .areas-we-serve {
+  background-color: #eeede7;
+}
+.home .decoration-svg path {
+  fill: #eeede7;
+}
+
 .category-treatments .entry-content > h2:nth-child(2) {
   margin-bottom: 80px;
 }

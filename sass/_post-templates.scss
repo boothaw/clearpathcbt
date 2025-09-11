@@ -13,10 +13,27 @@
   display: none;
 }
 
-.category-treatments {
-  .areas-we-serve {
-    background-color: $color__opacity-driftwood;
+.areas-we-serve {
+  background-color: $color__opacity-driftwood;
+}
+
+.decoration-svg {
+  path {
+    fill: $color__non-opacity-driftwood;
   }
+}
+.home {
+  .areas-we-serve {
+    background-color: $color__alabaster;
+  }
+  .decoration-svg {
+    path {
+      fill: $color__alabaster;
+    }
+  }
+}
+
+.category-treatments {
   .entry-content {
     > h2:nth-child(2) {
       margin-bottom: 80px;

@@ -23,6 +23,7 @@ if (!window.gsapInitialized) {
     logoImageFade();
 
     locationsToggle();
+    therapiesToggle();
 
     bgImageFade();
   });
@@ -49,14 +50,17 @@ function headingFadeIn() {
   const texts = document.querySelectorAll("h2, h3, h4, .accordion-header-text");
 
   texts.forEach((text) => {
-    let split = new SplitText(text, { type: "words" });
+    let split = new SplitText(text, {
+      type: "lines", // Splits into lines
+      linesClass: "line", // Adds a class "line" to each line element
+    });
 
-    gsap.from(split.words, {
+    gsap.from(split.lines, {
       opacity: 0,
       y: 20,
-      stagger: 0.1,
-      duration: 0.4,
-      delay: i * 0.25,
+      stagger: 0.3,
+      duration: 0.6,
+      delay: i * 0.5,
       ease: "power2.out",
       scrollTrigger: {
         trigger: text,
@@ -160,41 +164,96 @@ function bgImageFade() {
 }
 
 function locationsToggle() {
-  const themeURL = theme_data.template_uri;
-
-  //   console.log(themeURL, "theme");
-
-  const imageArea = document.querySelector(
-    "#locations .image-background-section"
-  );
-
   const buttons = document.querySelectorAll("#locations .wp-block-button");
-  //   const backgrounds = document.querySelectorAll(".image-area .bg");
+  const images = document.querySelectorAll(
+    "#locations .multi-image-background-section"
+  );
   const buttonsArray = Array.from(buttons);
 
-  const images = [
-    themeURL + "/wp-content/uploads/2025/08/Location-Washington.png",
-    themeURL + "/wp-content/uploads/2025/08/Location-California.png",
-    themeURL + "/wp-content/uploads/2025/08/Location-Alaska.png",
-  ];
+  // Hide all images, show the first one (optional)
+  gsap.set(images, { autoAlpha: 0 });
+  gsap.set(images[0], { autoAlpha: 1 });
 
   buttons.forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
       const index = buttonsArray.indexOf(btn);
 
-      // fade out, change image, then fade back in
-      gsap.to(imageArea, {
-        opacity: 0,
-        duration: 0.4,
+      // Fade out all others
+      gsap.to(images, {
+        autoAlpha: 0,
+        duration: 0.6,
         ease: "power2.inOut",
-        onComplete: () => {
-          imageArea.style.backgroundImage = `url(${images[index]})`;
-          gsap.to(imageArea, {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.inOut",
-          });
-        },
+      });
+
+      // Fade in the one hovered — at the same time
+      gsap.to(images[index], {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+    });
+  });
+}
+
+function locationsToggle() {
+  const buttons = document.querySelectorAll("#locations .wp-block-button");
+  const images = document.querySelectorAll(
+    "#locations .multi-image-background-section"
+  );
+  const buttonsArray = Array.from(buttons);
+
+  // Hide all images, show the first one (optional)
+  gsap.set(images, { autoAlpha: 0 });
+  gsap.set(images[0], { autoAlpha: 1 });
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      const index = buttonsArray.indexOf(btn);
+
+      // Fade out all others
+      gsap.to(images, {
+        autoAlpha: 0,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+
+      // Fade in the one hovered — at the same time
+      gsap.to(images[index], {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+    });
+  });
+}
+
+function therapiesToggle() {
+  const buttons = document.querySelectorAll("#therapies .wp-block-button");
+  const images = document.querySelectorAll(
+    "#therapies .multi-image-background-section"
+  );
+  const buttonsArray = Array.from(buttons);
+
+  // Hide all images, show the first one (optional)
+  gsap.set(images, { autoAlpha: 0 });
+  gsap.set(images[0], { autoAlpha: 1 });
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      const index = buttonsArray.indexOf(btn);
+
+      // Fade out all others
+      gsap.to(images, {
+        autoAlpha: 0,
+        duration: 0.6,
+        ease: "power2.inOut",
+      });
+
+      // Fade in the one hovered — at the same time
+      gsap.to(images[index], {
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.inOut",
       });
     });
   });
