@@ -23,6 +23,8 @@ if (!window.gsapInitialized) {
     logoImageFade();
 
     locationsToggle();
+
+    bgImageFade();
   });
 }
 
@@ -136,20 +138,25 @@ function logoImageFade() {
 }
 
 function bgImageFade() {
-  //   gsap.set("#locations .image-background-section", {
-  //     backgroundSize: "cover",
-  //   });
-  //   gsap.to("#locations .image-background-section", {
-  //     backgroundSize: "110% 110%", // zoom in
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: ".bg-section",
-  //       start: "top 90%",
-  //       end: "bottom 10%",
-  //       scrub: true,
-  //       markers: true,
-  //     },
-  //   });
+  const section = ".multi-image-background-section";
+
+  // Make sure background is set to cover and center
+  gsap.set(section, {
+    backgroundSize: "100%", // start at normal size
+    backgroundPosition: "center center",
+  });
+
+  gsap.to(section, {
+    backgroundSize: "110%", // zoom to 110%
+    ease: "none",
+    scrollTrigger: {
+      trigger: section, // animate when this section scrolls
+      start: "10% 90%", // when top of section hits bottom of viewport
+      end: "bottom top", // when bottom of section hits top of viewport
+      scrub: true,
+      //   markers: true,
+    },
+  });
 }
 
 function locationsToggle() {
@@ -226,256 +233,130 @@ function desktopMenu() {
 }
 
 function mobileMenu() {
-  console.log("menu");
+  console.log("mobile");
+  if (document.querySelector(".mobile-nav")) {
+    const nav = document.querySelector(".mobile-nav .main-navigation");
+    const menuButton = document.querySelector(
+      ".mobile-nav .menu-toggle.menu-button"
+    );
+    const menuContainer = document.querySelector(
+      ".mobile-nav .main-navigation .menu-main-nav-container"
+    );
 
-  const nav = document.querySelector(".mobile-nav .main-navigation");
-  const menuButton = document.querySelector(
-    ".mobile-nav .menu-toggle.menu-button"
-  );
-  const menuContainer = document.querySelector(
-    ".mobile-nav .main-navigation .menu-main-nav-container"
-  );
+    // Set initial state
+    gsap.set(menuContainer, { height: 0, opacity: 0, overflow: "hidden" });
 
-  // Set initial state
-  gsap.set(menuContainer, { height: 0, opacity: 0, overflow: "hidden" });
+    let anim = null;
 
-  let anim = null;
+    function openMenu() {
+      if (anim) anim.kill();
+      anim = gsap.to(menuContainer, {
+        height: "auto",
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+      nav.classList.add("toggled");
+      menuButton.classList.add("button-toggled");
+      menuButton.setAttribute("aria-expanded", "true");
+    }
 
-  function openMenu() {
-    if (anim) anim.kill();
-    anim = gsap.to(menuContainer, {
-      height: "auto",
-      opacity: 1,
-      duration: 0.6,
-      ease: "power2.out",
-    });
-    nav.classList.add("toggled");
-    menuButton.classList.add("button-toggled");
-    menuButton.setAttribute("aria-expanded", "true");
-  }
+    function closeMenu() {
+      if (anim) anim.kill();
+      anim = gsap.to(menuContainer, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => {
+          nav.classList.remove("toggled");
+          menuButton.classList.remove("button-toggled");
+          menuButton.setAttribute("aria-expanded", "false");
+        },
+      });
+    }
 
-  function closeMenu() {
-    if (anim) anim.kill();
-    anim = gsap.to(menuContainer, {
-      height: 0,
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.inOut",
-      onComplete: () => {
-        nav.classList.remove("toggled");
-        menuButton.classList.remove("button-toggled");
-        menuButton.setAttribute("aria-expanded", "false");
-      },
-    });
-  }
+    if (!menuButton.dataset.listener) {
+      menuButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-  if (!menuButton.dataset.listener) {
-    menuButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+        if (nav.classList.contains("toggled")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
 
-      if (nav.classList.contains("toggled")) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
+      // Outside click closes the menu
+      document.addEventListener("click", (event) => {
+        const isClickInside = nav.contains(event.target);
+        if (!isClickInside && nav.classList.contains("toggled")) {
+          closeMenu();
+        }
+      });
 
-    // Outside click closes the menu
-    document.addEventListener("click", (event) => {
-      const isClickInside = nav.contains(event.target);
-      if (!isClickInside && nav.classList.contains("toggled")) {
-        closeMenu();
-      }
-    });
-
-    menuButton.dataset.listener = "true";
+      menuButton.dataset.listener = "true";
+    }
   }
 }
 
 function subMenus() {
-  const parentMenus = document.querySelectorAll(
-    ".mobile-nav .menu-item-has-children"
-  );
-  const subMenus = document.querySelectorAll(
-    ".mobile-nav .menu-item-has-children .sub-menu"
-  );
-  // Set initial state
-  subMenus.forEach((sub) => {
-    gsap.set(sub, { height: 0, opacity: 0, overflow: "hidden" });
-  });
-
-  let anim = null;
-
-  function openMenu(parentMenu) {
-    let sub = parentMenu.querySelector(".sub-menu");
-
-    if (anim) anim.kill();
-    anim = gsap.to(sub, {
-      height: "auto",
-      opacity: 1,
-      duration: 0.6,
-      ease: "power2.out",
+  if (document.querySelector(".mobile-nav")) {
+    const parentMenus = document.querySelectorAll(
+      ".mobile-nav .menu-item-has-children"
+    );
+    const subMenus = document.querySelectorAll(
+      ".mobile-nav .menu-item-has-children .sub-menu"
+    );
+    // Set initial state
+    subMenus.forEach((sub) => {
+      gsap.set(sub, { height: 0, opacity: 0, overflow: "hidden" });
     });
-    parentMenu.classList.add("sub-open");
-  }
 
-  function closeMenu(parentMenu) {
-    let sub = parentMenu.querySelector(".sub-menu");
+    let anim = null;
 
-    if (anim) anim.kill();
-    anim = gsap.to(sub, {
-      height: 0,
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.inOut",
-      onComplete: () => {
-        parentMenu.classList.remove("sub-open");
-        // menuButton.classList.remove("button-toggled");
-        // menuButton.setAttribute("aria-expanded", "false");
-      },
-    });
-  }
+    function openMenu(parentMenu) {
+      let sub = parentMenu.querySelector(".sub-menu");
 
-  // if (!parentMenu.dataset.listener) {
-  parentMenus.forEach((parentMenu) => {
-    parentMenu.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+      if (anim) anim.kill();
+      anim = gsap.to(sub, {
+        height: "auto",
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+      parentMenu.classList.add("sub-open");
+    }
 
-      if (parentMenu.classList.contains("sub-open")) {
-        closeMenu(parentMenu);
-      } else {
-        openMenu(parentMenu);
+    function closeMenu(parentMenu) {
+      let sub = parentMenu.querySelector(".sub-menu");
+
+      if (anim) anim.kill();
+      anim = gsap.to(sub, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => {
+          parentMenu.classList.remove("sub-open");
+        },
+      });
+    }
+
+    parentMenus.forEach((parentMenu) => {
+      if (!parentMenu.dataset.listener) {
+        parentMenu.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (parentMenu.classList.contains("sub-open")) {
+            closeMenu(parentMenu);
+          } else {
+            openMenu(parentMenu);
+          }
+        });
       }
     });
-  });
-  //   }
+  }
 }
-
-// function mobileMenu() {
-//   const menuButton = document.querySelector(".menu-toggle.menu-button");
-//   // Only attach listener once
-//   if (!menuButton.dataset.listener) {
-//     menuButton.addEventListener("click", () => {
-//       console.log("Menu button clicked", menuButton.dataset.listener);
-//       gsap.fromTo(
-//         ".nav-menu",
-//         { height: 0, opacity: 0 },
-//         {
-//           height: "auto",
-//           opacity: 1,
-//           duration: 0.6,
-//           ease: "power2.inOut",
-//         }
-//       );
-//     });
-//     menuButton.dataset.listener = "true";
-//   }
-// }
-
-// function mobileSubMenu() {
-//   const menuItems = document.querySelectorAll(
-//     ".mobile-nav li.menu-item-has-children"
-//   );
-
-//   console.log("submenu");
-
-//   menuItems.forEach((item) => {
-//     if (item.dataset.listener) return; // skip if already initialized
-
-//     const submenu = item.querySelector("ul.sub-menu");
-//     console.log("submenu", submenu);
-//     if (!submenu) return;
-
-//     // Start hidden and ensure relative positioning
-//     gsap.set(submenu, {
-//       height: 0,
-//       opacity: 0,
-//       overflow: "hidden",
-//       position: "relative",
-//     });
-
-//     // Track open/closed state
-//     let isOpen = false;
-//     let tween;
-
-//     const toggleSubmenu = (e) => {
-//       e.preventDefault();
-//       e.stopPropagation();
-
-//       // Kill any running tween
-//       if (tween) tween.kill();
-
-//       if (!isOpen) {
-//         // Close all other open submenus first (optional)
-//         // closeAllOtherSubmenus(item);
-
-//         // Expand this submenu
-//         tween = gsap.to(submenu, {
-//           height: "auto",
-//           opacity: 1,
-//           duration: 0.5,
-//           ease: "power2.out",
-//         });
-//         item.classList.add("submenu-open");
-//       } else {
-//         // Collapse this submenu
-//         tween = gsap.to(submenu, {
-//           height: 0,
-//           opacity: 0,
-//           duration: 0.3,
-//           ease: "power2.inOut",
-//         });
-//         item.classList.remove("submenu-open");
-//       }
-
-//       isOpen = !isOpen;
-//     };
-
-//     // Function to close this specific submenu
-//     const closeSubmenu = () => {
-//       if (isOpen && tween) tween.kill();
-
-//       gsap.to(submenu, {
-//         height: 0,
-//         opacity: 0,
-//         duration: 0.3,
-//         ease: "power2.inOut",
-//       });
-
-//       item.classList.remove("submenu-open");
-//       isOpen = false;
-//     };
-
-//     // Store reference to close function for external access
-//     item.closeSubmenu = closeSubmenu;
-
-//     // Attach toggle on parent link
-//     const parentLink = item.querySelector("a");
-//     if (parentLink) {
-//       parentLink.addEventListener("click", toggleSubmenu);
-//     } else {
-//       item.addEventListener("click", toggleSubmenu);
-//     }
-
-//     item.dataset.listener = "true"; // mark as initialized
-//   });
-
-//   // Helper function to close all other open submenus
-//   //   function closeAllOtherSubmenus(currentItem) {
-//   //     const allMenuItems = document.querySelectorAll(
-//   //       ".mobile-nav li.menu-item-has-children"
-//   //     );
-
-//   //     allMenuItems.forEach((item) => {
-//   //       if (
-//   //         item !== currentItem &&
-//   //         item.classList.contains("submenu-open") &&
-//   //         item.closeSubmenu
-//   //       ) {
-//   //         item.closeSubmenu();
-//   //       }
-//   //     });
-//   //   }
-// }
