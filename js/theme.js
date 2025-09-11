@@ -1,25 +1,30 @@
 // use a script tag or an external JS file
-document.addEventListener("DOMContentLoaded", (event) => {
-  gsap.registerPlugin(
-    ScrollTrigger,
-    ScrollSmoother,
-    // ScrollToPlugin,
-    SplitText,
-    TextPlugin
-  );
-  // gsap code here!
+if (!window.gsapInitialized) {
+  window.gsapInitialized = true;
 
-  desktopMenu();
-  mobileMenu();
-  //   mobileSubMenu();
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(
+      ScrollTrigger,
+      ScrollSmoother,
+      // ScrollToPlugin,
+      SplitText,
+      TextPlugin
+    );
+    // gsap code here!
 
-  lenisSmoothScroll();
-  headingFadeIn();
-  cardImageFade();
-  logoImageFade();
+    desktopMenu();
+    mobileMenu();
+    subMenus();
+    //   mobileSubMenu();
 
-  locationsToggle();
-});
+    lenisSmoothScroll();
+    headingFadeIn();
+    cardImageFade();
+    logoImageFade();
+
+    locationsToggle();
+  });
+}
 
 function lenisSmoothScroll() {
   // Initialize a new Lenis instance for smooth scrolling
@@ -221,6 +226,8 @@ function desktopMenu() {
 }
 
 function mobileMenu() {
+  console.log("menu");
+
   const nav = document.querySelector(".mobile-nav .main-navigation");
   const menuButton = document.querySelector(
     ".mobile-nav .menu-toggle.menu-button"
@@ -228,7 +235,6 @@ function mobileMenu() {
   const menuContainer = document.querySelector(
     ".mobile-nav .main-navigation .menu-main-nav-container"
   );
-  const body = document.body;
 
   // Set initial state
   gsap.set(menuContainer, { height: 0, opacity: 0, overflow: "hidden" });
@@ -245,7 +251,6 @@ function mobileMenu() {
     });
     nav.classList.add("toggled");
     menuButton.classList.add("button-toggled");
-    // body.classList.toggle("nav-open");
     menuButton.setAttribute("aria-expanded", "true");
   }
 
@@ -259,7 +264,6 @@ function mobileMenu() {
       onComplete: () => {
         nav.classList.remove("toggled");
         menuButton.classList.remove("button-toggled");
-        // body.classList.toggle("nav-open"); // Removed to match openMenu
         menuButton.setAttribute("aria-expanded", "false");
       },
     });
@@ -287,6 +291,66 @@ function mobileMenu() {
 
     menuButton.dataset.listener = "true";
   }
+}
+
+function subMenus() {
+  const parentMenus = document.querySelectorAll(
+    ".mobile-nav .menu-item-has-children"
+  );
+  const subMenus = document.querySelectorAll(
+    ".mobile-nav .menu-item-has-children .sub-menu"
+  );
+  // Set initial state
+  subMenus.forEach((sub) => {
+    gsap.set(sub, { height: 0, opacity: 0, overflow: "hidden" });
+  });
+
+  let anim = null;
+
+  function openMenu(parentMenu) {
+    let sub = parentMenu.querySelector(".sub-menu");
+
+    if (anim) anim.kill();
+    anim = gsap.to(sub, {
+      height: "auto",
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+    parentMenu.classList.add("sub-open");
+  }
+
+  function closeMenu(parentMenu) {
+    let sub = parentMenu.querySelector(".sub-menu");
+
+    if (anim) anim.kill();
+    anim = gsap.to(sub, {
+      height: 0,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.inOut",
+      onComplete: () => {
+        parentMenu.classList.remove("sub-open");
+        // menuButton.classList.remove("button-toggled");
+        // menuButton.setAttribute("aria-expanded", "false");
+      },
+    });
+  }
+
+  // if (!parentMenu.dataset.listener) {
+  parentMenus.forEach((parentMenu) => {
+    parentMenu.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (parentMenu.classList.contains("sub-open")) {
+        closeMenu(parentMenu);
+      } else {
+        openMenu(parentMenu);
+      }
+    });
+  });
+  //   }
 }
 
 // function mobileMenu() {
