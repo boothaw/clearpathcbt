@@ -1122,12 +1122,6 @@ button.menu-toggle {
     position: static;
   }
 }
-body.nav-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
-
 #primary-menu {
   scroll-margin-top: 0;
 }

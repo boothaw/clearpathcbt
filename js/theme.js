@@ -245,7 +245,7 @@ function mobileMenu() {
     });
     nav.classList.add("toggled");
     menuButton.classList.add("button-toggled");
-    body.classList.add("nav-open");
+    // body.classList.toggle("nav-open");
     menuButton.setAttribute("aria-expanded", "true");
   }
 
@@ -259,31 +259,16 @@ function mobileMenu() {
       onComplete: () => {
         nav.classList.remove("toggled");
         menuButton.classList.remove("button-toggled");
-        body.classList.remove("nav-open");
+        // body.classList.toggle("nav-open"); // Removed to match openMenu
         menuButton.setAttribute("aria-expanded", "false");
       },
     });
   }
 
   if (!menuButton.dataset.listener) {
-    // Toggle on button click
-    // menuButton.addEventListener("click", (e) => {
-    //   e.preventDefault();
-    //   e.stopPropagation(); // prevent outside click handler from firing immediately
-    //   if (nav.classList.contains("toggled")) {
-    //     closeMenu();
-    //   } else {
-    //     openMenu();
-    //   }
-    // });
-    const currentY = window.scrollY;
-
     menuButton.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-
-      // restore scroll after other handlers fire
-      setTimeout(() => window.scrollTo(0, currentY), 0);
 
       if (nav.classList.contains("toggled")) {
         closeMenu();
