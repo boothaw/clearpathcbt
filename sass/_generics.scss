@@ -107,7 +107,7 @@ h1.alt-heading {
   }
   .card-image-container {
     height: auto;
-    padding: 40px 0;
+    // padding: 40px 0;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
@@ -229,5 +229,8 @@ h1.alt-heading {
   }
   .home-hero .outer-wrapper {
     gap: 80px;
+  }
+  .cards-3 .card-title {
+    font-size: 28px;
   }
 }
