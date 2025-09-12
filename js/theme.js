@@ -49,7 +49,7 @@ if (!window.gsapInitialized) {
     // handleMenu();
 
     lenisSmoothScroll();
-    headingFadeIn();
+    // headingFadeIn();
     cardImageFade();
     logoImageFade();
 
@@ -59,6 +59,8 @@ if (!window.gsapInitialized) {
     locationsImageFade();
   });
 }
+
+document.fonts.ready.then(headingFadeIn);
 
 function lenisSmoothScroll() {
   // Initialize a new Lenis instance for smooth scrolling
@@ -89,13 +91,13 @@ function headingFadeIn() {
     gsap.from(split.lines, {
       opacity: 0,
       y: 20,
-      stagger: 0.3,
+      stagger: 0.15,
       duration: 0.6,
-      delay: i * 0.5,
+      delay: i * 0.3,
       ease: "power2.out",
       scrollTrigger: {
         trigger: text,
-        start: "top 95%", // when element enters viewport
+        start: "top 90%", // when element enters viewport
         toggleActions: "play none none none",
       },
     });

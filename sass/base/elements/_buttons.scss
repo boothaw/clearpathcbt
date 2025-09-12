@@ -57,6 +57,7 @@ input[type="submit"] {
   margin: auto !important;
   display: flex !important;
   box-shadow: none !important;
+  justify-content: center !important;
 
   &:hover {
     background-color: $color__blue-lite !important;

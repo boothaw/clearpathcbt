@@ -447,16 +447,19 @@ h2.alt-heading {
 
 @media screen and (max-width: 1024px) {
   h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
   h2 {
-    font-size: 36px;
-  }
-  h3 {
     font-size: 28px;
   }
-  h4 {
+  h3 {
     font-size: 24px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h2.alt-heading {
+    font-size: 18px;
   }
 }
 p {
@@ -659,6 +662,7 @@ input[type=submit]:focus {
   margin: auto !important;
   display: flex !important;
   box-shadow: none !important;
+  justify-content: center !important;
 }
 .forminator-button:hover {
   background-color: #b3d1cf !important;
@@ -1745,11 +1749,15 @@ h1.alt-heading {
   }
   .page-template-location .location-header-inner .midnight-card h1 {
     text-align: center;
-    font-size: 42px;
+    font-size: 40px;
   }
   .page-template-location .location-header-inner .midnight-card h1.alt-heading {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 20px;
+  }
+  .page-template-location .location-header-inner .midnight-card .blue-button {
+    display: flex;
+    justify-content: center;
   }
 }
 .page-template-conditions .driftwood-card h2 {
@@ -1789,6 +1797,9 @@ h1.alt-heading {
   }
   .default-hero .mobile-spacer {
     display: flex;
+  }
+  .default-hero h1 {
+    margin-bottom: 20px;
   }
 }
 .therapist-post-thumbnail,

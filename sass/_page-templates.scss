@@ -60,11 +60,15 @@
 
         & h1 {
           text-align: center;
-          font-size: 42px;
+          font-size: 40px;
         }
         h1.alt-heading {
-          font-size: 20px;
+          font-size: 18px;
           margin-bottom: 20px;
+        }
+        .blue-button {
+          display: flex;
+          justify-content: center;
         }
       }
     }
@@ -121,6 +125,9 @@
     flex-direction: column;
     .mobile-spacer {
       display: flex;
+    }
+    & h1 {
+      margin-bottom: 20px;
     }
   }
 }
