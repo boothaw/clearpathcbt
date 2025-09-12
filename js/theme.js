@@ -16,6 +16,7 @@ if (!window.gsapInitialized) {
     mobileMenu();
     subMenus();
     //   mobileSubMenu();
+    // handleMenu();
 
     lenisSmoothScroll();
     headingFadeIn();
@@ -419,3 +420,27 @@ function subMenus() {
     });
   }
 }
+
+// function handleMenu() {
+//   let currentMode = null; // "desktop" or "mobile"
+
+//   if (window.innerWidth > 1200 && currentMode !== "desktop") {
+//     desktopMenu();
+//     currentMode = "desktop";
+//   } else if (window.innerWidth <= 1200 && currentMode !== "mobile") {
+//     mobileMenu();
+//     subMenus();
+//     currentMode = "mobile";
+//   }
+// }
+
+// // Run on resize (debounced for performance)
+// window.addEventListener("resize", debounce(handleMenu, 50));
+
+// function debounce(func, wait) {
+//   let timeout;
+//   return function () {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(func, wait);
+//   };
+// }

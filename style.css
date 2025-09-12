@@ -1765,15 +1765,19 @@ h1.alt-heading {
   background-color: rgba(151, 132, 119, 0.2);
 }
 
-.decoration-svg path {
+.driftwood-bg .decoration-svg path {
   fill: #ddd9d1;
 }
 
 .home .areas-we-serve {
   background-color: #eeede7;
 }
-.home .decoration-svg path {
+.home .areas-we-serve .decoration-svg path {
   fill: #eeede7;
+}
+
+.our-mission .multi-image-background-section {
+  background-position: center top !important;
 }
 
 .category-treatments .entry-content > h2:nth-child(2) {

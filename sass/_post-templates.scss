@@ -17,19 +17,27 @@
   background-color: $color__opacity-driftwood;
 }
 
-.decoration-svg {
-  path {
-    fill: $color__non-opacity-driftwood;
+.driftwood-bg {
+  .decoration-svg {
+    path {
+      fill: $color__non-opacity-driftwood;
+    }
   }
 }
 .home {
   .areas-we-serve {
     background-color: $color__alabaster;
-  }
-  .decoration-svg {
-    path {
-      fill: $color__alabaster;
+    .decoration-svg {
+      path {
+        fill: $color__alabaster;
+      }
     }
+  }
+}
+
+.our-mission {
+  .multi-image-background-section {
+    background-position: center top !important;
   }
 }
 
