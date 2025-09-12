@@ -56,7 +56,7 @@ if (!window.gsapInitialized) {
     locationsToggle();
     therapiesToggle();
 
-    bgImageFade();
+    locationsImageFade();
   });
 }
 
@@ -172,8 +172,10 @@ function logoImageFade() {
   });
 }
 
-function bgImageFade() {
-  const section = ".multi-image-background-section";
+function locationsImageFade() {
+  const section = document.querySelectorAll(
+    "#locations .multi-image-background-section"
+  );
 
   // Make sure background is set to cover and center
   gsap.set(section, {
@@ -187,42 +189,10 @@ function bgImageFade() {
     scrollTrigger: {
       trigger: section, // animate when this section scrolls
       start: "10% 90%", // when top of section hits bottom of viewport
-      end: "bottom top", // when bottom of section hits top of viewport
+      end: "bottom 10%", // when bottom of section hits top of viewport
       scrub: true,
       //   markers: true,
     },
-  });
-}
-
-function locationsToggle() {
-  const buttons = document.querySelectorAll("#locations .wp-block-button");
-  const images = document.querySelectorAll(
-    "#locations .multi-image-background-section"
-  );
-  const buttonsArray = Array.from(buttons);
-
-  // Hide all images, show the first one (optional)
-  gsap.set(images, { autoAlpha: 0 });
-  gsap.set(images[0], { autoAlpha: 1 });
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-      const index = buttonsArray.indexOf(btn);
-
-      // Fade out all others
-      gsap.to(images, {
-        autoAlpha: 0,
-        duration: 0.6,
-        ease: "power2.inOut",
-      });
-
-      // Fade in the one hovered — at the same time
-      gsap.to(images[index], {
-        autoAlpha: 1,
-        duration: 0.6,
-        ease: "power2.inOut",
-      });
-    });
   });
 }
 
