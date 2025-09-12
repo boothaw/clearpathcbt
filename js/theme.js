@@ -12,9 +12,39 @@ if (!window.gsapInitialized) {
     );
     // gsap code here!
 
-    desktopMenu();
-    mobileMenu();
-    subMenus();
+    function setupResponsiveNavigation() {
+      const mediaQuery = window.matchMedia("(min-width: 1200px)");
+
+      const deskopNav = document.querySelector(".desktop-nav");
+      function handleMediaChange(e) {
+        if (e.matches) {
+          // Desktop view (1200px+)
+          console.log("desktop", typeof deskopNav);
+          if (typeof deskopNav !== "undefined" && deskopNav) {
+            desktopMenu();
+          }
+        } else {
+          // Mobile view (less than 1200px)
+          console.log("mobile");
+          if (typeof mobileMenu === "function") {
+            mobileMenu();
+            subMenus();
+          }
+        }
+      }
+
+      // Run initially
+      handleMediaChange(mediaQuery);
+
+      // Listen for changes
+      mediaQuery.addListener(handleMediaChange);
+    }
+
+    setupResponsiveNavigation();
+
+    // desktopMenu();
+    // mobileMenu();
+    // subMenus();
     //   mobileSubMenu();
     // handleMenu();
 
@@ -261,6 +291,7 @@ function therapiesToggle() {
 }
 
 function desktopMenu() {
+  console.log("desktop run");
   const menuItems = document.querySelectorAll(
     ".desktop-nav li.menu-item-has-children"
   );
@@ -268,16 +299,18 @@ function desktopMenu() {
     const submenu = item.querySelector("ul.sub-menu");
     if (!submenu) return;
     // Set initial state
-    gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
+    // gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
     let openTween;
     item.addEventListener("mouseenter", () => {
+      console.log("desktopp hover", item);
+
       // Kill any running animation
       if (openTween) openTween.kill();
       openTween = gsap.to(submenu, {
         height: "auto",
         opacity: 1,
         duration: 0.6,
-        ease: "power2.out",
+        // ease: "power2.out",
       });
     });
     item.addEventListener("mouseleave", () => {
@@ -293,8 +326,7 @@ function desktopMenu() {
 }
 
 function mobileMenu() {
-  console.log("mobile");
-  if (document.querySelector(".mobile-nav")) {
+  if (document.querySelector(".mobile-nav .main-navigation")) {
     const nav = document.querySelector(".mobile-nav .main-navigation");
     const menuButton = document.querySelector(
       ".mobile-nav .menu-toggle.menu-button"
@@ -304,7 +336,7 @@ function mobileMenu() {
     );
 
     // Set initial state
-    gsap.set(menuContainer, { height: 0, opacity: 0, overflow: "hidden" });
+    // gsap.set(menuContainer, { height: 0, opacity: 0, overflow: "hidden" });
 
     let anim = null;
 
@@ -338,6 +370,7 @@ function mobileMenu() {
 
     if (!menuButton.dataset.listener) {
       menuButton.addEventListener("click", (e) => {
+        console.log("click", e);
         e.preventDefault();
         e.stopPropagation();
 
@@ -420,27 +453,3 @@ function subMenus() {
     });
   }
 }
-
-// function handleMenu() {
-//   let currentMode = null; // "desktop" or "mobile"
-
-//   if (window.innerWidth > 1200 && currentMode !== "desktop") {
-//     desktopMenu();
-//     currentMode = "desktop";
-//   } else if (window.innerWidth <= 1200 && currentMode !== "mobile") {
-//     mobileMenu();
-//     subMenus();
-//     currentMode = "mobile";
-//   }
-// }
-
-// // Run on resize (debounced for performance)
-// window.addEventListener("resize", debounce(handleMenu, 50));
-
-// function debounce(func, wait) {
-//   let timeout;
-//   return function () {
-//     clearTimeout(timeout);
-//     timeout = setTimeout(func, wait);
-//   };
-// }

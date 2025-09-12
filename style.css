@@ -849,6 +849,10 @@ button.menu-toggle {
 .desktop-nav {
   /* Remove default WP submenu hiding */
 }
+.desktop-nav .menu-main-nav-container {
+  opacity: 1 !important;
+  height: 100% !important;
+}
 .desktop-nav .sub-menu {
   padding: 10px 0;
 }
@@ -879,11 +883,9 @@ button.menu-toggle {
   height: 0;
   opacity: 0;
   overflow: hidden;
-  /* GSAP will override height + opacity */
-  height: auto;
-  opacity: 1;
+  height: 0;
+  opacity: 0;
   overflow: hidden;
-  display: block;
 }
 .desktop-nav li.menu-item-has-children:hover > ul.sub-menu {
   display: block; /* Keep block, GSAP handles visibility */
@@ -998,7 +1000,10 @@ button.menu-toggle {
     display: flex;
   }
   .menu-main-nav-container {
-    display: none !important;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
   }
   .main-navigation {
     position: static;

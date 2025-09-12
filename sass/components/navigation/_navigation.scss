@@ -100,6 +100,10 @@ button.menu-toggle {
 }
 
 .desktop-nav {
+  .menu-main-nav-container {
+    opacity: 1 !important;
+    height: 100% !important;
+  }
   .sub-menu {
     padding: 10px 0;
 
@@ -134,17 +138,13 @@ button.menu-toggle {
     display: flex;
     flex-direction: column;
     border-radius: 0 16px 16px 16px;
-    // margin-left: 0;
     height: 0;
     opacity: 0;
     overflow: hidden;
-    // position: relative;
 
-    /* GSAP will override height + opacity */
-    height: auto;
-    opacity: 1;
+    height: 0;
+    opacity: 0;
     overflow: hidden;
-    display: block;
   }
 
   /* Remove default WP submenu hiding */
@@ -273,7 +273,11 @@ button.menu-toggle {
   }
 
   .menu-main-nav-container {
-    display: none !important;
+    // display: none !important;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
   }
 
   .main-navigation {
