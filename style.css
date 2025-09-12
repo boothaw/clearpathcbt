@@ -1017,7 +1017,7 @@ button.menu-toggle {
     width: 100%;
     text-align: center;
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 0px 0 0 0;
   }
   .main-navigation .nav-menu > .menu-item.header-button > a {
     padding: 12px 20px;
@@ -1115,11 +1115,13 @@ button.menu-toggle {
   }
   .main-navigation.toggled .nav-menu li:nth-last-child(2) {
     grid-column: 1; /* left column */
+    margin-top: 10px;
   }
   .main-navigation.toggled .nav-menu li:last-child {
     grid-column: 2; /* right column */
     justify-content: flex-end;
     align-items: center;
+    margin-top: 10px;
   }
   .site-header {
     position: fixed;
@@ -1595,11 +1597,20 @@ h1.alt-heading {
 }
 
 @media screen and (max-width: 1200px) {
+  .default-section-padding {
+    padding: 60px 0;
+  }
   .home-hero .outer-wrapper {
     gap: 80px;
   }
   .cards-3 .card-title {
     font-size: 28px;
+  }
+  .midnight-card {
+    padding: 40px 20px;
+  }
+  .driftwood-card {
+    padding: 40px 20px;
   }
 }
 .site-footer {
@@ -1707,6 +1718,14 @@ h1.alt-heading {
   .page-template-location .location-header-inner .midnight-card {
     padding: 40px 20px;
   }
+  .page-template-location .location-header-inner .midnight-card h1 {
+    text-align: center;
+    font-size: 42px;
+  }
+  .page-template-location .location-header-inner .midnight-card h1.alt-heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
 .page-template-conditions .driftwood-card h2 {
   color: #083435;
@@ -1719,6 +1738,7 @@ h1.alt-heading {
 
 .default-hero {
   position: relative;
+  display: flex;
 }
 .default-hero .default-hero-inner {
   position: absolute;
@@ -1731,7 +1751,21 @@ h1.alt-heading {
   color: #8ab9b5;
   margin-bottom: 0;
 }
+.default-hero .mobile-spacer {
+  display: none;
+  height: 115px;
+  width: 100%;
+  background-color: #083435;
+}
 
+@media screen and (max-width: 1024px) {
+  .default-hero {
+    flex-direction: column;
+  }
+  .default-hero .mobile-spacer {
+    display: flex;
+  }
+}
 .therapist-post-thumbnail,
 .treatment-post-thumbnail {
   max-width: 960px;
@@ -1778,6 +1812,25 @@ h1.alt-heading {
   margin-top: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .therapist-post-thumbnail,
+  .treatment-post-thumbnail {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .therapist-post-thumbnail .thumbnail-content,
+  .treatment-post-thumbnail .thumbnail-content {
+    width: 100%;
+  }
+  .therapist-post-thumbnail .entry-thumbnail,
+  .treatment-post-thumbnail .entry-thumbnail {
+    width: 100%;
+  }
+  .therapist-post-thumbnail h2,
+  .treatment-post-thumbnail h2 {
+    font-size: 28px;
+  }
+}
 .page-template-forms .entry-content h2 {
   color: #083435;
   font-size: 32px;
@@ -1821,6 +1874,9 @@ h1.alt-heading {
 .areas-we-serve {
   background-color: rgba(151, 132, 119, 0.2);
 }
+.areas-we-serve .decoration-svg path {
+  fill: #ddd9d1;
+}
 
 .driftwood-bg .decoration-svg path {
   fill: #ddd9d1;
@@ -1850,6 +1906,9 @@ h1.alt-heading {
 }
 
 @media screen and (max-width: 1024px) {
+  .post-hero .outer-wrapper {
+    gap: 40px;
+  }
   .post-hero h1 {
     font-size: 42px;
   }

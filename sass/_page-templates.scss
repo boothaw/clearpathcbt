@@ -57,6 +57,15 @@
 
       .midnight-card {
         padding: 40px 20px;
+
+        & h1 {
+          text-align: center;
+          font-size: 42px;
+        }
+        h1.alt-heading {
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
       }
     }
   }
@@ -86,6 +95,8 @@
 // default hero section
 .default-hero {
   position: relative;
+  display: flex;
+
   .default-hero-inner {
     position: absolute;
     top: 40%;
@@ -96,6 +107,21 @@
     text-align: center;
     color: $color__blue;
     margin-bottom: 0;
+  }
+  .mobile-spacer {
+    display: none;
+    height: 115px;
+    width: 100%;
+    background-color: $color__midnight-green;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .default-hero {
+    flex-direction: column;
+    .mobile-spacer {
+      display: flex;
+    }
   }
 }
 
@@ -148,6 +174,21 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .therapist-post-thumbnail,
+  .treatment-post-thumbnail {
+    flex-direction: column;
+    gap: 40px;
+
+    .thumbnail-content {
+      width: 100%;
+    }
+    .entry-thumbnail {
+      width: 100%;
+    }
+    h2 {
+      font-size: 28px;
+    }
+  }
 }
 
 // forms page
