@@ -234,7 +234,7 @@ function insert_break_in_middle( $text ) {
     $words = explode( ' ', $text );
     $count = count( $words );
 
-    if ( $count < 2 ) {
+    if ( $count < 3 ) {
         return $text; // Not enough words to split
     }
 

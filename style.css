@@ -658,6 +658,7 @@ input[type=submit]:focus {
   font-weight: 500;
   margin: auto !important;
   display: flex !important;
+  box-shadow: none !important;
 }
 .forminator-button:hover {
   background-color: #b3d1cf !important;
@@ -1396,19 +1397,40 @@ button.menu-toggle {
   color: #8ab9b5 !important;
 }
 
+.forminator-guttenberg .forminator-textarea {
+  background: #eeede7 !important;
+  border-radius: 8px !important;
+}
+.forminator-guttenberg .select2-container {
+  background: #eeede7 !important;
+  border-radius: 8px !important;
+}
+.forminator-guttenberg .select2-selection__placeholder {
+  color: #afa197 !important;
+}
+.forminator-guttenberg .select2-selection__placeholder,
 .forminator-guttenberg label {
   font-size: 18px !important;
   color: #083435;
   font-weight: 500;
   margin-bottom: 12px !important;
 }
+.forminator-guttenberg .select2-selection,
 .forminator-guttenberg input {
   border-radius: 8px !important;
   border: 0px !important;
   background-color: #eeede7;
 }
+.forminator-guttenberg .select2-selection::placeholder,
 .forminator-guttenberg input::placeholder {
   color: #afa197 !important;
+}
+.forminator-guttenberg .select2-selection {
+  background-color: #eeede7 !important;
+}
+.forminator-guttenberg .forminator-checkbox__label p {
+  margin-top: 0 !important;
+  color: #083435 !important;
 }
 
 .forminator-edit-module {
@@ -1530,6 +1552,9 @@ h1.alt-heading {
 
 .accordion-columns {
   gap: 80px;
+}
+.accordion-columns .midnight-card > .wp-block-image:first-of-type {
+  margin-bottom: 20px;
 }
 
 .accordion-block {
@@ -1695,7 +1720,7 @@ h1.alt-heading {
 }
 .page-template-location .location-header-inner .midnight-card p {
   color: #eeede7;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .page-template-location .location-hero {
   width: 100%;

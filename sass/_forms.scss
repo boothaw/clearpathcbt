@@ -45,12 +45,25 @@
 }
 
 .forminator-guttenberg {
+  .forminator-textarea {
+    background: $color__alabaster !important;
+    border-radius: 8px !important;
+  }
+  .select2-container {
+    background: $color__alabaster !important;
+    border-radius: 8px !important;
+  }
+  .select2-selection__placeholder {
+    color: $color__driftwood-lite !important;
+  }
+  .select2-selection__placeholder,
   label {
     font-size: 18px !important;
     color: $color__midnight-green;
     font-weight: $font__weight-500;
     margin-bottom: 12px !important;
   }
+  .select2-selection,
   input {
     border-radius: 8px !important;
     border: 0px !important;
@@ -59,6 +72,13 @@
     &::placeholder {
       color: $color__driftwood-lite !important;
     }
+  }
+  .select2-selection {
+    background-color: $color__alabaster !important;
+  }
+  .forminator-checkbox__label p {
+    margin-top: 0 !important;
+    color: $color__midnight-green !important;
   }
 }
 .forminator-edit-module {
