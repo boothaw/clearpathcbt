@@ -222,3 +222,12 @@ h1.alt-heading {
 .main-navigation ul {
   //   width: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+  .default-section-padding {
+    // padding: 40px 0;
+  }
+  .home-hero .outer-wrapper {
+    gap: 80px;
+  }
+}

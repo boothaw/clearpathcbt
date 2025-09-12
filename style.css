@@ -1106,6 +1106,21 @@ button.menu-toggle {
   .main-navigation.toggled .nav-menu > .menu-item-has-children > a {
     pointer-events: none;
   }
+  .main-navigation.toggled .nav-menu {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .main-navigation.toggled .nav-menu li {
+    grid-column: 1/-1;
+  }
+  .main-navigation.toggled .nav-menu li:nth-last-child(2) {
+    grid-column: 1; /* left column */
+  }
+  .main-navigation.toggled .nav-menu li:last-child {
+    grid-column: 2; /* right column */
+    justify-content: flex-end;
+    align-items: center;
+  }
   .site-header {
     position: fixed;
     width: 100%;
@@ -1580,6 +1595,11 @@ h1.alt-heading {
   font-weight: 500;
 }
 
+@media screen and (max-width: 1200px) {
+  .home-hero .outer-wrapper {
+    gap: 80px;
+  }
+}
 .site-footer {
   background-color: #083435;
   color: #eeede7;
@@ -1587,6 +1607,12 @@ h1.alt-heading {
 .site-footer .footer-content {
   display: flex;
   justify-content: space-between;
+}
+.site-footer .footer-content a {
+  transition: all ease-in 0.3s;
+}
+.site-footer .footer-content a:hover {
+  color: #eeede7;
 }
 .site-footer .footer-2-container {
   width: 50%;
@@ -1604,6 +1630,27 @@ h1.alt-heading {
   padding: 20px 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .site-footer .footer-content {
+    flex-direction: column;
+    gap: 80px;
+  }
+  .site-footer .footer-content .footer-2-container {
+    width: 100%;
+  }
+  .site-footer .footer-content .footer-2-container .wp-block-columns {
+    justify-content: space-between;
+    gap: 40px 20px;
+  }
+  .site-footer .footer-content .footer-2-container .wp-block-columns .wp-block-column {
+    width: fit-content;
+    flex-basis: auto !important;
+  }
+  .footer-1-container .wp-block-image {
+    justify-content: center;
+    display: flex;
+  }
+}
 .page-template-location .location-header {
   width: 100%;
   background-position: bottom;
@@ -1785,6 +1832,10 @@ h1.alt-heading {
   background-position: center top !important;
 }
 
+#locations .multi-image-background-section {
+  background-position: center bottom !important;
+}
+
 .category-treatments .entry-content > h2:nth-child(2) {
   margin-bottom: 80px;
 }
@@ -1796,6 +1847,9 @@ h1.alt-heading {
 @media screen and (max-width: 1024px) {
   .post-hero h1 {
     font-size: 42px;
+  }
+  .our-mission.multi-image-content-block .multi-image-content-container {
+    flex-direction: column-reverse !important;
   }
 }
 

@@ -22,10 +22,12 @@
              endif;?>
 			</div>
 		</div>
-		<div class="site-info copyright outer-wrapper">
+		<div class="site-info copyright">
+			<div class="outer-wrapper">
 			<span>© Copyright 2025 | Clear Path CBT</span>
 			<div>
 			 	
+			</div>
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

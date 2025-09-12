@@ -41,6 +41,12 @@
   }
 }
 
+#locations {
+  .multi-image-background-section {
+    background-position: center bottom !important;
+  }
+}
+
 .category-treatments {
   .entry-content {
     > h2:nth-child(2) {
@@ -58,6 +64,11 @@
   .post-hero {
     & h1 {
       font-size: 42px;
+    }
+  }
+  .our-mission.multi-image-content-block {
+    .multi-image-content-container {
+      flex-direction: column-reverse !important;
     }
   }
 }

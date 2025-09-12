@@ -179,12 +179,12 @@ function locationsImageFade() {
 
   // Make sure background is set to cover and center
   gsap.set(section, {
-    backgroundSize: "100%", // start at normal size
+    backgroundSize: "105%", // start at normal size
     backgroundPosition: "center center",
   });
 
   gsap.to(section, {
-    backgroundSize: "110%", // zoom to 110%
+    backgroundSize: "115%", // zoom to 110%
     ease: "none",
     scrollTrigger: {
       trigger: section, // animate when this section scrolls
