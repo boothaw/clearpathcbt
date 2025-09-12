@@ -1704,6 +1704,9 @@ h1.alt-heading {
     top: 0;
     padding: 40px 0;
   }
+  .page-template-location .location-header-inner .midnight-card {
+    padding: 40px 20px;
+  }
 }
 .page-template-conditions .driftwood-card h2 {
   color: #083435;

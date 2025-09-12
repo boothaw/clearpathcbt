@@ -410,7 +410,7 @@ function subMenus() {
     parentMenus.forEach((parentMenu) => {
       if (!parentMenu.dataset.listener) {
         parentMenu.addEventListener("click", (e) => {
-          e.preventDefault();
+          //   e.preventDefault();
           e.stopPropagation();
 
           if (parentMenu.classList.contains("sub-open")) {
