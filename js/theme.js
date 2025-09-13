@@ -6,7 +6,7 @@ if (!window.gsapInitialized) {
     gsap.registerPlugin(
       ScrollTrigger,
       ScrollSmoother,
-      // ScrollToPlugin,
+      ScrollToPlugin,
       SplitText,
       TextPlugin
     );
@@ -57,6 +57,7 @@ if (!window.gsapInitialized) {
     therapiesToggle();
 
     locationsImageFade();
+    locationScroll();
   });
 }
 
@@ -179,6 +180,31 @@ function logoImageFade() {
       scale: 1,
       ease: "power2.inOut",
       duration: 0.5,
+    });
+  });
+}
+
+function locationScroll() {
+  const scrollButtons = Array.from(document.querySelectorAll("a")).filter(
+    (link) => {
+      return link.textContent.includes("Areas We Serve"); // Or startsWith(), endsWith(), or a regex test
+    }
+  );
+
+  scrollButtons.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent default jump
+
+      const targetId = link.getAttribute("href"); // "#locations"
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        gsap.to(window, {
+          duration: 0.5, // scroll duration in seconds (adjust for speed)
+          scrollTo: { y: target, offsetY: 0 }, // target element
+          ease: "power3.out", // smooth easing
+        });
+      }
     });
   });
 }

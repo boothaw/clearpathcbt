@@ -213,7 +213,6 @@ h1.alt-heading {
     font-size: 32px;
     font-weight: $font__weight-300;
     line-height: 160%;
-    letter-spacing: -2%;
 
     strong {
       font-weight: $font__weight-500;
@@ -242,5 +241,14 @@ h1.alt-heading {
   }
   .driftwood-card {
     padding: 40px 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wp-block-quote {
+    p,
+    p.mid-center {
+      font-size: 28px;
+    }
   }
 }

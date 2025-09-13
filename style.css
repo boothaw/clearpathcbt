@@ -1618,7 +1618,6 @@ h1.alt-heading {
   font-size: 32px;
   font-weight: 300;
   line-height: 160%;
-  letter-spacing: -2%;
 }
 .wp-block-quote p.mid-center strong {
   font-weight: 500;
@@ -1639,6 +1638,12 @@ h1.alt-heading {
   }
   .driftwood-card {
     padding: 40px 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wp-block-quote p,
+  .wp-block-quote p.mid-center {
+    font-size: 28px;
   }
 }
 .site-footer {
