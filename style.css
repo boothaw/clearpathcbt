@@ -48,7 +48,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
-@import url("https://fonts.cdnfonts.com/css/ranade");
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -1931,6 +1930,7 @@ h1.alt-heading {
 
 #locations .multi-image-background-section {
   background-position: center bottom !important;
+  background-size: cover !important;
 }
 
 .category-treatments .entry-content > h2:nth-child(2) {

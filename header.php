@@ -38,6 +38,9 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<link href="https://fonts.cdnfonts.com/css/ranade" rel="stylesheet">
+
 	<?php wp_head(); ?>
 
 </head>

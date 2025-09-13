@@ -49,7 +49,7 @@ if (!window.gsapInitialized) {
     // handleMenu();
 
     lenisSmoothScroll();
-    // headingFadeIn();
+    headingFadeIn();
     cardImageFade();
     logoImageFade();
 
@@ -59,8 +59,6 @@ if (!window.gsapInitialized) {
     locationsImageFade();
   });
 }
-
-document.fonts.ready.then(headingFadeIn);
 
 function lenisSmoothScroll() {
   // Initialize a new Lenis instance for smooth scrolling
@@ -83,21 +81,32 @@ function headingFadeIn() {
   const texts = document.querySelectorAll("h2, h3, h4, .accordion-header-text");
 
   texts.forEach((text) => {
-    let split = new SplitText(text, {
-      type: "lines", // Splits into lines
-      linesClass: "line", // Adds a class "line" to each line element
-    });
+    // Skip SplitText entirely and manually create the line div
+    const originalText = text.textContent;
+    const lineDiv = document.createElement("div");
+    lineDiv.className = "line";
+    lineDiv.textContent = originalText;
+    lineDiv.style.cssText = `
+		position: relative;
+		display: block;
+		text-align: inherit;
+		opacity: 0;
+		transform: translateY(20px);
+	  `;
 
-    gsap.from(split.lines, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.15,
+    text.innerHTML = "";
+    text.appendChild(lineDiv);
+
+    gsap.to(lineDiv, {
+      opacity: 1,
+      y: 0,
       duration: 0.6,
-      delay: i * 0.3,
+      stagger: 0.2,
+      delay: i * 0.01,
       ease: "power2.out",
       scrollTrigger: {
         trigger: text,
-        start: "top 90%", // when element enters viewport
+        start: "top 95%",
         toggleActions: "play none none none",
       },
     });
@@ -175,26 +184,35 @@ function logoImageFade() {
 }
 
 function locationsImageFade() {
-  const section = document.querySelectorAll(
+  const sections = document.querySelectorAll(
     "#locations .multi-image-background-section"
   );
+  const parent = document.querySelector("#locations .multi-image-stack");
 
-  // Make sure background is set to cover and center
-  gsap.set(section, {
-    backgroundSize: "105%", // start at normal size
-    backgroundPosition: "center center",
-  });
+  sections.forEach((section) => {
+    // Step 1: Set up initial state
+    section.style.backgroundSize = "cover";
+    section.style.backgroundPosition = "center center";
+    section.style.willChange = "transform";
+    section.style.transform = "translateZ(0)";
 
-  gsap.to(section, {
-    backgroundSize: "115%", // zoom to 110%
-    ease: "none",
-    scrollTrigger: {
-      trigger: section, // animate when this section scrolls
-      start: "10% 90%", // when top of section hits bottom of viewport
-      end: "bottom 10%", // when bottom of section hits top of viewport
-      scrub: true,
-      //   markers: true,
-    },
+    // Step 2: Small repaint hack for iOS
+    section.offsetHeight;
+
+    // Step 3: Set initial scale and animate
+    gsap.set(section, { scale: 1.05 });
+
+    gsap.to(section, {
+      scale: 1.15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: parent,
+        start: "10% 90%",
+        end: "bottom 10%",
+        scrub: true,
+        // markers: true,
+      },
+    });
   });
 }
 
@@ -263,7 +281,6 @@ function therapiesToggle() {
 }
 
 function desktopMenu() {
-  console.log("desktop run");
   const menuItems = document.querySelectorAll(
     ".desktop-nav li.menu-item-has-children"
   );
@@ -274,8 +291,6 @@ function desktopMenu() {
     // gsap.set(submenu, { height: 0, opacity: 0, overflow: "hidden" });
     let openTween;
     item.addEventListener("mouseenter", () => {
-      console.log("desktopp hover", item);
-
       // Kill any running animation
       if (openTween) openTween.kill();
       openTween = gsap.to(submenu, {
