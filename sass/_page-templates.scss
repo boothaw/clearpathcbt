@@ -191,6 +191,11 @@
     }
     .entry-thumbnail {
       width: 100%;
+
+      & img {
+        width: 100%;
+        max-width: 600px;
+      }
     }
     h2 {
       font-size: 28px;

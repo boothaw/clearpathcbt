@@ -95,6 +95,9 @@ h1.alt-heading {
       background-color: $color__midnight-green;
     }
   }
+  .wp-block-column > .wp-block-columns {
+    margin-bottom: 0;
+  }
 }
 
 // card style
@@ -233,8 +236,8 @@ h1.alt-heading {
   .home-hero .outer-wrapper {
     gap: 80px;
   }
-  .cards-3 .card-title {
-    font-size: 28px;
+  .outer-wrapper {
+    width: calc(100% - 40px);
   }
   .midnight-card {
     padding: 40px 20px;
@@ -246,9 +249,11 @@ h1.alt-heading {
 
 @media screen and (max-width: 1024px) {
   .wp-block-quote {
-    p,
     p.mid-center {
       font-size: 28px;
     }
+  }
+  .cards-3 .card-title {
+    font-size: 24px;
   }
 }

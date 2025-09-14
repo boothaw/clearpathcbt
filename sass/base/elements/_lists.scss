@@ -7,6 +7,10 @@ ul {
   list-style: disc;
 }
 
+.entry-content .wp-block-list {
+  padding-inline-start: 20px;
+}
+
 ol {
   list-style: decimal;
 }

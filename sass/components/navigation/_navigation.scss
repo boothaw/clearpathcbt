@@ -96,6 +96,11 @@ button.menu-toggle {
         color: $color__blue;
       }
     }
+    li.header-button:hover {
+      > a {
+        color: $color__midnight-green;
+      }
+    }
   }
 }
 

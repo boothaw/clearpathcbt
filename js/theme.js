@@ -199,9 +199,13 @@ function locationScroll() {
       const target = document.querySelector(targetId);
 
       if (target) {
+        // Check screen size and decide offset
+        const isDesktop = window.matchMedia("(min-width: 1200px)").matches;
+        const offsetY = isDesktop ? 0 : 80;
+
         gsap.to(window, {
           duration: 0.5, // scroll duration in seconds (adjust for speed)
-          scrollTo: { y: target, offsetY: 0 }, // target element
+          scrollTo: { y: target, offsetY },
           ease: "power3.out", // smooth easing
         });
       }
