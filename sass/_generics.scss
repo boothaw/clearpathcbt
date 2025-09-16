@@ -69,6 +69,13 @@ h1.alt-heading {
 // home page templates
 
 .home-hero {
+  h1 {
+    margin-bottom: 40px;
+  }
+  p {
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
   .outer-wrapper {
     gap: 140px;
   }
@@ -187,6 +194,7 @@ h1.alt-heading {
 
 .accordion-content {
   background-color: transparent !important;
+  border-top: 0 !important;
 }
 
 // midnight card
@@ -211,8 +219,19 @@ h1.alt-heading {
   margin: 0;
   width: 100%;
   background-color: $color__blue;
+  color: $color__midnight-green;
 
-  p.mid-center {
+  a,
+  a:visited {
+    color: $color__midnight-green;
+    transition: all ease-in 0.3s;
+  }
+
+  a:hover {
+    color: $color__alabaster;
+  }
+
+  p {
     font-size: 32px;
     font-weight: $font__weight-300;
     line-height: 160%;
@@ -220,6 +239,9 @@ h1.alt-heading {
     strong {
       font-weight: $font__weight-500;
     }
+  }
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -249,8 +271,8 @@ h1.alt-heading {
 
 @media screen and (max-width: 1024px) {
   .wp-block-quote {
-    p.mid-center {
-      font-size: 28px;
+    p {
+      font-size: 20px;
     }
   }
   .cards-3 .card-title {

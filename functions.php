@@ -122,13 +122,13 @@ add_action( 'after_setup_theme', 'clearpathcbt_content_width', 0 );
 function clearpathcbt_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'clearpathcbt' ),
+			'name'          => esc_html__( 'Footer Socials', 'clearpathcbt' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'clearpathcbt' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_widget' => '<div class="socials-container">',
+			'after_widget'  => '</div>',
+			// 'before_title'  => '<h2 class="widget-title">',
+			// 'after_title'   => '</h2>',
 		)
 	);
 }
@@ -159,6 +159,7 @@ function clearpathcbt_widgets_init_2() {
 	);
 }
 add_action( 'widgets_init', 'clearpathcbt_widgets_init_2' );
+
 
 /**
  * Enqueue scripts and styles.

@@ -390,7 +390,8 @@ optgroup,
 textarea {
   color: #083435;
   font-family: "Ranade", sans-serif;
-  font-size: 1rem;
+  font-size: 18px;
+  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -438,6 +439,7 @@ h4 {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 0.2em;
 }
 
 h2.alt-heading {
@@ -642,6 +644,11 @@ input[type=submit]:focus {
   font-weight: 500;
   text-decoration: none;
 }
+.wp-element-button i,
+.site-header .nav-menu > li.header-button > a i,
+.blue-button i {
+  padding-right: 6px;
+}
 .wp-element-button:hover,
 .site-header .nav-menu > li.header-button > a:hover,
 .blue-button:hover {
@@ -667,6 +674,7 @@ input[type=submit]:focus {
   display: flex !important;
   box-shadow: none !important;
   justify-content: center !important;
+  margin-top: 40px !important;
 }
 .forminator-button:hover {
   background-color: #b3d1cf !important;
@@ -1508,6 +1516,13 @@ h1.alt-heading {
   margin-bottom: 40px;
 }
 
+.home-hero h1 {
+  margin-bottom: 40px;
+}
+.home-hero p {
+  margin-bottom: 40px;
+  margin-top: 0;
+}
 .home-hero .outer-wrapper {
   gap: 140px;
 }
@@ -1604,6 +1619,7 @@ h1.alt-heading {
 
 .accordion-content {
   background-color: transparent !important;
+  border-top: 0 !important;
 }
 
 .midnight-card {
@@ -1624,14 +1640,26 @@ h1.alt-heading {
   margin: 0;
   width: 100%;
   background-color: #8ab9b5;
+  color: #083435;
 }
-.wp-block-quote p.mid-center {
+.wp-block-quote a,
+.wp-block-quote a:visited {
+  color: #083435;
+  transition: all ease-in 0.3s;
+}
+.wp-block-quote a:hover {
+  color: #eeede7;
+}
+.wp-block-quote p {
   font-size: 32px;
   font-weight: 300;
   line-height: 160%;
 }
-.wp-block-quote p.mid-center strong {
+.wp-block-quote p strong {
   font-weight: 500;
+}
+.wp-block-quote p:last-of-type {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1652,8 +1680,8 @@ h1.alt-heading {
   }
 }
 @media screen and (max-width: 1024px) {
-  .wp-block-quote p.mid-center {
-    font-size: 28px;
+  .wp-block-quote p {
+    font-size: 20px;
   }
   .cards-3 .card-title {
     font-size: 24px;
@@ -1669,9 +1697,12 @@ h1.alt-heading {
 }
 .site-footer .footer-content a {
   transition: all ease-in 0.3s;
+  color: #eeede7;
+  text-decoration: none;
 }
 .site-footer .footer-content a:hover {
-  color: #eeede7;
+  color: #8ab9b5;
+  text-decoration: underline;
 }
 .site-footer .footer-2-container {
   width: 50%;
@@ -1684,9 +1715,30 @@ h1.alt-heading {
 .site-footer .wp-block-column p:last-of-type {
   margin-bottom: 0;
 }
+.site-footer .wp-block-column > .wp-block-heading {
+  letter-spacing: 0.2em;
+}
 .site-footer .copyright {
   background-color: #063031;
   padding: 20px 0;
+  text-transform: uppercase;
+  color: #8ab9b5;
+}
+.site-footer .copyright > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.socials-container .wp-element-button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1840,11 +1892,11 @@ h1.alt-heading {
 }
 .therapist-post-thumbnail .thumbnail-content,
 .treatment-post-thumbnail .thumbnail-content {
-  width: 70%;
+  width: 65%;
 }
 .therapist-post-thumbnail .entry-thumbnail,
 .treatment-post-thumbnail .entry-thumbnail {
-  width: 30%;
+  width: 35%;
 }
 .therapist-post-thumbnail .post-button,
 .treatment-post-thumbnail .post-button {
@@ -1923,6 +1975,11 @@ h1.alt-heading {
 }
 .post-hero h1 {
   font-size: 48px;
+  margin-bottom: 40px;
+}
+.post-hero p {
+  margin-bottom: 40px;
+  margin-top: 0;
 }
 
 .post-navigation {
@@ -1949,9 +2006,10 @@ h1.alt-heading {
 
 .our-mission .multi-image-background-section {
   background-position: center top !important;
+  background-size: coverr !important;
 }
 
-#locations .multi-image-background-section {
+.multi-image-background-section {
   background-position: center bottom !important;
   background-size: cover !important;
 }
@@ -1960,6 +2018,11 @@ h1.alt-heading {
   margin-bottom: 80px;
 }
 .category-treatments .wp-block-separator {
+  color: rgba(151, 132, 119, 0.2);
+  background: none;
+}
+
+.entry-content > .wp-block-separator {
   color: rgba(151, 132, 119, 0.2);
   background: none;
 }

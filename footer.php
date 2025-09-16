@@ -25,9 +25,8 @@
 		<div class="site-info copyright">
 			<div class="outer-wrapper">
 			<span>© Copyright 2025 | Clear Path CBT</span>
-			<div>
-			 	
-			</div>
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar-1") ) : 
+             endif;?>
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

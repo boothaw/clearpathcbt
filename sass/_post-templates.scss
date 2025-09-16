@@ -4,8 +4,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  & h1 {
+  h1 {
     font-size: 48px;
+    margin-bottom: 40px;
+  }
+  p {
+    margin-bottom: 40px;
+    margin-top: 0;
   }
 }
 
@@ -44,15 +49,16 @@
 .our-mission {
   .multi-image-background-section {
     background-position: center top !important;
+    background-size: coverr !important;
   }
 }
 
-#locations {
-  .multi-image-background-section {
-    background-position: center bottom !important;
-    background-size: cover !important;
-  }
+// #locations {
+.multi-image-background-section {
+  background-position: center bottom !important;
+  background-size: cover !important;
 }
+// }
 
 .category-treatments {
   .entry-content {
@@ -61,6 +67,14 @@
     }
   }
   .wp-block-separator {
+    // background: $color__opacity-driftwood;
+    color: $color__opacity-driftwood;
+    background: none;
+  }
+}
+
+.entry-content {
+  > .wp-block-separator {
     // background: $color__opacity-driftwood;
     color: $color__opacity-driftwood;
     background: none;

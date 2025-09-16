@@ -79,7 +79,9 @@ function lenisSmoothScroll() {
 }
 
 function headingFadeIn() {
-  const texts = document.querySelectorAll("h2, h3, h4, .accordion-header-text");
+  const texts = document.querySelectorAll(
+    "h2, h3:not(.card-title), h4, .accordion-header-text"
+  );
 
   texts.forEach((text) => {
     // Skip SplitText entirely and manually create the line div
@@ -102,7 +104,7 @@ function headingFadeIn() {
       opacity: 1,
       y: 0,
       duration: 0.6,
-      stagger: 0.2,
+      stagger: 0.3,
       delay: i * 0.01,
       ease: "power2.out",
       scrollTrigger: {
@@ -214,10 +216,7 @@ function locationScroll() {
 }
 
 function locationsImageFade() {
-  const sections = document.querySelectorAll(
-    "#locations .multi-image-background-section"
-  );
-  const parent = document.querySelector("#locations .multi-image-stack");
+  const sections = document.querySelectorAll(".multi-image-background-section");
 
   sections.forEach((section) => {
     // Step 1: Set up initial state
@@ -236,7 +235,7 @@ function locationsImageFade() {
       scale: 1.15,
       ease: "none",
       scrollTrigger: {
-        trigger: parent,
+        trigger: section,
         start: "10% 90%",
         end: "bottom 10%",
         scrub: true,

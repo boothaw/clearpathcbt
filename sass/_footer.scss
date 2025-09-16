@@ -8,10 +8,13 @@
 
     a {
       transition: all ease-in 0.3s;
+      color: $color__alabaster;
+      text-decoration: none;
     }
 
     a:hover {
-      color: $color__alabaster;
+      color: $color__blue;
+      text-decoration: underline;
     }
   }
 
@@ -29,11 +32,35 @@
     p:last-of-type {
       margin-bottom: 0;
     }
+    > .wp-block-heading {
+      letter-spacing: 0.2em;
+    }
   }
 
   .copyright {
     background-color: #063031;
     padding: 20px 0;
+    text-transform: uppercase;
+    color: $color__blue;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}
+
+.socials-container {
+  .wp-element-button {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

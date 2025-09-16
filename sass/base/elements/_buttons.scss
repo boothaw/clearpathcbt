@@ -35,6 +35,10 @@ input[type="submit"] {
   font-weight: $font__weight-500;
   text-decoration: none;
 
+  i {
+    padding-right: 6px;
+  }
+
   &:hover {
     background-color: $color__blue-lite;
   }
@@ -59,6 +63,7 @@ input[type="submit"] {
   display: flex !important;
   box-shadow: none !important;
   justify-content: center !important;
+  margin-top: 40px !important;
 
   &:hover {
     background-color: $color__blue-lite !important;
