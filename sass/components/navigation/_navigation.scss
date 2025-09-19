@@ -24,6 +24,10 @@ button.menu-toggle {
   }
 }
 
+.site-branding > a {
+  display: flex;
+}
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -440,7 +444,7 @@ button.menu-toggle {
   }
   .site-branding {
     img {
-      max-width: 200px;
+      max-width: 190px;
     }
   }
   .main-navigation {

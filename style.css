@@ -797,6 +797,10 @@ button.menu-toggle {
   color: #083435;
 }
 
+.site-branding > a {
+  display: flex;
+}
+
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
@@ -1101,7 +1105,7 @@ button.menu-toggle {
     position: relative;
   }
   .site-branding img {
-    max-width: 200px;
+    max-width: 190px;
   }
   .main-navigation {
     position: static;
