@@ -776,16 +776,15 @@ textarea {
 --------------------------------------------- */
 button.menu-toggle {
   border-radius: 50%;
-  border: 2px solid rgba(138, 185, 181, 0.2);
+  border: 2px solid #8ab9b5;
+  background-color: #8ab9b5;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #8ab9b5;
   height: 48px;
   width: 48px;
   font-size: 24px;
   padding: 0;
-  background-color: transparent;
   display: none;
   scroll-margin-top: 0;
 }
@@ -859,15 +858,15 @@ button.menu-toggle {
 .main-navigation .nav-menu > li.profile:hover > a {
   border-color: #8ab9b5;
 }
-.main-navigation .nav-menu li:hover > a {
-  color: #8ab9b5;
-}
-.main-navigation .nav-menu li.header-button:hover > a {
-  color: #083435;
-}
 
 .desktop-nav {
   /* Remove default WP submenu hiding */
+}
+.desktop-nav .main-navigation .nav-menu > li:hover > a {
+  color: #8ab9b5;
+}
+.desktop-nav .main-navigation li.header-button:hover > a {
+  color: #083435;
 }
 .desktop-nav .menu-main-nav-container {
   opacity: 1 !important;
@@ -922,96 +921,40 @@ button.menu-toggle {
 }
 
 .nav-icon {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  margin: 0px auto;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
-  cursor: pointer;
+  transform-origin: center;
 }
-.nav-icon span {
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #eeede7;
-  border-radius: 2px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.125s ease-in-out;
-  -moz-transition: 0.125s ease-in-out;
-  -o-transition: 0.125s ease-in-out;
-  transition: 0.125s ease-in-out;
+.nav-icon svg {
+  width: 24px;
+  height: 24px;
+  transform-origin: center;
+  transition: transform 0.4s ease-in-out;
 }
 
-.nav-icon span:nth-child(1) {
-  top: 0px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  width: 100%;
-}
-
-.nav-icon span:nth-child(2) {
-  top: 8px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-}
-
-.nav-icon span:nth-child(3) {
-  top: 16px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  width: 100%;
-}
-
-.button-toggled .nav-icon {
-  transform: rotate(90deg);
-}
-.button-toggled .nav-icon span {
-  background-color: #fff;
-}
-.button-toggled .nav-icon span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  top: 2px;
-  left: 4px;
-  width: 100%;
-}
-.button-toggled .nav-icon span:nth-child(2) {
-  width: 0%;
-  opacity: 0;
-}
-.button-toggled .nav-icon span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  top: 16px;
-  left: 4px;
-  width: 100%;
+.button-toggled .nav-icon svg {
+  transform: rotate(135deg);
+  transform-origin: center;
 }
 
 .menu-button {
   display: none;
+}
+
+.mobile-nav .menu-item-has-children > a::after {
+  content: url("/wp-content/uploads/2025/09/Vector-1.png"); /* Specify the path to your SVG file */
+  display: inline-block; /* Or block, depending on desired layout */
+  transform-origin: center;
+  transition: transform 0.4s ease-in-out;
+  margin-left: 6px;
+}
+.mobile-nav .menu-item-has-children.sub-open > a {
+  color: #8ab9b5;
+}
+.mobile-nav .menu-item-has-children.sub-open > a::after {
+  transform: rotate(135deg);
+  transform-origin: center;
+}
+.mobile-nav .menu-item-has-children > a {
+  color: #eeede7;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,15 +1,16 @@
 button.menu-toggle {
   border-radius: 50%;
-  border: 2px solid $color__opacity-blue;
+  border: 2px solid $color__blue;
+  background-color: $color__blue;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $color__blue;
+  //   color: $color__blue;
   height: 48px;
   width: 48px;
   font-size: 24px;
   padding: 0;
-  background-color: transparent;
+  //   background-color: transparent;
   display: none;
   scroll-margin-top: 0;
 }
@@ -91,7 +92,12 @@ button.menu-toggle {
         }
       }
     }
-    li:hover {
+  }
+}
+
+.desktop-nav {
+  .main-navigation {
+    .nav-menu > li:hover {
       > a {
         color: $color__blue;
       }
@@ -102,9 +108,6 @@ button.menu-toggle {
       }
     }
   }
-}
-
-.desktop-nav {
   .menu-main-nav-container {
     opacity: 1 !important;
     height: 100% !important;
@@ -172,103 +175,55 @@ button.menu-toggle {
 }
 
 .nav-icon {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  margin: 0px auto;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
-  cursor: pointer;
+  transform-origin: center;
 
-  span {
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: $color__alabaster;
-    border-radius: 2px;
-    opacity: 1;
-    left: 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: 0.125s ease-in-out;
-    -moz-transition: 0.125s ease-in-out;
-    -o-transition: 0.125s ease-in-out;
-    transition: 0.125s ease-in-out;
+  svg {
+    width: 24px;
+    height: 24px;
+    transform-origin: center;
+    transition: transform 0.4s ease-in-out;
   }
-}
-
-.nav-icon span:nth-child(1) {
-  top: 0px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  width: 100%;
-  //   left: 15%;
-}
-
-.nav-icon span:nth-child(2) {
-  top: 8px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-}
-
-.nav-icon span:nth-child(3) {
-  top: 16px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  width: 100%;
-  //   left: 15%;
 }
 
 .button-toggled {
   .nav-icon {
-    transform: rotate(90deg);
-  }
-  .nav-icon span {
-    background-color: #fff;
-  }
-  .nav-icon span:nth-child(1) {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    top: 2px;
-    left: 4px;
-    width: 100%;
-  }
-
-  .nav-icon span:nth-child(2) {
-    width: 0%;
-    opacity: 0;
-  }
-
-  .nav-icon span:nth-child(3) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    top: 16px;
-    left: 4px;
-    width: 100%;
+    svg {
+      transform: rotate(135deg);
+      transform-origin: center;
+    }
   }
 }
 
 .menu-button {
   display: none;
+}
+
+.mobile-nav {
+  .menu-item-has-children {
+    > a::after {
+      content: url("/wp-content/uploads/2025/09/Vector-1.png"); /* Specify the path to your SVG file */
+      display: inline-block; /* Or block, depending on desired layout */
+      transform-origin: center;
+      transition: transform 0.4s ease-in-out;
+      margin-left: 6px;
+      //   width: 20px;
+      //   height: 20px;
+    }
+  }
+  .menu-item-has-children.sub-open {
+    > a {
+      color: $color__blue;
+    }
+    > a::after {
+      transform: rotate(135deg);
+      transform-origin: center;
+    }
+  }
+  .menu-item-has-children {
+    > a {
+      color: $color__alabaster;
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) {
