@@ -1,3 +1,4 @@
+.mobile-appointment,
 button.menu-toggle {
   border-radius: 50%;
   border: 2px solid $color__blue;
@@ -13,6 +14,14 @@ button.menu-toggle {
   //   background-color: transparent;
   display: none;
   scroll-margin-top: 0;
+}
+
+.mobile-appointment {
+  display: none;
+
+  i {
+    color: $color__midnight-green;
+  }
 }
 
 .comment-navigation,
@@ -68,35 +77,38 @@ button.menu-toggle {
         font-size: 16px;
         font-weight: 400;
       }
-
-      &.profile {
-        padding: 0;
-
-        > a {
-          border-radius: 50%;
-          border: 2px solid $color__opacity-blue;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: $color__blue;
-          height: 48px;
-          width: 48px;
-          font-size: 24px;
-          padding: 0;
-        }
-
-        &:hover {
-          > a {
-            border-color: $color__blue;
-          }
-        }
-      }
     }
   }
 }
 
 .desktop-nav {
   .main-navigation {
+    .profile {
+      padding: 0;
+
+      & span {
+        display: none;
+      }
+
+      > a {
+        border-radius: 50%;
+        border: 2px solid $color__opacity-blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color__blue;
+        height: 48px;
+        width: 48px;
+        font-size: 24px;
+        padding: 0;
+      }
+
+      &:hover {
+        > a {
+          border-color: $color__blue;
+        }
+      }
+    }
     .nav-menu > li:hover {
       > a {
         color: $color__blue;
@@ -244,24 +256,36 @@ button.menu-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+
+    .mobile-appointment {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & span {
+        display: none;
+      }
+    }
 
     .nav-menu {
       > .menu-item.header-button {
-        margin-bottom: 0px;
-        padding: 12px;
-        width: 100%;
-        text-align: center;
-        padding: 0;
-        margin: 0px 0 0 0;
+        display: none;
+        // margin-bottom: 0px;
+        // padding: 12px;
+        // width: 100%;
+        // text-align: center;
+        // padding: 0;
+        // margin: 0px 0 0 0;
 
-        > a {
-          padding: 12px 20px;
-          font-size: 16px;
-          margin: 0;
-          width: 100%;
-          text-align: center;
-          max-width: 400px;
-        }
+        // > a {
+        //   padding: 12px 20px;
+        //   font-size: 16px;
+        //   margin: 0;
+        //   width: 100%;
+        //   text-align: center;
+        //   max-width: 400px;
+        // }
       }
       > .menu-item > a {
         font-size: 16px;
@@ -270,6 +294,18 @@ button.menu-toggle {
         transition: all 0.3s ease-in-out;
 
         &:hover {
+        }
+      }
+
+      > li.profile {
+        span {
+          display: flex;
+        }
+
+        & i {
+          display: none;
+        }
+        > a {
         }
       }
 
@@ -378,16 +414,16 @@ button.menu-toggle {
         grid-column: 1 / -1;
       }
 
-      li:nth-last-child(2) {
-        grid-column: 1; /* left column */
-        margin-top: 10px;
-      }
-      li:last-child {
-        grid-column: 2; /* right column */
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 10px;
-      }
+      //   li:nth-last-child(2) {
+      //     grid-column: 1; /* left column */
+      //     margin-top: 10px;
+      //   }
+      //   li:last-child {
+      //     grid-column: 2; /* right column */
+      //     justify-content: flex-end;
+      //     align-items: center;
+      //     margin-top: 10px;
+      //   }
     }
   }
 

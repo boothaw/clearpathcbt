@@ -774,6 +774,7 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
+.mobile-appointment,
 button.menu-toggle {
   border-radius: 50%;
   border: 2px solid #8ab9b5;
@@ -787,6 +788,13 @@ button.menu-toggle {
   padding: 0;
   display: none;
   scroll-margin-top: 0;
+}
+
+.mobile-appointment {
+  display: none;
+}
+.mobile-appointment i {
+  color: #083435;
 }
 
 .site-main .comment-navigation,
@@ -840,10 +848,17 @@ button.menu-toggle {
   font-size: 16px;
   font-weight: 400;
 }
-.main-navigation .nav-menu > li.profile {
+
+.desktop-nav {
+  /* Remove default WP submenu hiding */
+}
+.desktop-nav .main-navigation .profile {
   padding: 0;
 }
-.main-navigation .nav-menu > li.profile > a {
+.desktop-nav .main-navigation .profile span {
+  display: none;
+}
+.desktop-nav .main-navigation .profile > a {
   border-radius: 50%;
   border: 2px solid rgba(138, 185, 181, 0.2);
   display: flex;
@@ -855,12 +870,8 @@ button.menu-toggle {
   font-size: 24px;
   padding: 0;
 }
-.main-navigation .nav-menu > li.profile:hover > a {
+.desktop-nav .main-navigation .profile:hover > a {
   border-color: #8ab9b5;
-}
-
-.desktop-nav {
-  /* Remove default WP submenu hiding */
 }
 .desktop-nav .main-navigation .nav-menu > li:hover > a {
   color: #8ab9b5;
@@ -973,28 +984,30 @@ button.menu-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+  }
+  .main-navigation .mobile-appointment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-navigation .mobile-appointment span {
+    display: none;
   }
   .main-navigation .nav-menu > .menu-item.header-button {
-    margin-bottom: 0px;
-    padding: 12px;
-    width: 100%;
-    text-align: center;
-    padding: 0;
-    margin: 0px 0 0 0;
-  }
-  .main-navigation .nav-menu > .menu-item.header-button > a {
-    padding: 12px 20px;
-    font-size: 16px;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    max-width: 400px;
+    display: none;
   }
   .main-navigation .nav-menu > .menu-item > a {
     font-size: 16px;
     margin-bottom: 0em;
     padding: 10px 0 10px 0;
     transition: all 0.3s ease-in-out;
+  }
+  .main-navigation .nav-menu > li.profile span {
+    display: flex;
+  }
+  .main-navigation .nav-menu > li.profile i {
+    display: none;
   }
   .main-navigation .nav-menu .menu-item.parent-open > .sub-menu {
     margin-top: 10px;
@@ -1075,16 +1088,6 @@ button.menu-toggle {
   }
   .main-navigation.toggled .nav-menu li {
     grid-column: 1/-1;
-  }
-  .main-navigation.toggled .nav-menu li:nth-last-child(2) {
-    grid-column: 1; /* left column */
-    margin-top: 10px;
-  }
-  .main-navigation.toggled .nav-menu li:last-child {
-    grid-column: 2; /* right column */
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 10px;
   }
   .site-header {
     position: fixed;
