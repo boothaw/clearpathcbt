@@ -18,7 +18,6 @@ get_header();
 
 			$title = get_the_title();
 			$img = get_the_post_thumbnail_url();
-			$img = get_the_post_thumbnail_url();
 
 			?>
 
@@ -33,7 +32,11 @@ get_header();
 							<a class="blue-button" href="/schedule-intake/"><i class="ri-calendar-fill"></i> Schedule Intake</a>
 						</div>
 					</div>
-					<img src="<?php echo $img ?>" alt="location" class="location-hero" />
+					<div class="location-header-bg" style="background-image: url(<?php echo $img ?>);">
+						<svg class="decoration-svg left" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><path d="M800 0H0L131.8 450.4C136.3 469.9 150.2 485.2 169.6 489L800 608V0Z" fill="#eeede7"></path></svg>
+						<svg class="decoration-svg right" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><path d="M800 0H0L131.8 450.4C136.3 469.9 150.2 485.2 169.6 489L800 608V0Z" fill="#eeede7"></path></svg>
+					</div>
+					<!-- <img src="<?php echo $img ?>" alt="location" class="location-hero" /> -->
 				</div>
 				<?php
 				the_content();

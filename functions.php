@@ -306,7 +306,7 @@ if ( $treatment_query->have_posts() ) : ?>
 						<?php the_excerpt(); ?>
 					</div>
 
-					<a class="post-button" href="<?php the_permalink(); ?>">Learn More</a>
+					<a class="post-button" href="<?php the_permalink(); ?>">Explore Treatment</a>
 				</div>
 
 				<?php if ( has_post_thumbnail() ) : ?>
@@ -354,7 +354,7 @@ function therapists() {
 							</div>						
 						<?php } ?>
 	
-						<a class="post-button" href="<?php the_permalink(); ?>">Learn More</a>
+						<a class="post-button" href="<?php the_permalink(); ?>">More Details</a>
 					</div>
 	
 					<?php if ( has_post_thumbnail() ) : ?>

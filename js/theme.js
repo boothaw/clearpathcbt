@@ -57,6 +57,7 @@ if (!window.gsapInitialized) {
     therapiesToggle();
 
     locationsImageFade();
+    locationsHeroImageFade();
     locationScroll();
   });
 }
@@ -243,6 +244,39 @@ function locationsImageFade() {
       },
     });
   });
+}
+
+function locationsHeroImageFade() {
+  const section = document.querySelector(
+    ".page-template-location .location-header-bg"
+  );
+
+  console.log("section", section);
+
+  if (section) {
+    section.style.backgroundSize = "cover";
+    section.style.backgroundPosition = "center center";
+    section.style.willChange = "transform";
+    section.style.transform = "translateZ(0)";
+
+    // Step 2: Small repaint hack for iOS
+    section.offsetHeight;
+
+    // Step 3: Set initial scale and animate
+    gsap.set(section, { scale: 1.05 });
+
+    gsap.to(section, {
+      scale: 1.15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "10% 90%",
+        end: "bottom 10%",
+        scrub: true,
+        // markers: true,
+      },
+    });
+  }
 }
 
 function locationsToggle() {

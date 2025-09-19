@@ -1767,16 +1767,36 @@ h1.alt-heading {
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+}
+.page-template-location .location-header .location-header-bg {
+  position: relative;
+  height: calc(100svh - 100px);
+}
+.page-template-location .location-header .location-header-bg .decoration-svg {
+  top: auto;
+  bottom: -2px;
+  width: 30%;
+}
+.page-template-location .location-header .location-header-bg .decoration-svg.left {
+  left: 0;
+  transform: rotate(180deg);
+}
+.page-template-location .location-header .location-header-bg .decoration-svg.right {
+  right: 0;
+  transform: rotateX(180deg);
 }
 .page-template-location .location-header-inner {
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 20vw;
+  top: 25svh;
   right: 10%;
   left: auto;
   margin: auto;
+  z-index: 5;
 }
 .page-template-location .location-header-inner .midnight-card {
   max-width: 600px;
@@ -1806,8 +1826,15 @@ h1.alt-heading {
   .page-template-location .location-header {
     display: flex;
     flex-direction: column-reverse;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  .page-template-location .location-header .location-header-bg {
+    height: 35svh;
+    margin-bottom: 10px;
   }
   .page-template-location .location-header-inner {
+    justify-content: center;
     position: relative;
     right: 0;
     top: 0;
@@ -1873,14 +1900,14 @@ h1.alt-heading {
 }
 .therapist-post-thumbnail,
 .treatment-post-thumbnail {
-  max-width: 960px;
+  max-width: 1000px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   gap: 80px;
   border-bottom: 2px solid rgba(151, 132, 119, 0.2);
-  padding: 40px 0;
+  padding: 60px 0;
 }
 .therapist-post-thumbnail:first-of-type,
 .treatment-post-thumbnail:first-of-type {
@@ -1945,7 +1972,18 @@ h1.alt-heading {
   color: #083435;
   font-size: 32px;
 }
+.page-template-forms .entry-content .driftwood-card {
+  padding: 80px;
+}
 
+@media screen and (max-width: 1024px) {
+  .page-template-forms .entry-content h2 {
+    font-size: 28px;
+  }
+  .page-template-forms .entry-content .driftwood-card {
+    padding: 40px 20px;
+  }
+}
 .page-template-providers .image-content-block {
   background-color: rgba(151, 132, 119, 0.2);
 }
