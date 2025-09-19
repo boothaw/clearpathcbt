@@ -448,7 +448,7 @@ h2.alt-heading {
 
 @media screen and (max-width: 1024px) {
   h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
   h2 {
     font-size: 28px;
@@ -1832,7 +1832,7 @@ h1.alt-heading {
 }
 .default-hero .mobile-spacer {
   display: none;
-  height: 115px;
+  height: 145px;
   width: 100%;
   background-color: #083435;
 }
@@ -2028,7 +2028,7 @@ h1.alt-heading {
     gap: 40px;
   }
   .post-hero h1 {
-    font-size: 42px;
+    font-size: 38px;
   }
   .our-mission.multi-image-content-block .multi-image-content-container {
     flex-direction: column-reverse !important;
