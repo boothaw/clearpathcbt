@@ -368,7 +368,7 @@ function therapists() {
 							</div>						
 						<?php } ?>
 	
-						<a class="post-button" href="<?php the_permalink(); ?>">More Details</a>
+						<a class="post-button" href="<?php the_permalink(); ?>">About Your Therapist</a>
 					</div>
 	
 					<?php if ( has_post_thumbnail() ) : ?>

@@ -27,7 +27,8 @@ get_header();
 					<div class="outer-wrapper location-header-inner">
 						<div class="midnight-card">
 							<h1 class="alt-heading">Areas We Serve</h1>
-							<h1><?php echo insert_break_in_middle( $title ); ?></h1>
+							<!-- <h1><?php echo insert_break_in_middle( $title ); ?></h1> -->
+							<h1><?php echo $title ?></h1>
 							<p>Let’s discuss your treatment goals and determine the appropriate symptom reduction plan for you.</p>
 							<a class="blue-button" href="/schedule-intake/"><i class="ri-calendar-fill"></i> Schedule Intake</a>
 						</div>
