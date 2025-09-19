@@ -183,6 +183,10 @@
 
   h2 {
     font-size: 32px;
+
+    .title-parentheses {
+      font-size: 21px;
+    }
   }
   .thumbnail-content {
     width: 65%;
@@ -231,6 +235,10 @@
     }
     h2 {
       font-size: 28px;
+
+      .title-parentheses {
+        font-size: 20px;
+      }
     }
   }
 }

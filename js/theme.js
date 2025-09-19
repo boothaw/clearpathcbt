@@ -79,17 +79,56 @@ function lenisSmoothScroll() {
   gsap.ticker.lagSmoothing(0);
 }
 
+// function headingFadeIn() {
+//   const texts = document.querySelectorAll;
+//   "h2, h3:not(.card-title), h4, .accordion-header-text"();
+
+//   texts.forEach((text) => {
+//     // Skip SplitText entirely and manually create the line div
+//     const originalText = text.textContent;
+//     const lineDiv = document.createElement("div");
+//     lineDiv.className = "line";
+//     lineDiv.textContent = originalText;
+//     lineDiv.style.cssText = `
+// 		position: relative;
+// 		display: block;
+// 		text-align: inherit;
+// 		opacity: 0;
+// 		transform: translateY(20px);
+// 	  `;
+
+//     text.innerHTML = "";
+//     text.appendChild(lineDiv);
+
+//     gsap.to(lineDiv, {
+//       opacity: 1,
+//       y: 0,
+//       duration: 0.6,
+//       stagger: 0.3,
+//       delay: i * 0.01,
+//       ease: "power2.out",
+//       scrollTrigger: {
+//         trigger: text,
+//         start: "top 95%",
+//         toggleActions: "play none none none",
+//       },
+//     });
+//   });
+// }
+
 function headingFadeIn() {
   const texts = document.querySelectorAll(
     "h2, h3:not(.card-title), h4, .accordion-header-text"
   );
 
-  texts.forEach((text) => {
-    // Skip SplitText entirely and manually create the line div
-    const originalText = text.textContent;
+  texts.forEach((text, i) => {
+    // Preserve inner HTML (keeps spans intact)
+    const originalHTML = text.innerHTML;
+
+    // Create wrapper div
     const lineDiv = document.createElement("div");
     lineDiv.className = "line";
-    lineDiv.textContent = originalText;
+    lineDiv.innerHTML = originalHTML; // ✅ preserve spans
     lineDiv.style.cssText = `
 		position: relative;
 		display: block;
@@ -98,9 +137,11 @@ function headingFadeIn() {
 		transform: translateY(20px);
 	  `;
 
+    // Replace content with wrapper
     text.innerHTML = "";
     text.appendChild(lineDiv);
 
+    // Animate with GSAP
     gsap.to(lineDiv, {
       opacity: 1,
       y: 0,

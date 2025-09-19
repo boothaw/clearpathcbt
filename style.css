@@ -1860,6 +1860,10 @@ h1.alt-heading {
 .treatment-post-thumbnail h2 {
   font-size: 32px;
 }
+.therapist-post-thumbnail h2 .title-parentheses,
+.treatment-post-thumbnail h2 .title-parentheses {
+  font-size: 21px;
+}
 .therapist-post-thumbnail .thumbnail-content,
 .treatment-post-thumbnail .thumbnail-content {
   width: 65%;
@@ -1909,6 +1913,10 @@ h1.alt-heading {
   .therapist-post-thumbnail h2,
   .treatment-post-thumbnail h2 {
     font-size: 28px;
+  }
+  .therapist-post-thumbnail h2 .title-parentheses,
+  .treatment-post-thumbnail h2 .title-parentheses {
+    font-size: 20px;
   }
 }
 .page-template-forms .entry-content h2 {

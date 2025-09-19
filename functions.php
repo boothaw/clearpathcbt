@@ -282,6 +282,20 @@ function insert_break_in_middle( $text ) {
 // }
 // add_action('save_post', 'wb_save_secondary_excerpt');
 
+function wrap_parentheses_in_title( $title ) {
+    // Only run on the frontend (avoid breaking admin or feeds)
+    if ( is_admin() ) {
+        return $title;
+    }
+
+    // Regex: find anything in parentheses
+    $pattern = '/\((.*?)\)/';
+    $replacement = '<span class="title-parentheses">($1)</span>';
+
+    return preg_replace( $pattern, $replacement, $title );
+}
+add_filter( 'the_title', 'wrap_parentheses_in_title' );
+
 function treatments() {
 // Custom query for posts in the "treatments" category
 $args = array(
@@ -299,7 +313,7 @@ if ( $treatment_query->have_posts() ) : ?>
             <article id="post-<?php the_ID(); ?>" class="treatment-post-thumbnail <?php post_class(); ?>">
 				<div class="thumbnail-content">
 					<h2 class="entry-title">
-						<?php the_title(); ?>
+						<?php wrap_parentheses_in_title(the_title()); ?>
 					</h2>
 
 					<div class="entry-excerpt">
