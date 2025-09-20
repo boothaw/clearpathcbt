@@ -135,7 +135,7 @@ abbr[title] {
  */
 b,
 strong {
-  font-weight: bolder;
+  font-weight: 500;
 }
 
 /**
@@ -928,6 +928,7 @@ button.menu-toggle {
 .site-header {
   background-color: #083435;
   padding: 20px 0;
+  z-index: 25;
 }
 .site-header .site-header-inner {
   display: flex;
@@ -1096,7 +1097,7 @@ button.menu-toggle {
   .site-header {
     position: fixed;
     width: 100%;
-    z-index: 5;
+    z-index: 25;
   }
   .site-header .site-header-inner {
     padding-left: 5%;
