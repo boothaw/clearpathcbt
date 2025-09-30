@@ -166,6 +166,7 @@
 
 // treatments/provdier/therapist thumbnail
 
+.blog-post-thumbnail,
 .therapist-post-thumbnail,
 .treatment-post-thumbnail {
   max-width: 1000px;
@@ -213,6 +214,15 @@
     p {
       margin-top: 0;
     }
+  }
+}
+
+.blog-post-thumbnail.no-thumbnail {
+  .thumbnail-content {
+    width: 100%;
+  }
+  .entry-thumbnail {
+    display: none;
   }
 }
 

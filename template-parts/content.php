@@ -69,15 +69,16 @@
 		// home and condition treated pages
 		echo get_block_by_class( 8, 'areas-we-serve' );
 		echo get_block_by_class( 221, 'embark-cta' );
-		// echo get_block_by_class( 221, 'disclaimer' );
+		echo get_block_by_class( 221, 'disclaimer' );
 
 		?> 
-		<div class="default-section-padding disclaimer wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+		<!-- <div class="default-section-padding disclaimer wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
 		<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
 		<p class="outer-wrapper">Our private therapy practice provides <?php echo the_title() ?> for a wide range of mental health conditions, serving discerning clients across California and the Pacific Northwest. We specialize in delivering personalized care to residents of the Seattle-Tacoma-Bellevue MSA, San Jose-Sunnyvale-Santa Clara MSA, San Francisco-Oakland-Berkeley MSA, and Anchorage MSA, where unique professional pressures and lifestyle demands require sophisticated therapeutic approaches.
 		</p>
+		<p class="outer-wrapper">Our practice provides expert DBT and CBT treatments for a wide range of mental health conditions, serving clients across Alaska, California, and Washington. We specialize in providing personalized care to clients struggling with painful emotions and thoughts, difficult relationships with food and body image, and recovering from trauma.</p>
 		</div>
-		</div>
+		</div> -->
 	 <?php } ?>
 
 	<footer class="entry-footer">

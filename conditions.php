@@ -18,7 +18,6 @@ get_header();
 
 			$title = get_the_title();
 			$img = get_the_post_thumbnail_url();
-			$img = get_the_post_thumbnail_url();
 
 			?>
 

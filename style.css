@@ -448,7 +448,7 @@ h2.alt-heading {
 
 @media screen and (max-width: 1024px) {
   h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
   h2 {
     font-size: 28px;
@@ -585,6 +585,7 @@ table {
 --------------------------------------------- */
 a {
   color: #8ab9b5;
+  transition: all ease-in 0.3s;
 }
 a:visited {
   color: #8ab9b5;
@@ -1849,6 +1850,7 @@ h1.alt-heading {
     margin-bottom: 20px;
   }
 }
+.blog-post-thumbnail,
 .therapist-post-thumbnail,
 .treatment-post-thumbnail {
   max-width: 1000px;
@@ -1860,26 +1862,32 @@ h1.alt-heading {
   border-bottom: 2px solid rgba(151, 132, 119, 0.2);
   padding: 60px 0;
 }
+.blog-post-thumbnail:first-of-type,
 .therapist-post-thumbnail:first-of-type,
 .treatment-post-thumbnail:first-of-type {
   border-top: 2px solid rgba(151, 132, 119, 0.2);
 }
+.blog-post-thumbnail h2,
 .therapist-post-thumbnail h2,
 .treatment-post-thumbnail h2 {
   font-size: 32px;
 }
+.blog-post-thumbnail h2 .title-parentheses,
 .therapist-post-thumbnail h2 .title-parentheses,
 .treatment-post-thumbnail h2 .title-parentheses {
   font-size: 21px;
 }
+.blog-post-thumbnail .thumbnail-content,
 .therapist-post-thumbnail .thumbnail-content,
 .treatment-post-thumbnail .thumbnail-content {
   width: 65%;
 }
+.blog-post-thumbnail .entry-thumbnail,
 .therapist-post-thumbnail .entry-thumbnail,
 .treatment-post-thumbnail .entry-thumbnail {
   width: 35%;
 }
+.blog-post-thumbnail .post-button,
 .therapist-post-thumbnail .post-button,
 .treatment-post-thumbnail .post-button {
   display: flex;
@@ -1897,6 +1905,13 @@ h1.alt-heading {
 }
 .therapist-post-thumbnail .entry-excerpt p {
   margin-top: 0;
+}
+
+.blog-post-thumbnail.no-thumbnail .thumbnail-content {
+  width: 100%;
+}
+.blog-post-thumbnail.no-thumbnail .entry-thumbnail {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {
