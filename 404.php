@@ -26,7 +26,7 @@ get_header();
 
 
 			<div class="page-content default-section-padding">
-				<p class="mid-center">The page you’re looking for isn’t here, but you can always return to our <a href="/">home page</a> and find your way back to calm.</p>
+				<p class="mid-center">The page you’re looking for isn’t here.<br>You can always return to our <a href="/">home page</a> and find your way back to calm.</p>
 
 
 			</div><!-- .page-content -->

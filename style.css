@@ -448,7 +448,7 @@ h2.alt-heading {
 
 @media screen and (max-width: 1024px) {
   h1 {
-    font-size: 36px;
+    font-size: 32px;
   }
   h2 {
     font-size: 28px;
@@ -717,6 +717,14 @@ input[type=submit]:focus {
 .brown-buttons .post-button:hover,
 .brown-buttons .wp-element-button:hover {
   background-color: #afa197;
+}
+.therapists-loop.no-posts .mid-center,
+.treatments-loop.no-posts .mid-center,
+.brown-buttons.no-posts .mid-center {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: #083435;
 }
 
 input[type=text],
@@ -1614,6 +1622,11 @@ h1.alt-heading {
   margin-bottom: 0;
 }
 
+.asw-widget a {
+  background: #083435 !important;
+  outline: 5px solid #083435 !important;
+}
+
 @media screen and (max-width: 1200px) {
   .default-section-padding {
     padding: 60px 0;
@@ -1683,6 +1696,12 @@ h1.alt-heading {
   flex-wrap: wrap;
   gap: 20px;
 }
+.site-footer .copyright a {
+  text-decoration: none;
+}
+.site-footer .copyright a:hover {
+  color: #8ab9b5;
+}
 
 .socials-container .wp-element-button {
   width: 48px;
@@ -1712,6 +1731,9 @@ h1.alt-heading {
   .footer-1-container .wp-block-image {
     justify-content: center;
     display: flex;
+  }
+  .site-footer .copyright > div {
+    justify-content: center;
   }
 }
 .page-template-location .location-header {
@@ -1817,6 +1839,13 @@ h1.alt-heading {
   background-color: rgba(151, 132, 119, 0.2);
 }
 
+.error-404 .mid-center {
+  font-weight: 400;
+  color: #083435;
+  font-size: 24px;
+  text-align: center;
+}
+
 .default-hero {
   position: relative;
   display: flex;
@@ -1830,7 +1859,8 @@ h1.alt-heading {
 .default-hero h1 {
   text-align: center;
   color: #8ab9b5;
-  margin-bottom: 0;
+  margin: 0 auto;
+  max-width: 65%;
 }
 .default-hero .mobile-spacer {
   display: none;
@@ -1840,14 +1870,16 @@ h1.alt-heading {
 }
 
 @media screen and (max-width: 1024px) {
-  .default-hero {
+  .site .default-hero {
     flex-direction: column;
   }
-  .default-hero .mobile-spacer {
+  .site .default-hero .mobile-spacer {
     display: flex;
   }
-  .default-hero h1 {
+  .site .default-hero h1 {
     margin-bottom: 20px;
+    font-size: 36px;
+    max-width: 100%;
   }
 }
 .blog-post-thumbnail,
@@ -1940,6 +1972,11 @@ h1.alt-heading {
   .therapist-post-thumbnail h2 .title-parentheses,
   .treatment-post-thumbnail h2 .title-parentheses {
     font-size: 20px;
+  }
+  .blog-post-thumbnail h2,
+  .therapist-post-thumbnail h2,
+  .treatment-post-thumbnail h2 {
+    font-size: 28px;
   }
 }
 .page-template-forms .entry-content h2 {
@@ -2040,11 +2077,11 @@ h1.alt-heading {
 }
 
 @media screen and (max-width: 1024px) {
-  .post-hero .outer-wrapper {
+  .single .post-hero .outer-wrapper {
     gap: 40px;
   }
-  .post-hero h1 {
-    font-size: 38px;
+  .single .post-hero h1 {
+    font-size: 36px;
   }
   .our-mission.multi-image-content-block .multi-image-content-container {
     flex-direction: column-reverse !important;

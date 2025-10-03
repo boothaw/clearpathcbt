@@ -251,6 +251,13 @@ h1.alt-heading {
   //   width: 100%;
 }
 
+.asw-widget {
+  & a {
+    background: $color__midnight-green !important;
+    outline: 5px solid $color__midnight-green !important;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .default-section-padding {
     padding: 60px 0;

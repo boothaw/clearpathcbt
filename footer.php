@@ -24,7 +24,7 @@
 		</div>
 		<div class="site-info copyright">
 			<div class="outer-wrapper">
-			<span>© Copyright 2025 | Clear Path CBT</span>
+			<span>© Copyright 2025 | Clear Path CBT | <a href="/privacy-policy/">Privacy</a> | <a href="/accessibility/">accessibility</a></span>
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar-1") ) : 
              endif;?>
 			</div>
@@ -33,6 +33,8 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
 
 </body>
 </html>

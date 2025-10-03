@@ -10,10 +10,6 @@
 get_header();
 ?>
 
-<header class="entry-header">
-			<?php get_template_part( 'template-parts/default-hero' );  ?>
-		</header><!-- .entry-header -->
-
 	<main id="primary" class="site-main">
 
 		<?php
@@ -26,6 +22,9 @@ get_header();
 			?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<header class="entry-header">
+			<?php get_template_part( 'template-parts/default-hero' );  ?>
+		</header><!-- .entry-header -->
 			<div class="entry-content">
 				<?php
 				the_content();
@@ -68,8 +67,8 @@ get_header();
 						<?php wp_reset_postdata(); ?>
 					
 					<?php else : ?>
-					<div class="treatments-loop default-section-padding">
-						<p class="mid-center">No blog posts found.</p>
+					<div class="treatments-loop default-section-padding no-posts">
+						<p class="mid-center">Calm is in progress. Our first post will be here shortly.</p>
 					</div>
 					<?php endif; 
 				?>

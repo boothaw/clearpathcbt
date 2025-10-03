@@ -82,12 +82,12 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .post-hero {
+  .single .post-hero {
     .outer-wrapper {
       gap: 40px;
     }
     & h1 {
-      font-size: 38px;
+      font-size: 36px;
     }
   }
   .our-mission.multi-image-content-block {

@@ -103,4 +103,12 @@ input[type="submit"] {
       background-color: $color__driftwood-lite;
     }
   }
+  &.no-posts {
+    .mid-center {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 400;
+      color: $color__midnight-green;
+    }
+  }
 }

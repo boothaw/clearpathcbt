@@ -50,6 +50,14 @@
       flex-wrap: wrap;
       gap: 20px;
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $color__blue;
+    }
   }
 }
 
@@ -88,5 +96,8 @@
       justify-content: center;
       display: flex;
     }
+  }
+  .site-footer .copyright > div {
+    justify-content: center;
   }
 }

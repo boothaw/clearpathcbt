@@ -126,6 +126,17 @@
   }
 }
 
+// 404
+
+.error-404 {
+  .mid-center {
+    font-weight: 400;
+    color: $color__midnight-green;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
 // therapists page
 
 // default hero section
@@ -142,7 +153,8 @@
   h1 {
     text-align: center;
     color: $color__blue;
-    margin-bottom: 0;
+    margin: 0 auto;
+    max-width: 65%;
   }
   .mobile-spacer {
     display: none;
@@ -153,14 +165,24 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .default-hero {
+  .site .default-hero {
     flex-direction: column;
     .mobile-spacer {
       display: flex;
     }
     & h1 {
       margin-bottom: 20px;
+      font-size: 36px;
+      max-width: 100%;
     }
+  }
+}
+
+// blog page
+
+.page-template-blog {
+  .site-main {
+    // padding: 0 !important;
   }
 }
 
@@ -249,6 +271,13 @@
       .title-parentheses {
         font-size: 20px;
       }
+    }
+  }
+  .blog-post-thumbnail,
+  .therapist-post-thumbnail,
+  .treatment-post-thumbnail {
+    h2 {
+      font-size: 28px;
     }
   }
 }
