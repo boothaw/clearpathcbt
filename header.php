@@ -68,7 +68,7 @@
 					if ( $menu_items ) {
 						foreach ( $menu_items as $item ) {
 							if ( $item->ID == 77 ) { // replace 123 with your menu item ID
-								echo '<a class="mobile-appointment" href="' . esc_url( $item->url ) . '">';
+								echo '<a class="mobile-appointment" aria-label="scheudle intake" href="' . esc_url( $item->url ) . '">';
 								// Allow HTML tags like <i> and <span>
 								echo wp_kses_post( $item->title );
 								echo '</a>';
@@ -77,7 +77,7 @@
 					}					
 				?>
 
-				<button class="menu-toggle menu-button" type="button" aria-controls="primary-menu" aria-expanded="false">
+				<button class="menu-toggle menu-button" type="button" aria-label="hamburger menu button" aria-controls="primary-menu" aria-expanded="false">
 					<div class="nav-icon hamburger">
 						<svg  viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M9.65322 5.89978L8.39235 0H7.36067L6.0998 5.89978C6.07859 5.99966 5.99991 6.07833 5.90003 6.09954L0 7.36036V8.392L5.90003 9.65281C5.99991 9.67402 6.07859 9.75269 6.0998 9.85257L7.41335 16H8.33899L9.65254 9.85257C9.67375 9.75269 9.75243 9.67402 9.85231 9.65281L16 8.33932V7.41372L9.85231 6.10022C9.75243 6.07901 9.67375 6.00034 9.65254 5.90046L9.65322 5.89978Z" fill="#083435"/>
